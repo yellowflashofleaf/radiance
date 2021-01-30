@@ -1,0 +1,111 @@
+.team{
+    background-color: unset;
+    text-align: center;
+    color: #FFFFFF;
+    width: 90%;
+    margin: auto;
+}
+
+.team .card.outer{
+    margin: -15vw auto 5.5vw;
+    padding: 15.5vw 1vw 1.5vw;
+    border-radius: 2vw;
+    background-color: #FFFFFF;
+    width: 90%;
+    box-shadow: 0px 0px 20px 2px rgba(0, 204, 255, 0.432);
+    transition: linear 0.6s
+}
+
+.team .card.inner{
+    margin: auto;
+    width: 85%;
+    border-radius: 2vw;
+    border: none;
+    z-index: 1;
+    transition: linear 0.6s
+}
+
+.team .card.inner img{
+    border-radius: 2vw;
+    box-shadow: 0 0 8px 2px #0000007a;
+    height: 22vw;
+}
+
+
+.team .card.outer .t-name{
+    font-size: 1.4vw;
+    font-weight: 600;
+    color: #000000;
+}
+
+.team .card.outer .t-designation{
+    font-size: 1.1vw;
+    font-weight: 500;
+    color: #56b0f5;
+}
+
+.team .title{
+    font-size: 3.5vw;
+    font-weight: 600;
+    color: #66ffff;
+    margin-bottom: 3vw;
+}
+
+.team-member:hover .card.outer{
+    box-shadow: 0px 0px 20px 2px rgba(0, 204, 255, 0.808);
+}
+
+
+@media(max-width:600px){
+    .team{
+        background-color: unset;
+        text-align: center;
+        color: #FFFFFF;
+        width: 90%;
+        margin: auto;
+        /* background-image:url('./img/bg.jpg'); */
+    }
+    
+    .team .card.outer{
+        margin: -53vw auto 10.5vw;
+        padding: 55.5vw 1vw 4.5vw;
+        border-radius: 5vw;
+        background-color: #FFFFFF;
+        width: unset;
+        box-shadow: 0px 0px 20px 2px rgba(0, 204, 255, 0.432);
+    }
+    
+    .team .card.inner{
+        margin: auto;
+        width: 93%;
+        border-radius: 5vw;
+        border: none;
+        z-index: 1;
+    }
+    
+    .team .card.inner img{
+        border-radius: 5vw;
+        box-shadow: 0 0 8px 2px #0000007a;
+        height: 65vw;
+    }
+    
+    
+    .team .card.outer .t-name{
+        font-size: 5vw;
+        font-weight: 600;
+        color: #000000;
+    }
+    
+    .team .card.outer .t-designation{
+        font-size: 4vw;
+        font-weight: 500;
+        color: #56b0f5;
+    }
+
+    .team .title{
+        font-size: 7.5vw;
+        font-weight: 600;
+        margin-bottom: 6vw;
+    }
+    
+}

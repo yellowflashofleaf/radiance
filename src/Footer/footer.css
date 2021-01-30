@@ -1,0 +1,16 @@
+.footer{
+    bottom: 0;
+    text-align: center;
+    margin-top: auto;
+    color: #777e7e;
+    font-size: 1.2vw;
+    padding: 3vw 0 1vw;
+    position: static;
+}
+
+@media(max-width:600px){
+    .footer{
+        font-size: 3vw;
+        padding: 10vw 3vw 2vw;
+    }
+}
