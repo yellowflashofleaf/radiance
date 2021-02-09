@@ -124,7 +124,7 @@ function Navbar() {
       </motion.div>
       <div className="nav-bar sticky-top">
         <div className="main-logo">
-          <b>Pulzion'20</b>
+          <b>Pulzion'21</b>
         </div>
         <div className="nav-links">
           <Link

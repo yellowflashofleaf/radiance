@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Modal from "react-modal"
 
 const PopUp = (props) => {
 
@@ -12,7 +13,7 @@ const PopUp = (props) => {
   // })
 
   return (
-    
+    <>
     <>
     <div
       className="popup-container"
@@ -58,10 +59,10 @@ const PopUp = (props) => {
         >
           Register
         </a>
-        {/* </Link> */}
       </div>
       </>
     }
+    </>
     </>
   );
 };

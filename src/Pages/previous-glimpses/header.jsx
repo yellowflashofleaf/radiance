@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <AppBar  style={{backgroundColor:"#1A1A1D", position:"fixed"}}>
             <Toolbar>
-                <Typography style={{color:"rgba(13, 105, 224, 0.904)" , fontSize:"30px", fontStyle:"Segoe UI"} }> PULZION 20 </Typography>
+                <Typography style={{color:"rgba(13, 105, 224, 0.904)" , fontSize:"30px", fontStyle:"Segoe UI"} }> PULZION 21 </Typography>
             </Toolbar>
         </AppBar>
     );

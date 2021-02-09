@@ -19,7 +19,7 @@ export default function Main() {
         </div>
 
       <div className="main">
-            <div className="title">PULZION<span style={{color:"red", fontSize:"inherit"}}>'</span>20</div>
+            <div className="title">PULZION<span style={{color:"red", fontSize:"inherit"}}>'</span>21</div>
             <div className="subtitle" data-aos="fade-up" data-aos-offset="150" data-aos-easing="ease-in-sine" duration="900">The Annual Technical fest of PASC</div>
         <div className="reg-btn" data-aos="flip-up" data-aos-offset="150" data-aos-easing="ease-in-sine" duration="900">
         <button className="shrink-border" onClick={() => history.push('/login')}> REGISTER NOW!</button>

@@ -154,13 +154,15 @@
     border-radius: 2rem;
     padding: 2rem;
     z-index: 2000;
-    width: 850px;
+    width: 670px;
     /* box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.774); */
     margin: auto;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
   }
 
   .popup .event-links {
