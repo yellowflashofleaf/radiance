@@ -2,20 +2,18 @@ import React from "react";
 import './team.css'
 import TeamCard from "./Card";
 import KaleMaam from './img/Kalemaam.jpg'
-import Nachiket from './img/nachiket.jpg'
-import Tanush from './img/tanush.jpg'
-import Shwetali from './img/Shwetali.jpg'
-import Shlok from './img/shlok.jpg'
-import Himani from './img/himani.jpg'
-import Geet from './img/Geet.jpg'
-import Darshan from './img/darshan.jpeg'
-import YashA from './img/yashagrawal.jpg'
-import YashJ from './img/yashjeswani.jpg'
-import Gaurav from './img/gaurav.png'
-import Aditi from './img/aditi.jpg'
-import Ritik from './img/ritik.jpg'
-import Krishna from './img/krishna.jpeg'
-import Mihir from './img/mihir.jpg'
+import Jinesh from './img/Jinesh.jpg'
+import Rohit from './img/Rohit.jpg'
+import Pratik from './img/pratik.png'
+import Soumya from './img/Soumya.jpeg'
+import Siddhesh from './img/Siddhesh.jpeg'
+import Aditya from './img/Aditya.jpg'
+import Pranav from './img/Pranav.jpeg'
+import Prathamesh from './img/Prathamesh.png'
+import Kunal from './img/Kunal.jpeg'
+import Atharv from './img/Atharv.jpeg'
+import Aniruddha from './img/Aniruddha.jpeg'
+import Abhishek from './img/Abhishek.png'
 
 const data1 = [
   {
@@ -28,92 +26,92 @@ const data1 = [
 
 const data2 = [
   {
-    image: Nachiket,
-    name: "Nachiket Erlekar",
+    image: Jinesh,
+    name: "Jinesh Parakh",
     designation: "PASC CHAIRMAN",
-    link: "https://www.linkedin.com/in/nachiket-erlekar-514777160/"
+    link: "https://www.linkedin.com/in/jinesh-parakh"
   }, 
   {
-    image: Tanush,
-    name: "Tanush Maddiwar",
+    image: Rohit,
+    name: "Rohit Pardeshi",
     designation: "PASC VICE CHAIRMAN",
-    link: "https://www.linkedin.com/in/tanush-maddiwar/"
+    link: "https://www.linkedin.com/in/rohit-pardeshi-785921176"
   }
 ]
 
 const data3 = [
   {
-    image: Shwetali,
-    name: "Shwetali Shimangaud",
+    image: Atharv,
+    name: "Atharv Chavan",
     designation: "SECRETARY",
-    link: "https://www.linkedin.com/in/shwetali-shimangaud-516774185/"
+    link: "https://www.linkedin.com/in/AVC0706/"
   },
   {
-    image: Himani,
-    name: "Himani Gwalani",
+    image: Siddhesh,
+    name: "Siddhesh Dhanavde",
     designation: "TREASURER",
-    link: "https://www.linkedin.com/in/himani-gwalani-325066b8/"
+    link: " https://www.linkedin.com/in/siddhesh-dhanavde-3079b3185"
   },
   {
-    image: Shlok,
-    name: "Shlok Dolharkar",
+    image: Aditya,
+    name: "Aditya Avhad",
     designation: "PUBLIC RELATIONS OFFICER",
-    link: "https://www.linkedin.com/in/shlok-dolharkar-281bb416a/"
+    link: "https://www.linkedin.com/in/aditya-avhad-078797187/"
   },
   {
-    image: Geet,
-    name: "Geet Shingi",
+    image: Pratik,
+    name: "Pratik Daigavne ",
     designation: "TECHNICAL HEAD",
-    link: "https://www.linkedin.com/in/geet-shingi-337880148/"
+    link: "https://www.linkedin.com/in/pratikdaigavane"
   },
   {
-    image: Darshan,
-    name: "Darshan Bari",
+    image: Soumya,
+    name: "Soumya Malgonde",
     designation: "TECHNICAL HEAD",
-    link: "https://www.linkedin.com/in/darshan-bari-79519314a/"
+    link: "https://www.linkedin.com/in/soumya-malgonde-460480150/"
   },
   {
-    image: YashA,
-    name: "Yash Agrawal",
+    image: Kunal,
+    name: "Kunal Raut",
     designation: "DOMAIN DIRECTOR (COMPETITIVE CODING)",
-    link: "https://www.linkedin.com/in/yash-agarwal-b35ba076/"
+    link: "https://www.linkedin.com/in/zukonit14"
   },
   {
-    image: YashJ,
-    name: "Yash Jeswani",
+    image: Prathamesh,
+    name: "Prathamesh Shiralkar",
     designation: "DOMAIN DIRECTOR (WEB)",
-    link: "https://www.linkedin.com/in/yash-jeswani-45b42b16a/"
+    link: "https://linkedin.com/in/pnshiralkar"
   },
   {
-    image: Gaurav,
-    name: "Gaurav Deshpande",
+    image: Aniruddha,
+    name: "Aniruddha Deshmukh",
     designation: "DOMAIN DIRECTOR (ANDROID)",
-    link: "https://www.linkedin.com/in/gaurav-deshpande-255770187/"
+    link: "https://www.linkedin.com/in/aniruddha-deshmukh"
   },
   {
-    image: Aditi,
-    name: "Aditi Badhe",
+    image: Pranav,
+    name: "Pranav Kadam",
     designation: "MARKETING HEAD",
-    link: "https://www.linkedin.com/in/aditi-badhe-412a7b161/"
+    link: "https://www.linkedin.com/in/pranav-kadam-1317a2187/"
   },
   {
-    image: Ritik,
-    name: "Ritik Manghani",
+    image: Abhishek,
+    name: "Abhishek Kushwaha",
     designation: "DESIGN HEAD",
-    link: "https://www.linkedin.com/in/ritik-manghani-b4692118b/"
+    link: "https://www.linkedin.com/in/abhishek-kushwaha-670797187"
   },
-  {
-    image: Krishna,
-    name: "Krishna Malge",
-    designation: "DESIGN HEAD",
-    link: "https://www.linkedin.com/in/krishna-malge-ab166b183/"
-  },
-  {
-    image: Mihir,
-    name: "Mihir Kumar",
-    designation: "CONTENT HEAD",
-    link: "https://www.linkedin.com/in/mihir-kumar-0142a6189/"
-  }
+  // {
+  //   image: Krishna,
+  //   name: "Krishna Malge",
+  //   designation: "DESIGN HEAD",
+  //   link: "https://www.linkedin.com/in/krishna-malge-ab166b183/"
+  // },
+  // {
+  //   image: Mihir,
+  //   name: "Mihir Kumar",
+  //   designation: "CONTENT HEAD",
+  //   link: "https://www.linkedin.com/in/mihir-kumar-0142a6189/"
+  // }
 ]
 
 const Team = () => {
@@ -139,7 +137,7 @@ const Team = () => {
           })
         }
         </div> 
-        <div className="row mx-0 justify-content-between">
+        <div className="row mx-0 justify-content-around">
         {
           data3.map((tm) => {
             return(
