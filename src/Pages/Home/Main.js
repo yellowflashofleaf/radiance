@@ -15,7 +15,7 @@ export default function Main() {
       el: "#your-element-selector",
       mouseControls: true,
       touchControls: true,
-      gyroControls: false,
+      gyroControls: true,
       minHeight: 500.0,
       minWidth: 500.0,
       scale: 1.0,
