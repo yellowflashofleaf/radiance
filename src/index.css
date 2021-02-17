@@ -7,6 +7,10 @@
   /* border: 1px solid red; */
 }
 
+body{
+  overflow-x: hidden !important;
+}
+
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
