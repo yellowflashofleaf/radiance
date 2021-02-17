@@ -7,7 +7,7 @@ const Preloader = () => {
     return (
         <div className="preloader">
             <div className="page-title" style={{textAlign: "center"}}>PICT ACM STUDENT CHAPTER PRESENTS</div>
-            <div class="spinner-box-loader">
+            <div className="spinner-box-loader">
             <div class="blue-orbit-loader leo-loader">
             </div>
 

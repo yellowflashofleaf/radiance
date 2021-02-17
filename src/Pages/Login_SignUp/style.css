@@ -89,13 +89,13 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #1b96f3 !important;
 }
 
-input:-webkit-internal-autofill-selected {
-  appearance: menulist-button;
-  /* background-color: rgb(232, 240, 254) !important; */
-  background-color: #1b96f3 !important;
-  background-image: none !important;
-  color: -internal-light-dark(black, white) !important;
-}
+/*input:-webkit-internal-autofill-selected {*/
+/*  appearance: menulist-button;*/
+/*  !* background-color: rgb(232, 240, 254) !important; *!*/
+/*  background-color: #1b96f3 !important;*/
+/*  background-image: none !important;*/
+/*  color: -internal-light-dark(black, white) !important;*/
+/*}*/
 
 /* form */
 .form-container-block {

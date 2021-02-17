@@ -245,11 +245,11 @@ export default function(){
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15138.304757794562!2d73.8508336!3d18.4575421!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x871eddd0a8a0a108!2sSCTR&#39;S%20Pune%20Institute%20of%20Computer%20Technology!5e0!3m2!1sen!2sin!4v1607946113596!5m2!1sen!2sin"
                   width="290"
                   height="300"
-                  frameborder="0"
+                  frameBorder="0"
                   style={{ border: 0 }}
-                  allowfullscreen=""
+                  allowFullScreen=""
                   aria-hidden="false"
-                  tabindex="0"
+                  tabIndex="0"
                 ></iframe>
               </div>
             </div>
