@@ -5,7 +5,7 @@ import d from "./Images/4.jpg";
 import e from "./Images/5.jpg";
 import f from "./Images/6.jpeg";
 
-export default[
+export default [
     {
         imageUrl: a,
     },

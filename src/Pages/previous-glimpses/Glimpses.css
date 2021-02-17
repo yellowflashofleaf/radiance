@@ -1,8 +1,9 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
-    
+
 }
+
 body {
     flex: content;
     padding: 0;
@@ -15,76 +16,73 @@ body {
 }
 
 
-
 .box:hover {
     transform: scale(1.07);
     transition-duration: 0.5s;
     z-index: 1;
-    box-shadow: 0 8px 50px rgba(13, 105, 224, 0.904) ;
+    box-shadow: 0 8px 50px rgba(13, 105, 224, 0.904);
 }
 
 
-@media (max-width:451px){
-    .heroText{
+@media (max-width: 451px) {
+    .heroText {
         margin-top: 30px;
         margin-bottom: 30px;
         margin-left: auto;
         margin-right: auto;
-        color: #ffffff;    
+        color: #ffffff;
         text-transform: uppercase;
-        text-align: center;    
+        text-align: center;
         text-shadow: 2px 2px rgba(13, 105, 224, 0.904);
-        font-size: 60px;      
-        word-break: break-word;   
+        font-size: 60px;
+        word-break: break-word;
     }
-    .box{        
+
+    .box {
         margin-bottom: 30px;
-      }
+    }
 }
-@media (min-width:452px) and (max-width:768px){
-    .heroText{
+
+@media (min-width: 452px) and (max-width: 768px) {
+    .heroText {
         margin-top: 30px;
         margin-bottom: 30px;
         margin-left: auto;
         margin-right: auto;
-        color: #ffffff;    
+        color: #ffffff;
         text-transform: uppercase;
-        text-align: center;    
-        text-shadow: 4px 5px rgba(13, 105, 224, 0.904);       
-        font-size: 80px; 
-        word-break: break-word;        
+        text-align: center;
+        text-shadow: 4px 5px rgba(13, 105, 224, 0.904);
+        font-size: 80px;
+        word-break: break-word;
     }
-   
-} 
 
-@media (min-width:769px){
-    .heroText{
+}
+
+@media (min-width: 769px) {
+    .heroText {
         margin-top: 50px;
         margin-bottom: 80px;
         margin-left: auto;
         margin-right: auto;
-        color: #ffffff;    
+        color: #ffffff;
         text-transform: uppercase;
-        text-align: center;    
-        text-shadow: 4px 3px  rgba(13, 105, 224, 0.904);          
-        word-break: break-word;     
+        text-align: center;
+        text-shadow: 4px 3px rgba(13, 105, 224, 0.904);
+        word-break: break-word;
     }
-    
+
 }
-
-
-
-
 
 
 .context {
     width: 100%;
     position: absolute;
-    top:50vh;
-    z-index: -1;    
+    top: 50vh;
+    z-index: -1;
 }
 
-.context h1{
+.context h1 {
     text-align: center;
     color: #fff;
     font-size: 50px;

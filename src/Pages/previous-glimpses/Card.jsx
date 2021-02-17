@@ -5,18 +5,17 @@ import CardContent from '@material-ui/core/CardContent';
 import "./Glimpses.css"
 
 
-
 const CardImages = (props) => {
 
     const {imageUrl} = props;
     return (
         <Card className="box">
-          <CardContent>
-          <CardMedia style={{height:"250px", margin:"-30px"}}  
-          image={imageUrl}
-        />
-          </CardContent>          
+            <CardContent>
+                <CardMedia style={{height: "250px", margin: "-30px"}}
+                           image={imageUrl}
+                />
+            </CardContent>
         </Card>
-      );
+    );
 }
 export default CardImages;

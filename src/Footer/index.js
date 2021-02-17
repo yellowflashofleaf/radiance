@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./footer.css";
 
 const Footer = () => {
-    return(
+    return (
         <>
-        <div className="footer">
-            &copy; PICT ACM Student Chapter. All Rights Reserved. Designed & Developed with &hearts; by PASC Web Team.
-        </div>
+            <div className="footer">
+                &copy; PICT ACM Student Chapter. All Rights Reserved. Designed & Developed with &hearts; by PASC Web
+                Team.
+            </div>
         </>
     )
 }

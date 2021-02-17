@@ -1,4 +1,4 @@
-.footer{
+.footer {
     bottom: 0;
     text-align: center;
     margin-top: auto;
@@ -8,8 +8,8 @@
     position: static;
 }
 
-@media(max-width:600px){
-    .footer{
+@media (max-width: 600px) {
+    .footer {
         font-size: 3vw;
         padding: 10vw 3vw 2vw;
     }
