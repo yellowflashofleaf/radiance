@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import menuIcon from "./right-menu-bars.svg";
 import closeIcon from "./cancel.svg";
 import "./Navbar.css";
-import $ from 'jquery'
-
+import $ from "jquery";
+import { AuthContext } from "../context/Auth/AuthContext";
 
 const variants = {
   open: { opacity: 1, display: "flex" },
@@ -18,18 +18,21 @@ function Navbar() {
   $(function () {
     $(document).scroll(function () {
       var $nav = $(".nav-bar");
-      $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
     });
   });
 
+  const authContext = useContext(AuthContext);
+
+  const { isAuth, logout } = authContext;
+
   useEffect(() => {
-    if(isOpen){
-      document.body.style.overflow = 'hidden'
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
-    else{
-      document.body.style.overflow = 'auto'
-    }
-  })
+  });
 
   return (
     <>
@@ -148,7 +151,9 @@ function Navbar() {
           <Link
             to="/sponsors"
             className={
-              location.pathname === "/sponsors" ? "selected nav-link" : "nav-link"
+              location.pathname === "/sponsors"
+                ? "selected nav-link"
+                : "nav-link"
             }
           >
             Sponsors
@@ -183,18 +188,26 @@ function Navbar() {
             Previous Glimpses
           </Link>
         </div>
+
         <div className="login-btn-div">
-          <Link
-            to="/login"
-            className={
-              location.pathname === "/login" ||
-              location.pathname === "/register"
-                ? "selected login-btn"
-                : "login-btn"
-            }
-          >
-            Login
-          </Link>
+          {!isAuth && (
+            <Link
+              to="/login"
+              className={
+                location.pathname === "/login" ||
+                location.pathname === "/register"
+                  ? "selected login-btn"
+                  : "login-btn"
+              }
+            >
+              Login
+            </Link>
+          )}
+          {isAuth && (
+            <Link to="/" className={"login-btn"} onClick={() => logout()}>
+              LogOut
+            </Link>
+          )}
 
           <img
             className={"navbar-toggle-icon"}
