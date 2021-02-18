@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/messaging';
+import axios from "axios";
 
 var firebaseConfig = {
     apiKey: "AIzaSyDo5Cur-WMaSuwaMpYKj2ApFhiJ9k8BirY",
@@ -20,6 +21,10 @@ export const getToken = (setTokenFound) => {
         if (currentToken) {
             console.log('current token for client: ', currentToken);
             setTokenFound(true);
+            axios.post(`${process.env.REACT_APP_API_URL}/user/subscribe`,{token:currentToken})
+                .then(res=>{
+                    console.log(res)
+                })
             // Track the token -> client mapping, by sending to backend server
             // show on the UI that permission is secured
         } else {
