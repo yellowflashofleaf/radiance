@@ -4,11 +4,13 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* border: solid 1px red; */
 }
 
 body {
   overflow-x: hidden !important;
   margin: 0;
+  max-width: 100vw !important;
 }
 
 /* code {

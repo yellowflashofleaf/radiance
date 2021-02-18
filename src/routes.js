@@ -23,12 +23,12 @@ class Routes extends React.Component {
           <Glimpses />
         </Route>
         <Route exact path="/login">
-          <div style={{ zIndex: 10 }}>
+          <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Auth />
           </div>
         </Route>
         <Route exact path="/register">
-          <div style={{ zIndex: 10 }}>
+          <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Auth />
           </div>
         </Route>
@@ -36,7 +36,7 @@ class Routes extends React.Component {
           <About />
         </Route>
         <Route path="/team">
-          <div style={{ zIndex: 10 }}>
+          <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Team />
           </div>
         </Route>
@@ -46,12 +46,12 @@ class Routes extends React.Component {
           </div>
         </Route>
         <Route path="/sponsors">
-          <div style={{ zIndex: 10 }}>
+          <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Sponsor />
           </div>
         </Route>
         <Route path="/dashboard">
-          <div style={{ zIndex: 10 }}>
+          <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Dashboard />
           </div>
         </Route>

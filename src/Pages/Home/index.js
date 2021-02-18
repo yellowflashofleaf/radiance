@@ -7,11 +7,15 @@ import Particles from "react-particles-js";
 export default function Home() {
   return (
     <>
-      <Main />
-      <About />
+      <div style={{ maxWidth: "100vw" }}>
+        <div style={{ minHeight: "100vh" }}>
+          <Main />
+        </div>
+        <About />
+      </div>
       {/* <Links/> */}
 
-      <Particles
+      {/* <Particles
         style={{
           position: "absolute",
           top: "0",
@@ -79,7 +83,7 @@ export default function Home() {
           },
           retina_detect: true,
         }}
-      />
+      /> */}
     </>
   );
 }

@@ -17,7 +17,8 @@ export default function Main() {
       touchControls: true,
       gyroControls: true,
       minHeight: 300.0,
-      minWidth: 400.0,
+      minWidth: 300.0,
+      width: "98vw",
       scale: 1.0,
       scaleMobile: 1.0,
       color: 0x3fffe6,
@@ -34,7 +35,10 @@ export default function Main() {
 
       <div
         className="main"
-        style={{ maxHeight: "95vh", overflow: "hidden !important" }}
+        style={{
+          maxHeight: "95vh",
+          overflow: "hidden !important",
+        }}
       >
         <div
           id="your-element-selector"
@@ -43,13 +47,11 @@ export default function Main() {
             margin: "0 -5%",
             height: "95vh",
             zIndex: "1",
-            width: "100vw",
+            // width: "100vw",
+            // border: "solid 1px yellow",
           }}
         ></div>
-        <div
-          className="title"
-          style={{ zIndex: "10000", position: "absolute" }}
-        >
+        <div className="title" style={{ zIndex: "10", position: "absolute" }}>
           PULZION
           <span
             style={{
@@ -73,7 +75,6 @@ export default function Main() {
           data-aos-offset="150"
           data-aos-easing="ease-in-sine"
           duration="900"
-          style={{ position: "absolute", zIndex: "10000", marginTop: "15%" }}
         >
           The Annual Technical Fest of PASC
         </div>
@@ -83,7 +84,7 @@ export default function Main() {
           data-aos-offset="150"
           data-aos-easing="ease-in-sine"
           duration="900"
-          style={{ position: "absolute", zIndex: "10000", marginTop: "20%" }}
+          style={{ position: "absolute", zIndex: "10", marginTop: "20%" }}
         >
           <button
             className="shrink-border"
