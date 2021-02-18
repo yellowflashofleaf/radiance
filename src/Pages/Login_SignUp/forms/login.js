@@ -1,91 +1,81 @@
-import React, {Component} from "react";
+import React, { Component, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { AuthContext } from "../../../context/Auth/AuthContext";
+import { Link } from "react-router-dom";
 
-class Login extends Component {
-    state = {
-        emailError: "",
-        passwordError: "",
-        error: "",
-    };
-    onSubmit = async (e) => {
-        e.preventDefault();
-        this.setState({
-            emailError: "",
-            passwordError: "",
-            error: "",
-        });
-        const email = e.target.elements.email.value.trim();
-        const password = e.target.elements.password.value.trim();
-        if (!email || !password) {
-            if (!email) {
-                this.setState({
-                    emailError: "*Required",
-                });
-            }
-            if (!password) {
-                this.setState({
-                    passwordError: "*Required",
-                });
-            }
-        } else {
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            var requestOptions = {
-                headers: myHeaders,
-                redirect: "follow",
-            };
-            try {
-                const res = await axios.post("/user/login", {
-                    email,
-                    password,
-                });
-                if (res.data.error) {
-                    this.setState({error: res.data.error});
-                }
-            } catch (e) {
-                console.log(e.message);
-            }
-        }
-    };
+const Login = (props) => {
+  const [values, setValues] = useState({
+    emailError: "",
+    passwordError: "",
+    error: "",
+  });
 
-    render() {
-        return (
-            <form onSubmit={this.onSubmit}>
-                <h1>Sign in</h1>
-                <input
-                    id="email"
-                    type="text"
-                    placeholder="Email"
-                    name="email"
-                    value={this.state.email}
-                />
-                {this.state.emailError && (
-                    <div className="error">{this.state.emailError}</div>
-                )}
-                <input
-                    id="password"
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    value={this.state.password}
-                />
-                {this.state.passwordError && (
-                    <div className="error">{this.state.passwordError}</div>
-                )}
-                <div>
-                    <a href="!#" className="link">
-                        Forgot your password?
-                    </a>
-                </div>
-                {this.state.error && (
-                    <div className="error main-error">{this.state.error}</div>
-                )}
-                <button type="submit" id="signin-btn" className="button">
-                    Sign In
-                </button>
-            </form>
-        );
+  const [errors, setErrors] = useState({});
+
+  const authContext = useContext(AuthContext);
+
+  const { login, isAuth } = authContext;
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setValues({
+      emailError: "",
+      passwordError: "",
+      error: "",
+    });
+    const email = e.target.elements.email.value.trim();
+    const password = e.target.elements.password.value.trim();
+    if (!email || !password) {
+      // if (!email) {
+      //   setErrors({ ...errors, emailError: "*Required" });
+      // }
+      // if (!password) {
+      //   setErrors({ ...errors, passwordError: "*Required" });
+      // }
+      setErrors({ error: "Please enter the details" });
+    } else {
+      login(values);
     }
-}
+  };
+
+  // useEffect(() => {
+  //   if (isAuth) props.history.push("/dashboard");
+  // }, [isAuth]);
+
+  return (
+    <form onSubmit={onSubmit}>
+      <h1>Sign in</h1>
+      <input
+        id="email"
+        type="text"
+        placeholder="Email"
+        name="email"
+        value={values.email}
+      />
+      {errors.emailError && <div className="error">{errors.emailError}</div>}
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        name="password"
+        value={values.password}
+      />
+      {errors.passwordError && (
+        <div className="error">{errors.passwordError}</div>
+      )}
+      <div>
+        <a href="!#" className="link">
+          Forgot your password?
+        </a>
+      </div>
+      {errors.error && <div className="error main-error">{errors.error}</div>}
+      {/* <Link to="/dashboard"> */}{" "}
+      <button type="submit" id="signin-btn" className="button">
+        Sign In
+      </button>
+      {/* </Link> */}
+    </form>
+  );
+};
 
 export default Login;
