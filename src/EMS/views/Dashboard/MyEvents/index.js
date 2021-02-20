@@ -31,12 +31,12 @@ const MyEvents = () => {
 
   return (
     <>
-      <Grid container>
+      <Grid container spacing={3}>
         {myEvents.length == 0 ? (
           <></>
         ) : (
           myEvents.map((eve) => (
-            <Grid item xs={4}>
+            <Grid item xs={3}>
               <EventCard
                 eName={eve.event_id.name}
                 content={eve.description}

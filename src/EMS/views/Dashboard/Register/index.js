@@ -15,7 +15,7 @@ const RegisterEvents = () => {
   const getAllEvents = () => {
     var config = {
       method: "get",
-      url: process.env.REACT_APP_API_URL + "getAllEvents",
+      url: process.env.REACT_APP_API_URL + "events",
       headers: {},
     };
 
@@ -34,7 +34,7 @@ const RegisterEvents = () => {
 
     var config = {
       method: "post",
-      url: process.env.REACT_APP_API_URL + "eventsRegistration",
+      url: process.env.REACT_APP_API_URL + "events/register/" + id,
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
@@ -48,8 +48,8 @@ const RegisterEvents = () => {
         openSnackbar("Registration Successful", "success");
       })
       .catch(function (error) {
-        openSnackbar("Already Registered", "error");
-        console.log(error);
+        openSnackbar("Error: " + error.response.data.msg, "error");
+        console.log(error.response);
       });
   };
 
@@ -59,15 +59,15 @@ const RegisterEvents = () => {
 
   return (
     <>
-      <Grid container>
+      <Grid container spacing={3}>
         {events.length == 0 ? (
           <></>
         ) : (
           events.map((eve) => (
-            <Grid item xs={4}>
+            <Grid item xs={3}>
               <EventCard
                 eName={eve.name}
-                content={eve.description}
+                // content={eve.description}
                 image={eve.image}
                 id={eve._id}
                 register={registerForEvent}

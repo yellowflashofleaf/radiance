@@ -39,12 +39,12 @@ const AuthContextProvider = (props) => {
     // else token = await getRefreshToken(fData);
 
     var data = JSON.stringify({
-      email: "rohit4@gmail.com",
+      email: "pratik.d@fampay.in",
       password: "1234567",
     });
     try {
       let response = await axios.post(
-        process.env.REACT_APP_API_URL + "auth/user/login",
+        process.env.REACT_APP_API_URL + "auth/login",
         data,
         {
           headers: {
@@ -78,7 +78,7 @@ const AuthContextProvider = (props) => {
 
     try {
       let response = await axios.post(
-        process.env.REACT_APP_API_URL + "user/signUp",
+        process.env.REACT_APP_API_URL + "auth/register",
         data,
         {
           headers: {

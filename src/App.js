@@ -14,6 +14,7 @@ import Footer from "./Footer";
 import Preloader from "./Pages/Preloader/Preloader";
 import Suspense from "react";
 import Routes from "./routes";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import AuthContextProvider from "./context/Auth/AuthContext";
 import SnackbarContextProvider from "./context/Snackbar/SnackbarContext";
 import MySnackbar from "./EMS/components/Snackbar";
@@ -31,24 +32,32 @@ function App() {
     }, 3000);
   }, []);
 
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: "dark",
+    },
+  });
+
   return (
     <div className="App">
-      <SnackbarContextProvider>
-        <AuthContextProvider>
-          <Router>
-            {loading ? (
-              <Preloader />
-            ) : (
-              <>
-                <Navbar />
-                <Routes />
-                <Footer />
-              </>
-            )}
-          </Router>
-          <MySnackbar />
-        </AuthContextProvider>
-      </SnackbarContextProvider>
+      <ThemeProvider theme={darkTheme}>
+        <SnackbarContextProvider>
+          <AuthContextProvider>
+            <Router>
+              {loading ? (
+                <Preloader />
+              ) : (
+                <>
+                  <Navbar />
+                  <Routes />
+                  <Footer />
+                </>
+              )}
+            </Router>
+            <MySnackbar />
+          </AuthContextProvider>
+        </SnackbarContextProvider>
+      </ThemeProvider>
     </div>
   );
 }

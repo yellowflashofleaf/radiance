@@ -1,7 +1,13 @@
-import React, {useEffect} from "react";
+import { Button } from "@material-ui/core";
+import React, {useContext, useEffect} from "react";
 import Modal from "react-modal"
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 const PopUp = (props) => {
+
+    const authContext = useContext(AuthContext);
+
+    const { isAuth } = authContext;
 
     // useEffect(() => {
     //   if(props.open){
@@ -58,13 +64,16 @@ const PopUp = (props) => {
                                 Close
                             </button>
                             {/* <Link href="#"> */}
-                            <a
-                                href="/#"
+                            <Button
+                                // ="/dashboard"
                                 className="event-links event-links-active"
+                                variant="contained"
+                                color="primary"
+                                disabled={!isAuth}
                                 style={{marginLeft: "1rem", marginTop: "1rem"}}
                             >
                                 Register
-                            </a>
+                            </Button>
                         </div>
                     </>
                 }

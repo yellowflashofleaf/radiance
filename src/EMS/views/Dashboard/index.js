@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -44,12 +44,17 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+const useStyles = makeStyles(
+  (theme) => (
+    console.log(theme),
+    {
+      root: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+      },
+    }
+  )
+);
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -61,12 +66,20 @@ export default function Dashboard() {
 
   const authContext = useContext(AuthContext);
 
-  const { isAuth, user } = authContext;
+  const { isAuth, user, login } = authContext;
+
+  useEffect(() => {
+    login();
+  }, []);
 
   return (
     <div className={classes.root}>
       <Container>
-        <Typography variant="h3">Hello, {user ? user.fname : ""}</Typography>
+        <div className="text-center p-3">
+          <Typography variant="h4" style={{ color: "#fff" }}>
+            Hello, {user ? user.fname : ""}
+          </Typography>
+        </div>
         <AppBar position="static">
           <Tabs
             value={value}
@@ -75,7 +88,7 @@ export default function Dashboard() {
           >
             <Tab label="Register" {...a11yProps(0)} />
             <Tab label="My Events" {...a11yProps(1)} />
-            <Tab label="Slots" {...a11yProps(2)} />
+            {/* <Tab label="Slots" {...a11yProps(2)} /> */}
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
@@ -84,9 +97,9 @@ export default function Dashboard() {
         <TabPanel value={value} index={1}>
           <MyEvents />
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        {/* <TabPanel value={value} index={2}>
           Slots
-        </TabPanel>
+        </TabPanel> */}
       </Container>
     </div>
   );

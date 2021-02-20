@@ -90,7 +90,7 @@ export default function EventCard(props) {
               Register
             </Button>
 
-            <IconButton
+            {/* <IconButton
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded,
               })}
@@ -99,7 +99,7 @@ export default function EventCard(props) {
               aria-label="show more"
             >
               <ExpandMoreIcon />
-            </IconButton>
+            </IconButton> */}
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>

@@ -7,6 +7,7 @@ import Team from "./Pages/Team";
 import Events from "./Pages/Events";
 import Sponsor from "./Pages/Sponsors/Sponsor";
 import Home from "./Pages/Home";
+import { ProtectedRoute } from "./privateRoute";
 import Dashboard from "./EMS/views/Dashboard";
 
 class Routes extends React.Component {
@@ -50,11 +51,11 @@ class Routes extends React.Component {
             <Sponsor />
           </div>
         </Route>
-        <Route path="/dashboard">
+        <ProtectedRoute path="/dashboard">
           <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Dashboard />
           </div>
-        </Route>
+        </ProtectedRoute>
       </Switch>
     );
   }
