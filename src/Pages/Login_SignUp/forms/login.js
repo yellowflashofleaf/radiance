@@ -1,4 +1,5 @@
 import React, { Component, useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../../context/Auth/AuthContext";
 import { Link } from "react-router-dom";
@@ -26,21 +27,22 @@ const Login = (props) => {
     const email = e.target.elements.email.value.trim();
     const password = e.target.elements.password.value.trim();
     if (!email || !password) {
-      // if (!email) {
-      //   setErrors({ ...errors, emailError: "*Required" });
-      // }
-      // if (!password) {
-      //   setErrors({ ...errors, passwordError: "*Required" });
-      // }
+      if (!email) {
+        setErrors({ ...errors, emailError: "*Required" });
+      }
+      else if (!password) {
+        setErrors({ ...errors, passwordError: "*Required" });
+      }
       setErrors({ error: "Please enter the details" });
     } else {
-      login(values);
+        let data = {email, password}
+      login(data);
     }
   };
-
-  // useEffect(() => {
-  //   if (isAuth) props.history.push("/dashboard");
-  // }, [isAuth]);
+    let history = useHistory();
+  useEffect(() => {
+    if (isAuth) history.push("/dashboard");
+  },[isAuth]);
 
   return (
     <form onSubmit={onSubmit}>
@@ -64,7 +66,7 @@ const Login = (props) => {
         <div className="error">{errors.passwordError}</div>
       )}
       <div>
-        <a href="!#" className="link">
+        <a href="#" className="link">
           Forgot your password?
         </a>
       </div>

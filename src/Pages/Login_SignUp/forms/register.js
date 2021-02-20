@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import axios from "axios";
-
+import { withRouter } from 'react-router-dom';
 class Register extends Component {
+
+
     state = {
         fnameError: "",
         lnameError: "",
@@ -110,7 +112,7 @@ class Register extends Component {
                 redirect: "follow",
             };
             try {
-                const res = await axios.post("/user/register", {
+                const res = await axios.post(process.env.REACT_APP_API_URL+ "auth/register", {
                     email,
                     password,
                     fname,
@@ -119,13 +121,20 @@ class Register extends Component {
                     college,
                     contactNumber,
                 });
+
                 if (res.data.error) {
-                    res.data.error.forEach((element) => {
+                    return res.data.error.forEach((element) => {
                         this.setState({
                             [Object.keys(element)[0]]: Object.values(element)[0],
                         });
                     });
                 }
+
+                console.log(res)
+                //TODO: Add snackbar notification that registered and email sent
+                this.props.history.push('/login')
+
+
             } catch (e) {
                 console.log(e);
             }
@@ -225,4 +234,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);

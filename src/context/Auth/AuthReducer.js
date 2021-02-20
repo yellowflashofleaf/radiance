@@ -15,7 +15,8 @@ export default (state, action) => {
       return {
         ...state,
         ...action.payload,
-        user: action.payload.data,
+        user: action.payload,
+        isAuth: true,
       };
 
     case LOGIN_SUCCESS:
@@ -47,7 +48,6 @@ export default (state, action) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        isAuth: true,
       };
     // case LOGIN_FAIL:
     // case AUTH_ERROR:
