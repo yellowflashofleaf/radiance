@@ -25,32 +25,24 @@ const AuthContextProvider = (props) => {
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
-
   // ===================== LoadUser =====================
   const loadUser = async () => {
-
-    try{
-    let response =   axios.get(`${process.env.REACT_APP_API_URL}user/me`,
-        {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        });
+    try {
+      let response = axios.get(`${process.env.REACT_APP_API_URL}user/me`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       dispatch({
         type: USER_LOADED,
         payload: response.data,
       });
-
-    }catch(e){
-
-    }
-
-  }
+    } catch (e) {}
+  };
 
   // ===================== Login =====================
 
   const login = async (data) => {
-
     try {
       let response = await axios.post(
         process.env.REACT_APP_API_URL + "auth/login",
@@ -68,12 +60,11 @@ const AuthContextProvider = (props) => {
         payload: response.data,
       });
       localStorage.setItem("token", response.data.token);
-      loadUser();
+      // loadUser();
     } catch (e) {
       console.log(e);
     }
   };
-
 
   // ============= Logout ============
 
@@ -86,7 +77,7 @@ const AuthContextProvider = (props) => {
         user: state.user,
         login,
         logout,
-        loadUser
+        loadUser,
       }}
     >
       {props.children}

@@ -39,18 +39,16 @@ const About = () => {
     <>
       <div className="about">
         <div
-          className="about-title"
-          data-aos="fade-up"
-          data-aos-offset="150"
-          data-aos-easing="ease-in-sine"
-          duration="900"
+          className="text-center mb-5 About-Us page-title"
+          // data-aos="fade-up" // data-aos-offset="150" //
+          //data-aos-easing="ease-in-sine" // duration="900"
         >
-          About Pulzion
+          ABOUT PULZION
         </div>
-        <div className="row mx-0">
-          <div className="col-md-6">
+        <div className="row mx-0 mt-5 ">
+          <div className="col-md-6 mt-5">
             <div className="row number text-center">
-              <Number number="200" name="Volunteers" icon="user-circle-o" />
+              <Number number="300" name="Volunteers" icon="user-circle-o" />
               <Number number="15" name="Events" icon="calendar-check-o" />
               <Number number="6000" name="Footfall" icon="users" />
             </div>
@@ -73,9 +71,9 @@ const About = () => {
               aims to add value to the college and all the people in it.
             </div>
             <div className="about-link text-right">
-              <a href="/about">
+              {/* <a href="/about">
                 Know more <Fontawesome name="angle-right" />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

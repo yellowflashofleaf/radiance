@@ -9,6 +9,7 @@ import Sponsor from "./Pages/Sponsors/Sponsor";
 import Home from "./Pages/Home";
 import { ProtectedRoute } from "./privateRoute";
 import Dashboard from "./EMS/views/Dashboard";
+import AboutPage from "./Pages/About_Page";
 
 class Routes extends React.Component {
   render() {
@@ -34,7 +35,7 @@ class Routes extends React.Component {
           </div>
         </Route>
         <Route exact path="/about">
-          <About />
+          <AboutPage />
         </Route>
         <Route path="/team">
           <div style={{ zIndex: 10, overflow: "hidden" }}>

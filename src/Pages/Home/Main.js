@@ -19,6 +19,7 @@ export default function Main() {
       minHeight: 300.0,
       minWidth: 300.0,
       width: "98vw",
+      height: "90vh",
       scale: 1.0,
       scaleMobile: 1.0,
       color: 0x3fffe6,
@@ -36,7 +37,7 @@ export default function Main() {
       <div
         className="main"
         style={{
-          maxHeight: "95vh",
+          maxHeight: "90vh",
           overflow: "hidden !important",
         }}
       >
@@ -45,7 +46,7 @@ export default function Main() {
           style={{
             position: "absolute",
             margin: "0 -5%",
-            height: "95vh",
+            height: "90vh",
             zIndex: "1",
             // width: "100vw",
             // border: "solid 1px yellow",
