@@ -3,6 +3,44 @@ import {AuthContext} from "../../context/Auth/AuthContext";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import {SnackbarContext} from "../../context/Snackbar/SnackbarContext";
+import classNames from "classnames";
+
+class PopConfirm extends React.Component {
+    state = {
+        visible: true
+    };
+
+    togglePop = () =>
+        this.setState(prevState => ({visible: !prevState.visible}));
+
+    render() {
+        let classContent = classNames("pop-content", {
+            hidden: !this.state.visible
+        });
+
+        return (
+            <div className="pop-container">
+                <span onClick={this.togglePop}>{this.props.children}</span>
+                <div className={classContent}>
+                    <div className="text-content">
+                        <span>{this.props.title}</span>
+                    </div>
+                    <div className="actions">
+                        <button onClick={this.togglePop}>No</button>
+                        <button
+                            onClick={() => {
+                                this.props.onConfirm();
+                                this.togglePop();
+                            }}
+                        >
+                            Yes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
 
 const PopUp = (props) => {
 
@@ -10,8 +48,8 @@ const PopUp = (props) => {
         const [isOpen, setIsOpen] = React.useState(false);
 
         const {isAuth} = authContext;
-    const snackbarContext = useContext(SnackbarContext);
-    const {openSnackbar} = snackbarContext;
+        const snackbarContext = useContext(SnackbarContext);
+        const {openSnackbar} = snackbarContext;
 
         const registerForEvent = (id) => {
             console.log(id)
@@ -49,12 +87,11 @@ const PopUp = (props) => {
                                 : {opacity: 0, pointerEvents: "none"}
                         }
                     >
-
                     </div>
                     {
                         props.open &&
                         <>
-                            <div className="popup">
+                            <div className="popup bg-dark text-light" id="style-2">
                                 <h3 className="text-center">{props.name}</h3>
                                 <b><i>{props.info}</i></b> <br/>
                                 <p>{props.moreInfo}</p>
@@ -69,25 +106,26 @@ const PopUp = (props) => {
                                 <ol style={{listStyle: "none", marginLeft: "-30px"}}>
                                     {props.rules !== null && props.rules.map((rule) => <li key={rule}>{rule}</li>)}
                                 </ol>
-
                                 <strong>Team Distribution: </strong> <br/>
                                 <ol style={{
                                     listStyle: "none",
                                     marginLeft: "-30px"
                                 }}>{props.team !== null && props.team.map((t) => <li key={t}>{t}</li>)}</ol>
-
                                 <button
-                                    className="event-links"
+                                    className="event-links btn-light"
                                     onClick={() => props.toggle && props.toggle(false)}
                                 >
                                     Close
                                 </button>
-                                {isAuth && <button
-                                    className={"event-links event-links-active"}
-                                    onClick={() => setIsOpen(!isOpen)}
-                                >
-                                    Register
-                                </button>}
+                                {isAuth &&
+                                <PopConfirm title="Confirm Registration?" onConfirm={() => registerForEvent(props.id)}>
+                                    <button
+                                        className={"event-links event-links-active"}
+                                        onClick={() => setIsOpen(!isOpen)}
+                                    >
+                                        Register
+                                    </button>
+                                </PopConfirm>}
                                 {!isAuth && <Link to={"/login"}>
                                     <button
                                         className={"event-links event-links-active"}
@@ -95,30 +133,6 @@ const PopUp = (props) => {
                                         Login/Signup to register
                                     </button>
                                 </Link>}
-                                {isOpen && <>
-                                    <br/><br/>
-                                    <div style={{
-                                        backgroundColor: "#acacac",
-                                        padding: "1rem",
-                                        margin: "0 5rem",
-                                        textAlign: "center"
-                                    }}>
-                                        Confirm registration for {props.name} ?
-                                        <br/>
-                                        <button
-                                            className={"event-links-small event-links-active"}
-                                            onClick={() => registerForEvent(props.id)}
-                                        >
-                                            Yes
-                                        </button>
-                                        <button
-                                            className={"event-links-small"}
-                                            onClick={() => setIsOpen(false)}
-                                        >
-                                            No
-                                        </button>
-                                    </div>
-                                </>}
                             </div>
                         </>
                     }

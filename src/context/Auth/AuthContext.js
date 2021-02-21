@@ -30,7 +30,7 @@ const AuthContextProvider = (props) => {
   const loadUser = async () => {
 
     try{
-    let response =   axios.get(`${process.env.REACT_APP_API_URL}user/me`,
+    let response =   await axios.get(`${process.env.REACT_APP_API_URL}user/me`,
         {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -40,17 +40,12 @@ const AuthContextProvider = (props) => {
         type: USER_LOADED,
         payload: response.data,
       });
-
-    }catch(e){
-
-    }
-
-  }
+    } catch (e) {}
+  };
 
   // ===================== Login =====================
 
   const login = async (data) => {
-
     try {
       let response = await axios.post(
         process.env.REACT_APP_API_URL + "auth/login",
@@ -73,7 +68,6 @@ const AuthContextProvider = (props) => {
       console.log(e);
     }
   };
-
 
   // ============= Logout ============
 

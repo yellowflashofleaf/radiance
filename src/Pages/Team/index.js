@@ -119,7 +119,7 @@ const Team = () => {
   return (
     <>
       <div className="team">
-        <div className="page-title">Meet our Team</div>
+        <div className="page-title">MEET OUR TEAM</div>
         <div className="row mx-0 justify-content-around">
           {data1.map((tm) => {
             return (

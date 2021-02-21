@@ -1,15 +1,16 @@
-import React, { useEffect } from "react";
+import React, {useContext, useEffect} from "react";
 import "./Main.css";
-import main from "../../Bg/home-blo-cyber-ecurity (1).png";
-import Part from "../../Bg/part.png";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {AuthContext} from "../../context/Auth/AuthContext";
 
 export default function Main() {
-  const history = useHistory();
-  AOS.init();
+    const history = useHistory();
+    AOS.init();
 
+  const authContext = useContext(AuthContext)
+  const {isAuth} = authContext;
   useEffect(() => {
     window.VANTA.GLOBE({
       el: "#your-element-selector",
@@ -19,6 +20,7 @@ export default function Main() {
       minHeight: 300.0,
       minWidth: 300.0,
       width: "98vw",
+      height: "90vh",
       scale: 1.0,
       scaleMobile: 1.0,
       color: 0x3fffe6,
@@ -27,16 +29,16 @@ export default function Main() {
     });
   }, []);
 
-  return (
-    <>
-      {/* <div className="home-img-mob">
+    return (
+        <>
+            {/* <div className="home-img-mob">
         <img src={Part} className="img-fluid"/>
         </div> */}
 
       <div
         className="main"
         style={{
-          maxHeight: "95vh",
+          maxHeight: "90vh",
           overflow: "hidden !important",
         }}
       >
@@ -45,12 +47,12 @@ export default function Main() {
           style={{
             position: "absolute",
             margin: "0 -5%",
-            height: "95vh",
+            height: "90vh",
             zIndex: "1",
-            // width: "100vw",
-            // border: "solid 1px yellow",
           }}
-        ></div>
+        >
+
+        </div>
         <div className="title" style={{ zIndex: "10", position: "absolute" }}>
           PULZION
           <span
@@ -61,40 +63,42 @@ export default function Main() {
           >
             '
           </span>
-          21
-        </div>
-        {/* <div style={{ zIndex: "10000", position: "absolute" }}>
+                    21
+                </div>
+                {/* <div style={{ zIndex: "10000", position: "absolute" }}>
           <img
             style={{ zIndex: "10000", width: "40vw", marginTop: "15%" }}
             src="./p21.png"
           />
         </div> */}
-        <div
-          className="subtitle"
-          data-aos="fade-up"
-          data-aos-offset="150"
-          data-aos-easing="ease-in-sine"
-          duration="900"
-        >
-          The Annual Technical Fest of PASC
-        </div>
-        <div
-          className="reg-btn"
-          data-aos="flip-up"
-          data-aos-offset="150"
-          data-aos-easing="ease-in-sine"
-          duration="900"
-          style={{ position: "absolute", zIndex: "10", marginTop: "20%" }}
-        >
-          <button
-            className="shrink-border"
-            onClick={() => history.push("/login")}
-          >
-            {" "}
-            REGISTER NOW!
-          </button>
-        </div>
-      </div>
-    </>
-  );
+                <div
+                    className="subtitle"
+                    data-aos="fade-up"
+                    data-aos-offset="150"
+                    data-aos-easing="ease-in-sine"
+                    duration="900"
+                >
+                    The Annual Technical Fest of PASC
+                </div>
+                <div
+                    className="reg-btn"
+                    data-aos="flip-up"
+                    data-aos-offset="150"
+                    data-aos-easing="ease-in-sine"
+                    duration="900"
+                    style={{position: "absolute", zIndex: "10", marginTop: "20%"}}
+                >
+                    <button
+                        className="shrink-border"
+                        onClick={() => {
+                            isAuth ? history.push("/myevents") : history.push("/login")
+                        }}
+                    >
+                        {" "}
+                        {isAuth ? "MY EVENTS" : "REGISTER NOW!"}
+                    </button>
+                </div>
+            </div>
+        </>
+    );
 }
