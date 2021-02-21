@@ -14,7 +14,6 @@ const Login = (props) => {
   const [errors, setErrors] = useState({});
 
   const authContext = useContext(AuthContext);
-
   const { login, isAuth } = authContext;
 
   const onSubmit = async (e) => {
