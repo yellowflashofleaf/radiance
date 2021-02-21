@@ -10,6 +10,10 @@ import axios from "axios";
 import {store} from "react-notifications-component";
 import {useHistory} from "react-router-dom";
 import {AuthContext} from "../../context/Auth/AuthContext";
+import {
+    GoogleReCaptchaProvider,
+    useGoogleReCaptcha
+} from 'react-google-recaptcha-v3';
 
 const useStyles = makeStyles({
     root: {
@@ -38,9 +42,10 @@ function ForgotPasswordPage(props) {
 
     const authContext = useContext(AuthContext);
     const {logout} = authContext;
+    const { executeRecaptcha } = useGoogleReCaptcha()
 
     useEffect(() => {
-        logout()
+            logout()
     }, [])
 
     let history = useHistory()
@@ -88,7 +93,9 @@ function ForgotPasswordPage(props) {
     async function handleGetOTP(e) {
         e.preventDefault()
         try {
-            await axios.post(`${process.env.REACT_APP_API_URL}auth/forgot-password/get-otp`, {email})
+           const captcha = await executeRecaptcha("forgotPassword")
+
+            await axios.post(`${process.env.REACT_APP_API_URL}auth/forgot-password/get-otp`, {email, captcha})
         } catch (e) {
         } finally {
             store.addNotification({
@@ -111,10 +118,13 @@ function ForgotPasswordPage(props) {
     async function handleCheckOTP(e) {
         e.preventDefault()
         try {
+            const captcha = await executeRecaptcha("forgotPassword")
+
             await axios.post(`${process.env.REACT_APP_API_URL}auth/forgot-password/change-password`, {
                 email,
                 otp,
-                password
+                password,
+                captcha
             })
 
             store.addNotification({
