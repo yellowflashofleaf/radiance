@@ -47,9 +47,10 @@ footer {
 }
 
 .page-title {
-  font-family: Cruiser !important;
+  /* font-family: Cruiser !important; */
+  font-family: "Montserrat", sans-serif !important;
   color: rgb(0, 216, 224) !important;
-  font-size: 2.5vw !important;
+  font-size: 3vw !important;
   margin: 2vw 0;
 }
 

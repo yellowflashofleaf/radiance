@@ -34,7 +34,7 @@ const PopUp = (props) => {
                 {
                     props.open &&
                     <>
-                        <div className="popup">
+                        <div className="popup bg-dark text-light" id="style-2">
                             <h3 className="text-center">{props.content}</h3>
                             <b><i>{props.info}</i></b> <br/>
                             <p>{props.moreInfo}</p>
@@ -58,13 +58,13 @@ const PopUp = (props) => {
 
                             <p><strong>Fees: </strong>{props.fees}</p>
                             <button
-                                className="event-links"
+                                className="event-links btn-light"
                                 onClick={() => props.toggle && props.toggle(false)}
                             >
                                 Close
                             </button>
                             {/* <Link href="#"> */}
-                            <Button
+                            {/* <Button
                                 // ="/dashboard"
                                 className="event-links event-links-active"
                                 variant="contained"
@@ -73,7 +73,7 @@ const PopUp = (props) => {
                                 style={{marginLeft: "1rem", marginTop: "1rem"}}
                             >
                                 Register
-                            </Button>
+                            </Button> */}
                         </div>
                     </>
                 }
