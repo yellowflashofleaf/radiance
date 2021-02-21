@@ -21,8 +21,7 @@ const Card = (props) => {
                 content={props.content}
             />
             <div className="col-md-3">
-                <div className="card e-card gradient-border" onClick={() => setIsModalOpen(true)} data-aos="flip-right"
-                     data-aos-offset="100" data-aos-easing="ease-in-sine">
+                <div className="card e-card gradient-border" onClick={() => setIsModalOpen(true)}>
                     <img
                         src={props.img || "https://via.placeholder.com/400"}
                         alt="event img"
