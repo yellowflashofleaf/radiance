@@ -51,9 +51,9 @@ h1 {
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
     overflow: hidden !important;
-    width: 768px !important;
+    width: 800px !important;
     max-width: 100% !important;
-    min-height: 480px !important;
+    min-height: 550px !important;
 }
 
 footer {

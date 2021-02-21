@@ -40,7 +40,7 @@ function App() {
                         ) : (
                             <>
                                 <Navbar/>
-                                <Notification/>
+                                {/*<Notification/>*/}
                                 <Routes/>
                                 <Footer/>
                             </>

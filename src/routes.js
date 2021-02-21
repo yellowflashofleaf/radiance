@@ -51,10 +51,10 @@ class Routes extends React.Component {
             <Sponsor />
           </div>
         </Route>
-        <ProtectedRoute path="/dashboard">
-          <div style={{ zIndex: 10, overflow: "hidden" }}>
-            <Dashboard />
-          </div>
+        <ProtectedRoute path="/dashboard" component={Dashboard}>
+          {/*<div style={{ zIndex: 10, overflow: "hidden" }}>*/}
+          {/*  <Dashboard />*/}
+          {/*</div>*/}
         </ProtectedRoute>
       </Switch>
     );
