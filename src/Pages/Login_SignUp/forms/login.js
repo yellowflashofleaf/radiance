@@ -1,6 +1,9 @@
 import React, {useContext, useEffect, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
+import axios from "axios";
 import {AuthContext} from "../../../context/Auth/AuthContext";
+import {store} from "react-notifications-component";
+
 
 const Login = (props) => {
     const [values, setValues] = useState({
@@ -12,7 +15,8 @@ const Login = (props) => {
     const [errors, setErrors] = useState({});
 
     const authContext = useContext(AuthContext);
-    const {login, isAuth} = authContext;
+    const {isAuth, loadUser,login} = authContext;
+
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -31,13 +35,58 @@ const Login = (props) => {
             }
             setErrors({error: "Please enter the details"});
         } else {
-            let data = {email, password}
-            login(data);
+            try {
+                let data = {email, password}
+                let res = await axios.post(
+                    process.env.REACT_APP_API_URL + "auth/login",
+                    data,
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                )
+                console.log(res.data)
+                await localStorage.setItem("token", res.data.token)
+                loadUser();
+
+                store.addNotification({
+                    title: "Authentication Successful",
+                    message: "Welcome to PULZION-21 !!",
+                    type: "success",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: true
+                    }
+                });
+
+            } catch (e) {
+                store.addNotification({
+                    title: "Authentication Error",
+                    message: "Invalid Email or Password",
+                    type: "danger",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: true
+                    }
+                });
+            }
+
+
         }
     };
     let history = useHistory();
     useEffect(() => {
-        if (isAuth) history.push("/dashboard");
+        if (isAuth) history.push("/events");
+
     }, [isAuth]);
 
     return (
