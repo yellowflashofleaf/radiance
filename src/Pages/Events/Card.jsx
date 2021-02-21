@@ -7,6 +7,7 @@ const Card = (props) => {
     return (
         <>
             <PopUp
+                id={props._id}
                 open={isModalOpen}
                 toggle={setIsModalOpen}
                 info={props.info}
@@ -18,12 +19,12 @@ const Card = (props) => {
                 wildcard={props.wildcard}
                 wdLink={props.wdLink}
                 wdInfo={props.wdInfo}
-                content={props.content}
+                name={props.name}
             />
             <div className="col-md-3">
                 <div className="card e-card gradient-border" onClick={() => setIsModalOpen(true)}>
                     <img
-                        src={props.img || "https://via.placeholder.com/400"}
+                        src={props.image}
                         alt="event img"
                     />
                     <div className="e-card-text text-center">
@@ -36,15 +37,13 @@ const Card = (props) => {
                                  minWidth: "50%"
                              }}
                         >
-                            <div className="event-name">{props.content}</div>
-                            <a href="#">
-                                {/* <button
-              className="link"
-              onClick={() => setIsModalOpen(true)}
-            >
-              Register
-            </button> */}
-                            </a>
+                            <div className="event-name">{props.name}</div>
+                            <button
+                                className="event-links"
+                                onClick={() => props.toggle && props.toggle(false)}
+                            >
+                                View
+                            </button>
                         </div>
                     </div>
                 </div>

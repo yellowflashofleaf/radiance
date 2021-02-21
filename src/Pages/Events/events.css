@@ -10,6 +10,17 @@
     font-size: 1.2rem;
     transition: all 0.2s ease-in-out;
     color: #0dcaf0;
+    margin: 0 5px
+}
+
+.event-links-small {
+    border: 1px solid #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+    margin: 0 3px
 }
 
 .event-name {
@@ -32,6 +43,11 @@ button:focus {
     background-color: #0dcaf0;
     color: #000;
     font-weight: 500;
+}
+
+.event-links-disabled {
+    opacity: 0.5;
+    cursor: default !important
 }
 
 a.event-links:hover {
@@ -151,14 +167,14 @@ a.event-links:hover {
     background-color: rgba(0, 0, 0, 0.9);
     transition: all 0.3s ease-in-out;
     color: #000 !important;
-    z-index: 2000;
+    z-index: 1100;
 }
 
 .popup {
     background-color: #fff;
     border-radius: 2rem;
     padding: 2rem;
-    z-index: 2000;
+    z-index: 1101;
     width: 670px;
     /* box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.774); */
     margin: auto;

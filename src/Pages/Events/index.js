@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Footer from "../../Footer";
 import Card from "./Card";
 import { allEvents, technicalEvents, nonTechnicalEvents } from "./eventConfig";
 import "./events.css";
+import axios from "axios";
 
 const Index = () => {
   const [flag, setFlag] = useState("A");
+  const [events, setEvents] = useState([])
+
+  useEffect(()=>{
+      (async function(){
+          const res = await axios.get("https://pulzion-2021.s3.ap-south-1.amazonaws.com/assets/events_data.json")
+          setEvents(res.data)
+          console.log(res.data)
+      })()
+  }, [])
 
   return (
     <>
@@ -55,10 +65,10 @@ const Index = () => {
       </div>
 
       <div className="e-card-container row justify-content-center">
-        {flag === "A" && allEvents.map((e, i) => <Card key={i} {...e} />)}
-        {flag === "T" && technicalEvents.map((e, i) => <Card key={i} {...e} />)}
+        {flag === "A" && events.map((e, i) => <Card key={i} {...e} />)}
+        {flag === "T" && events.map((e, i) => e.isTechnical && <Card key={i} {...e} />)}
         {flag === "NT" &&
-          nonTechnicalEvents.map((e, i) => <Card key={i} {...e} />)}
+          events.map((e, i) => !e.isTechnical && <Card key={i} {...e} />)}
       </div>
       {/* </section>  */}
       <Footer />
