@@ -21,27 +21,36 @@ const AuthContextProvider = (props) => {
   const initialState = {
     user: null,
     isAuth: false,
-    // isOTPVerified: false,
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
+
+  // ===================== LoadUser =====================
+  const loadUser = async () => {
+
+    try{
+    let response =   axios.get(`${process.env.REACT_APP_API_URL}user/me`,
+        {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+      dispatch({
+        type: USER_LOADED,
+        payload: response.data,
+      });
+
+    }catch(e){
+
+    }
+
+  }
+
   // ===================== Login =====================
 
-  const login = async (pass) => {
-    // const no = localStorage.getItem("mobile_no");
-    // var fData = {
-    //   username: no,
-    //   password: pass,
-    // };
-    // let token;
-    // if (localStorage.getItem("refreshToken")) token = await getAccessToken();
-    // else token = await getRefreshToken(fData);
+  const login = async (data) => {
 
-    var data = JSON.stringify({
-      email: "pratik.d@fampay.in",
-      password: "1234567",
-    });
     try {
       let response = await axios.post(
         process.env.REACT_APP_API_URL + "auth/login",
@@ -59,50 +68,12 @@ const AuthContextProvider = (props) => {
         payload: response.data,
       });
       localStorage.setItem("token", response.data.token);
+      loadUser();
     } catch (e) {
       console.log(e);
     }
   };
 
-  // =================================================
-
-  // ================= Register User ==================
-  const register = async (pass) => {
-    const no = localStorage.getItem("mobile_no");
-    var data = JSON.stringify({
-      contactNumber: no,
-      password: pass,
-      key: "K4bO3VJbiONEMn_eTOvXQg==",
-      iv: "yH-ZciqeaVkqlFDjaAtjJ3YFMzjrUNxlGdJVKRlh8EA=",
-    });
-
-    try {
-      let response = await axios.post(
-        process.env.REACT_APP_API_URL + "auth/register",
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      dispatch({
-        type: REGISTER_SUCCESS,
-        payload: response.data,
-      });
-      login(pass);
-      console.log(response.data);
-      console.log("register success");
-    } catch (e) {
-      console.log(e);
-      console.log("register fail");
-      dispatch({
-        type: REGISTER_FAIL,
-      });
-    }
-  };
-
-  // ==================================================
 
   // ============= Logout ============
 
@@ -113,11 +84,9 @@ const AuthContextProvider = (props) => {
       value={{
         isAuth: state.isAuth,
         user: state.user,
-        // isOTPVerified: state.isOTPVerified,
-        // OTPVerified,
         login,
-        register,
         logout,
+        loadUser
       }}
     >
       {props.children}

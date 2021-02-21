@@ -68,10 +68,6 @@ export default function Dashboard() {
 
   const { isAuth, user, login } = authContext;
 
-  useEffect(() => {
-    login();
-  }, []);
-
   return (
     <div className={classes.root}>
       <Container>
