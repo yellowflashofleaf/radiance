@@ -12,6 +12,7 @@ import Dashboard from "./EMS/views/Dashboard";
 import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
 import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy.component";
 import NotFound from "./Pages/NotFound/NotFound.component";
+import ForgotPasswordPage from "./Pages/ForgotPassword/ForgotPassword.page";
 
 class Routes extends React.Component {
   render() {
@@ -27,19 +28,20 @@ class Routes extends React.Component {
           <Glimpses />
         </Route>
         <Route exact path="/login">
+            <div style={{ zIndex: 10, overflow: "hidden" }}>
+                <GoogleReCaptchaProvider
+                    reCaptchaKey='6Ld_lGAaAAAAALZJijYnuGUlkEYAajn59A3d6-Y6'
+                >
+                    <Auth />
+                </GoogleReCaptchaProvider>
+            </div>
+        </Route>
+        <Route exact path="/forgot-password">
           <div style={{ zIndex: 10, overflow: "hidden" }}>
-              <GoogleReCaptchaProvider
-                  reCaptchaKey='6Ld_lGAaAAAAALZJijYnuGUlkEYAajn59A3d6-Y6'
-              >
-            <Auth />
-              </GoogleReCaptchaProvider>
+            <ForgotPasswordPage />
           </div>
         </Route>
-        {/*<Route exact path="/register">*/}
-        {/*  <div style={{ zIndex: 10, overflow: "hidden" }}>*/}
-        {/*    <Auth />*/}
-        {/*  </div>*/}
-        {/*</Route>*/}
+
         <Route exact path="/about">
           <About />
         </Route>
