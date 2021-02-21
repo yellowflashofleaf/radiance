@@ -30,7 +30,7 @@ const RegisterEvents = () => {
   };
 
   const registerForEvent = (id) => {
-    var data = JSON.stringify({ event_id: id });
+    // var data = JSON.stringify({ event_id: id });
 
     var config = {
       method: "post",
@@ -39,7 +39,7 @@ const RegisterEvents = () => {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
-      data: data,
+      // data: data,
     };
 
     axios(config)

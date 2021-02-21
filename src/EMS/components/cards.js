@@ -15,7 +15,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { Button } from "@material-ui/core";
+import { Button, Tooltip } from "@material-ui/core";
 import AlertDialog from "./dialog";
 import SlotsDialog from "../views/Dashboard/MyEvents/slots";
 import axios from "axios";
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
   },
   media: {
-    height: 0,
+    height: "fit-content",
     paddingTop: "56.25%", // 16:9
   },
   expand: {
@@ -97,14 +97,20 @@ export default function EventCard(props) {
         image={props.image}
         // image="https://www.google.com/url?sa=i&url=https%3A%2F%2Fourcodeworld.com%2Farticles%2Fread%2F966%2Fcoding-is-it-the-most-important-skill-for-the-future&psig=AOvVaw16ufXDYnNETngLwk71MKHu&ust=1613066668345000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiOkuHz3-4CFQAAAAAdAAAAABAX"
         title={props.eName}
+        style={{ backgroundSize: "contain" }}
       />
       <CardContent>
-        <Typography variant="h4" color="textPrimary">
+        <Typography variant="h5" color="textPrimary">
           {props.eName}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {props.content}
         </Typography>
+        {isMyEvent && (
+          <Typography variant="body2" color="textSecondary" component="p">
+            Ticket Id:- {props.regId}
+          </Typography>
+        )}
       </CardContent>
 
       {/* For Register */}
@@ -182,16 +188,19 @@ export default function EventCard(props) {
             <>
               <CardActions disableSpacing>
                 {!props.slotId ? (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => {
-                      setIsOpenSlots(true);
-                      getSlotsForEvent(props.eid);
-                    }}
-                  >
-                    Book Slot
-                  </Button>
+                  <Tooltip title="Coming soon">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      // onClick={() => {
+                      //   setIsOpenSlots(true);
+                      //   getSlotsForEvent(props.eid);
+                      // }}
+                      // disabled
+                    >
+                      Book Slot (coming soon)
+                    </Button>
+                  </Tooltip>
                 ) : (
                   <Button variant="contained" color="primary" disabled>
                     Slot Booked

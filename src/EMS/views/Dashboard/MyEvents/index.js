@@ -63,6 +63,8 @@ const MyEvents = () => {
               <EventCard
                 eid={eve.event_id._id}
                 eName={eve.event_id.name}
+                image={eve.event_id.image}
+                regId={eve.reg_id}
                 content={eve.description}
                 type="myEvent"
                 slot={eve.event_id.name}
