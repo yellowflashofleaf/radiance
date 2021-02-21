@@ -50,7 +50,7 @@ function App(props) {
               ) : (
                 <>
                   <Navbar />
-                  {/* <Notification /> */}
+                   <Notification />
                   <Routes />
                   {/* {!isHome && <Footer />} */}
                 </>

@@ -9,6 +9,7 @@ import Sponsor from "./Pages/Sponsors/Sponsor";
 import Home from "./Pages/Home";
 import { ProtectedRoute } from "./privateRoute";
 import Dashboard from "./EMS/views/Dashboard";
+import ForgotPasswordPage from "./Pages/ForgotPassword/ForgotPassword.page";
 
 class Routes extends React.Component {
   render() {
@@ -26,6 +27,11 @@ class Routes extends React.Component {
         <Route exact path="/login">
           <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Auth />
+          </div>
+        </Route>
+        <Route exact path="/forgot-password">
+          <div style={{ zIndex: 10, overflow: "hidden" }}>
+            <ForgotPasswordPage />
           </div>
         </Route>
         <Route exact path="/register">

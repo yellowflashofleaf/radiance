@@ -66,9 +66,9 @@ const Login = (props) => {
         <div className="error">{errors.passwordError}</div>
       )}
       <div>
-        <a href="#" className="link">
+        <Link to="/forgot-password" className="link">
           Forgot your password?
-        </a>
+        </Link>
       </div>
       {errors.error && <div className="error main-error">{errors.error}</div>}
       {/* <Link to="/dashboard"> */}{" "}

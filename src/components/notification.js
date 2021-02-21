@@ -17,7 +17,7 @@ function Notification(props) {
     const [notification, setNotification] = useState({title: '', body: ''});
     const [isTokenFound, setTokenFound] = useState(false);
 
-    getToken(setTokenFound);
+    // getToken(setTokenFound);
 
     const handleClose = () => {
         setShow(false)
