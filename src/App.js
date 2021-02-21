@@ -10,7 +10,8 @@ import AuthContextProvider from "./context/Auth/AuthContext";
 import SnackbarContextProvider from "./context/Snackbar/SnackbarContext";
 import MySnackbar from "./EMS/components/Snackbar";
 import Notification from "./components/notification";
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+// import SideNav from "./Pages/SideNav/sideNav";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 function App(props) {
   const [loading, setLoading] = useState(true);
@@ -23,7 +24,7 @@ function App(props) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
   }, []);
 
   const darkTheme = createMuiTheme({
@@ -51,7 +52,9 @@ function App(props) {
               ) : (
                 <>
                   <Navbar />
-                   <Notification />
+                  {/* <SideNav /> */}
+                  <Notification />
+                  {/* <Notification /> */}
                   <Routes />
                   {/* {!isHome && <Footer />} */}
                 </>

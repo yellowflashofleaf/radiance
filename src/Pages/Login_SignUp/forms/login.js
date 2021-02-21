@@ -4,6 +4,7 @@ import axios from "axios";
 import {AuthContext} from "../../../context/Auth/AuthContext";
 import {store} from "react-notifications-component";
 
+
 const Login = (props) => {
     const [values, setValues] = useState({
         emailError: "",
@@ -14,7 +15,8 @@ const Login = (props) => {
     const [errors, setErrors] = useState({});
 
     const authContext = useContext(AuthContext);
-    const {isAuth, loadUser} = authContext;
+    const {isAuth, loadUser,login} = authContext;
+
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -78,11 +80,13 @@ const Login = (props) => {
                 });
             }
 
+
         }
     };
     let history = useHistory();
     useEffect(() => {
         if (isAuth) history.push("/events");
+
     }, [isAuth]);
 
     return (

@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import ReactNotification from 'react-notifications-component';
+import ReactNotification, {store} from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
-import { getToken, onMessageListener } from '../firebase';
-import { store } from 'react-notifications-component';
+import {onMessageListener} from '../firebase';
 
 function Notification(props) {
     const [state, setState] = useState({
@@ -11,7 +10,7 @@ function Notification(props) {
         horizontal: 'center',
     });
 
-    const { vertical, horizontal, open } = state;
+    const {vertical, horizontal, open} = state;
 
     const [show, setShow] = useState(false);
     const [notification, setNotification] = useState({title: '', body: ''});
@@ -44,9 +43,9 @@ function Notification(props) {
 
 
     return (
-        <div onClick={()=>console.log('this is notifications component')}>
+        <div onClick={() => console.log('this is notifications component')}>
 
-         <ReactNotification />
+            <ReactNotification/>
 
         </div>
     );

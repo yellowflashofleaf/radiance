@@ -10,10 +10,7 @@ import axios from "axios";
 import {store} from "react-notifications-component";
 import {useHistory} from "react-router-dom";
 import {AuthContext} from "../../context/Auth/AuthContext";
-import {
-    GoogleReCaptchaProvider,
-    useGoogleReCaptcha
-} from 'react-google-recaptcha-v3';
+import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 
 const useStyles = makeStyles({
     root: {

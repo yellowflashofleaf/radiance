@@ -1,8 +1,8 @@
 .about {
   background-color: #000;
-  padding: 5vw 5vw;
-  margin-top: 5vw;
-  margin-bottom: 2vw;
+  padding: 1vw 5vw;
+  /* margin-top: 5vw; */
+  margin-bottom: 5vw;
   /* background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.274), black), url('../../Bg/bg31.jpg'); */
   background-repeat: no-repeat;
   background-position: bottom;

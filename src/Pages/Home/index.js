@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div style={{ maxWidth: "100vw" }}>
-        <div style={{ minHeight: "100vh" }}>
+        <div style={{ minHeight: "90vh" }}>
           <Main />
         </div>
         {/* <About /> */}

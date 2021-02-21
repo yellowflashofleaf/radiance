@@ -9,24 +9,25 @@ export default function Main() {
     const history = useHistory();
     AOS.init();
 
-    const authContext = useContext(AuthContext)
-    const {isAuth} = authContext;
-    useEffect(() => {
-        window.VANTA.GLOBE({
-            el: "#your-element-selector",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: true,
-            minHeight: 300.0,
-            minWidth: 300.0,
-            width: "98vw",
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0x3fffe6,
-            color2: 0xe1ff,
-            backgroundColor: 0x0,
-        });
-    }, []);
+  const authContext = useContext(AuthContext)
+  const {isAuth} = authContext;
+  useEffect(() => {
+    window.VANTA.GLOBE({
+      el: "#your-element-selector",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: true,
+      minHeight: 300.0,
+      minWidth: 300.0,
+      width: "98vw",
+      height: "90vh",
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x3fffe6,
+      color2: 0xe1ff,
+      backgroundColor: 0x0,
+    });
+  }, []);
 
     return (
         <>
@@ -34,32 +35,32 @@ export default function Main() {
         <img src={Part} className="img-fluid"/>
         </div> */}
 
-            <div
-                className="main"
-                style={{
-                    maxHeight: "95vh",
-                    overflow: "hidden !important",
-                }}
-            >
-                <div
-                    id="your-element-selector"
-                    style={{
-                        position: "absolute",
-                        margin: "0 -5%",
-                        height: "95vh",
-                        zIndex: "1",
-                        // width: "100vw",
-                        // border: "solid 1px yellow",
-                    }}
-                ></div>
-                <div className="title" style={{zIndex: "10", position: "absolute"}}>
-                    PULZION
-                    <span
-                        style={{
-                            color: "rgba(22, 164, 189, 0.9)",
-                            fontSize: "inherit",
-                        }}
-                    >
+      <div
+        className="main"
+        style={{
+          maxHeight: "90vh",
+          overflow: "hidden !important",
+        }}
+      >
+        <div
+          id="your-element-selector"
+          style={{
+            position: "absolute",
+            margin: "0 -5%",
+            height: "90vh",
+            zIndex: "1",
+          }}
+        >
+
+        </div>
+        <div className="title" style={{ zIndex: "10", position: "absolute" }}>
+          PULZION
+          <span
+            style={{
+              color: "rgba(22, 164, 189, 0.9)",
+              fontSize: "inherit",
+            }}
+          >
             '
           </span>
                     21
