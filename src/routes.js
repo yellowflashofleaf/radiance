@@ -9,7 +9,6 @@ import Sponsor from "./Pages/Sponsors/Sponsor";
 import Home from "./Pages/Home";
 import {ProtectedRoute} from "./privateRoute";
 import Dashboard from "./EMS/views/Dashboard";
-import AboutPage from "./Pages/About_Page";
 import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
 import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy.component";
 import NotFound from "./Pages/NotFound/NotFound.component";

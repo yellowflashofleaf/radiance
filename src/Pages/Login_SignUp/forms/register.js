@@ -1,16 +1,14 @@
 import React, {Component} from "react";
 import axios from "axios";
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {AuthContext} from "../../../context/Auth/AuthContext";
-import {
-    withGoogleReCaptcha
-} from "react-google-recaptcha-v3";
+import {withGoogleReCaptcha} from "react-google-recaptcha-v3";
 
 const regExp = RegExp(
     /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
 )
 
-const formValid = ({ isError, ...rest }) => {
+const formValid = ({isError, ...rest}) => {
     let isValid = false;
 
     Object.values(isError).forEach(val => {
@@ -33,7 +31,6 @@ const formValid = ({ isError, ...rest }) => {
 };
 
 
-
 class Register extends Component {
 
     static contextType = AuthContext;
@@ -46,9 +43,9 @@ class Register extends Component {
             lname: '',
             email: '',
             password: '',
-            contactNumber:"",
-            year:"Year",
-            college:"",
+            contactNumber: "",
+            year: "Year",
+            college: "",
             confirmPassword: "",
             captcha: "",
             isError: {
@@ -69,8 +66,8 @@ class Register extends Component {
 
     formValChange = e => {
         e.preventDefault();
-        const { name, value } = e.target;
-        let isError = { ...this.state.isError };
+        const {name, value} = e.target;
+        let isError = {...this.state.isError};
 
         switch (name) {
 
@@ -88,20 +85,18 @@ class Register extends Component {
 
                 if (!pattern.test(value)) {
                     isError.contactNumberError = "Please enter only number.";
-                }else if(value.length != 10){
+                } else if (value.length != 10) {
                     isError.contactNumberError = "Please enter valid phone number.";
-                }
-                else{
+                } else {
                     isError.contactNumberError = ""
                 }
                 break;
 
             case "confirmPassword":
                 console.log(value, this.state.password)
-                if(value !== this.state.password){
+                if (value !== this.state.password) {
                     isError.confirmPasswordError = "Passwords do not match.";
-                }
-                else{
+                } else {
                     isError.confirmPasswordError = ""
                 }
                 break;
@@ -135,7 +130,7 @@ class Register extends Component {
                 captcha
             } = this.state;
             try {
-                const res = await axios.post(process.env.REACT_APP_API_URL+ "auth/register", {
+                const res = await axios.post(process.env.REACT_APP_API_URL + "auth/register", {
                     email,
                     password,
                     fname,
@@ -155,7 +150,7 @@ class Register extends Component {
                 }
 
                 console.log(res)
-                localStorage.setItem("token", res.data.token).then(()=>{
+                localStorage.setItem("token", res.data.token).then(() => {
                     this.context.loadUser();
                 })
                 //TODO: Add snackbar notification that registered and email sent
@@ -265,7 +260,7 @@ class Register extends Component {
                 redirect: "follow",
             };
             try {
-                const res = await axios.post(process.env.REACT_APP_API_URL+ "auth/register", {
+                const res = await axios.post(process.env.REACT_APP_API_URL + "auth/register", {
                     email,
                     password,
                     fname,
@@ -295,7 +290,7 @@ class Register extends Component {
     };
 
     render() {
-        const { isError } = this.state;
+        const {isError} = this.state;
         return (
             <form className="signup-form" onSubmit={this.onSubmit}>
                 <input
