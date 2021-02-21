@@ -11,6 +11,7 @@ import { ProtectedRoute } from "./privateRoute";
 import Dashboard from "./EMS/views/Dashboard";
 import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
 import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy.component";
+import NotFound from "./Pages/NotFound/NotFound.component";
 
 class Routes extends React.Component {
   render() {
@@ -67,6 +68,7 @@ class Routes extends React.Component {
             <Dashboard />
           </div> */}
         </ProtectedRoute>
+          <Route component={NotFound} />
       </Switch>
     );
   }
