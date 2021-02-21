@@ -112,7 +112,7 @@ const PopUp = (props) => {
                                     marginLeft: "-30px"
                                 }}>{props.team !== null && props.team.map((t) => <li key={t}>{t}</li>)}</ol>
                                 <button
-                                    className="event-links btn-light"
+                                    className="event-links "
                                     onClick={() => props.toggle && props.toggle(false)}
                                 >
                                     Close
