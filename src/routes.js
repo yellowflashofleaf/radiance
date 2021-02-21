@@ -60,6 +60,11 @@ class Routes extends React.Component {
                         <Events/>
                     </div>
                 </Route>
+                <Route path="/myevents">
+                    <div>
+                        <Events flag={"MY"}/>
+                    </div>
+                </Route>
                 <Route path="/sponsors">
                     <div style={{zIndex: 10, overflow: "hidden"}}>
                         <Sponsor/>

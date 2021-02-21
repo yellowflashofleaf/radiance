@@ -14,6 +14,18 @@
   margin: 0 0.4rem;
 }
 
+.event-links-disabled {
+  background-color: #0f942e;
+  opacity: 0.6;
+  cursor: default !important;
+}
+
+.event-links-disabled:hover {
+  background-color: #0f942e !important;
+  opacity: 0.6 !important;
+  cursor: default !important;
+}
+
 .event-links:hover {
   background-color: rgb(38, 41, 43);
   border-color: rgb(57, 62, 63);
