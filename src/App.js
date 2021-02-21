@@ -23,7 +23,7 @@ function App(props) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
   }, []);
 
   const darkTheme = createMuiTheme({

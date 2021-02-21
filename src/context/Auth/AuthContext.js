@@ -30,7 +30,7 @@ const AuthContextProvider = (props) => {
   const loadUser = async () => {
 
     try{
-    let response =   axios.get(`${process.env.REACT_APP_API_URL}user/me`,
+    let response =   await axios.get(`${process.env.REACT_APP_API_URL}user/me`,
         {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
