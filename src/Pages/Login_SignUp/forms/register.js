@@ -2,7 +2,9 @@ import React, {Component} from "react";
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
 import {AuthContext} from "../../../context/Auth/AuthContext";
-
+import {
+    withGoogleReCaptcha
+} from "react-google-recaptcha-v3";
 
 const regExp = RegExp(
     /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
@@ -48,6 +50,7 @@ class Register extends Component {
             year:"Year",
             college:"",
             confirmPassword: "",
+            captcha: "",
             isError: {
                 contactNumberError: "",
                 yearError: "",
@@ -59,6 +62,9 @@ class Register extends Component {
         }
     }
 
+    async componentDidMount() {
+        this.setState({captcha: await this.props.googleReCaptchaProps.executeRecaptcha('sign_up_page')})
+    }
 
 
     formValChange = e => {
@@ -126,6 +132,7 @@ class Register extends Component {
                 year,
                 college,
                 contactNumber,
+                captcha
             } = this.state;
             try {
                 const res = await axios.post(process.env.REACT_APP_API_URL+ "auth/register", {
@@ -136,6 +143,7 @@ class Register extends Component {
                     year,
                     college,
                     contactNumber,
+                    captcha
                 });
 
                 if (res.data.error) {
@@ -402,4 +410,4 @@ class Register extends Component {
     }
 }
 
-export default withRouter(Register);
+export default withRouter(withGoogleReCaptcha(Register));
