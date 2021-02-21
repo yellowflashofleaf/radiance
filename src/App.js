@@ -42,9 +42,6 @@ function App(props) {
 
   return (
     <div className="App">
-      <GoogleReCaptchaProvider
-          reCaptchaKey='6Ld_lGAaAAAAALZJijYnuGUlkEYAajn59A3d6-Y6'
-      >
       <ThemeProvider theme={darkTheme}>
         <SnackbarContextProvider>
           <AuthContextProvider>
@@ -64,7 +61,6 @@ function App(props) {
           </AuthContextProvider>
         </SnackbarContextProvider>
       </ThemeProvider>
-      </GoogleReCaptchaProvider>
     </div>
   );
 }

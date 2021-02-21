@@ -9,6 +9,7 @@ import Sponsor from "./Pages/Sponsors/Sponsor";
 import Home from "./Pages/Home";
 import { ProtectedRoute } from "./privateRoute";
 import Dashboard from "./EMS/views/Dashboard";
+import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
 
 class Routes extends React.Component {
   render() {
@@ -25,14 +26,18 @@ class Routes extends React.Component {
         </Route>
         <Route exact path="/login">
           <div style={{ zIndex: 10, overflow: "hidden" }}>
+              <GoogleReCaptchaProvider
+                  reCaptchaKey='6Ld_lGAaAAAAALZJijYnuGUlkEYAajn59A3d6-Y6'
+              >
             <Auth />
+              </GoogleReCaptchaProvider>
           </div>
         </Route>
-        <Route exact path="/register">
-          <div style={{ zIndex: 10, overflow: "hidden" }}>
-            <Auth />
-          </div>
-        </Route>
+        {/*<Route exact path="/register">*/}
+        {/*  <div style={{ zIndex: 10, overflow: "hidden" }}>*/}
+        {/*    <Auth />*/}
+        {/*  </div>*/}
+        {/*</Route>*/}
         <Route exact path="/about">
           <About />
         </Route>
