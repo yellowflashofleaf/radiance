@@ -11,7 +11,7 @@ export default function Home() {
         <div style={{ minHeight: "100vh" }}>
           <Main />
         </div>
-        <About />
+        {/* <About /> */}
       </div>
       {/* <Links/> */}
 
