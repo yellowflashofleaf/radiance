@@ -10,6 +10,7 @@ import Home from "./Pages/Home";
 import { ProtectedRoute } from "./privateRoute";
 import Dashboard from "./EMS/views/Dashboard";
 import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
+import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy.component";
 
 class Routes extends React.Component {
   render() {
@@ -54,6 +55,11 @@ class Routes extends React.Component {
         <Route path="/sponsors">
           <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Sponsor />
+          </div>
+        </Route>
+          <Route path="/privacy-policy">
+          <div style={{ zIndex: 10, overflow: "hidden" }}>
+            <PrivacyPolicy />
           </div>
         </Route>
         <ProtectedRoute path="/dashboard" component={Dashboard}>
