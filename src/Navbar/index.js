@@ -212,7 +212,7 @@ function Navbar() {
                     )}
                     {isAuth && (
                         <Link to="/" className={"login-btn"} onClick={() => logout()}>
-                            LogOut
+                            Log Out
                         </Link>
                     )}
 
