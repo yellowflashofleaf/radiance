@@ -28,7 +28,7 @@ class Routes extends React.Component {
                     <Glimpses/>
                 </Route>
                 <Route exact path="/login">
-                    <div style={{zIndex: 10, overflow: "hidden"}}>
+                    <div style={{zIndex: 0, overflow: "hidden"}}>
                         <GoogleReCaptchaProvider
                             reCaptchaKey='6Ld_lGAaAAAAALZJijYnuGUlkEYAajn59A3d6-Y6'
                         >
