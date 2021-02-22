@@ -2,7 +2,10 @@ import React, {Component} from "react";
 import axios from "axios";
 import {withRouter} from 'react-router-dom';
 import {AuthContext} from "../../../context/Auth/AuthContext";
-import {withGoogleReCaptcha} from "react-google-recaptcha-v3";
+import {
+    withGoogleReCaptcha
+} from "react-google-recaptcha-v3";
+import {store} from "react-notifications-component";
 
 const regExp = RegExp(
     /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
@@ -153,12 +156,38 @@ class Register extends Component {
                 localStorage.setItem("token", res.data.token).then(() => {
                     this.context.loadUser();
                 })
-                //TODO: Add snackbar notification that registered and email sent
-                this.props.history.push('/dashboard')
+
+                store.addNotification({
+                    title: "Authentication Successful",
+                    message: "Welcome to PULZION-21 !!",
+                    type: "success",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: true
+                    }
+                });
+
+                this.props.history.push('/events')
 
 
             } catch (e) {
-                console.log(e);
+                store.addNotification({
+                    title: "Authentication Error",
+                    message: e.response.data.error,
+                    type: "danger",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: true
+                    }
+                });
             }
 
         } else {
