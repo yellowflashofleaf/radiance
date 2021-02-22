@@ -38,7 +38,6 @@ function Glimpses() {
 
             // THUMBNAIL TOOLS & LABEL
             thumbnailL1Label: { display: false, position:'overImageOnTop', hideIcons: true, titleFontSize: '1.5em', align: 'left'},
-            thumbnailToolbarImage :  { topLeft: 'select', bottomRight : 'featured,display,download,info,cart' },
 
             // DISPLAY ANIMATION
             thumbnailDisplayTransition: 'flipUp',       // thumbnail display animation
