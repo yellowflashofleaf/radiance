@@ -121,6 +121,12 @@ function Navbar() {
     }, []);
 
     useEffect(() => {
+        if (localStorage.getItem("token")) {
+            getAllNotifications();
+        }
+    }, [isAuth]);
+
+    useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
         } else {
