@@ -150,13 +150,13 @@ function Navbar() {
       <div className="nav-bar sticky-top">
         <div className="main-logo">
           {/* <b>Pulzion'21</b> */}
-          <a href="/">
+          <Link to="/">
             <img
               src="/p21.png"
               height="30px"
               //   style={{ height: "10%", width: "auto" }}
             />
-          </a>
+          </Link>
         </div>
         <div className="nav-links">
           <Link
