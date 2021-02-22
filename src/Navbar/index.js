@@ -150,7 +150,7 @@ function Navbar() {
           {/* <b>Pulzion'21</b> */}
           <a href="/">
             <img
-              src="/p21.png"
+              src="https://pulzion-2021.s3.ap-south-1.amazonaws.com/assets/p21_w_594.png"
               height="30px"
               //   style={{ height: "10%", width: "auto" }}
             />
