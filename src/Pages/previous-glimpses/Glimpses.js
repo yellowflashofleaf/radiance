@@ -49,8 +49,12 @@ function Glimpses() {
         bottomRight: "featured,display,download,info,cart",
       },
 
-      // THUMBNAIL TOOLS & LABEL
-      thumbnailL1Label: {
+      // DISPLAY ANIMATION
+      thumbnailDisplayTransition: "flipUp", // thumbnail display animation
+      thumbnailDisplayTransitionDuration: 400,
+      thumbnailDisplayInterval: 200,
+      thumbnailDisplayOrder: "rowByRow",
+      thumbnailLLabel: {
         display: false,
         position: "overImageOnTop",
         hideIcons: true,
