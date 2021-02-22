@@ -5,7 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {Grid, TextField} from "@material-ui/core";
+import {CircularProgress, Grid, TextField} from "@material-ui/core";
 import axios from "axios";
 import {store} from "react-notifications-component";
 import {useHistory} from "react-router-dom";
@@ -51,9 +51,14 @@ function ForgotPasswordPage(props) {
     const [email, setEmail] = React.useState("")
     const [otp, setOTP] = React.useState("")
     const [password, setPassword] = React.useState("")
+
     const [emailError, setEmailError] = React.useState("")
     const [otpError, setOTPError] = React.useState("")
     const [passwordError, setPasswordError] = React.useState("")
+
+    const [loading1, setLoading1] = React.useState(false)
+    const [loading2, setLoading2] = React.useState(false)
+
     const [isOTPSent, setIsOTPSent] = React.useState(false)
 
     function handleEmailChange(e) {
@@ -73,7 +78,7 @@ function ForgotPasswordPage(props) {
             setPassword(pwd)
             setPasswordError("")
         } else
-            setPasswordError("Invalid email")
+            setPasswordError("Invalid Password")
     }
 
     function handleOTPChange(e) {
@@ -89,12 +94,14 @@ function ForgotPasswordPage(props) {
 
     async function handleGetOTP(e) {
         e.preventDefault()
+        setLoading1(true)
         try {
            const captcha = await executeRecaptcha("forgotPassword")
 
             await axios.post(`${process.env.REACT_APP_API_URL}auth/forgot-password/get-otp`, {email, captcha})
         } catch (e) {
         } finally {
+            setLoading1(false)
             store.addNotification({
                 title: "OTP Sent",
                 message: "Please check your email for OTP !!",
@@ -114,6 +121,7 @@ function ForgotPasswordPage(props) {
 
     async function handleCheckOTP(e) {
         e.preventDefault()
+        setLoading2(true)
         try {
             const captcha = await executeRecaptcha("forgotPassword")
 
@@ -143,7 +151,7 @@ function ForgotPasswordPage(props) {
         } catch (e) {
             store.addNotification({
                 title: "Reset Password",
-                message: "OTP Entered is Incorrect!",
+                message: e?.response?.data?.status || "OTP Entered is Incorrect!",
                 type: "danger",
                 insert: "top",
                 container: "top-right",
@@ -158,6 +166,8 @@ function ForgotPasswordPage(props) {
             setOTP("")
 
 
+        } finally {
+            setLoading2(false)
         }
     }
 
@@ -219,8 +229,10 @@ function ForgotPasswordPage(props) {
                         </div>}
                     </CardContent>
                     <CardActions className="text-center" style={{width:"100%"}}>
-                        <Button variant="contained" color="primary"
-                                onClick={isOTPSent ? handleCheckOTP : handleGetOTP}>{isOTPSent ? "Change Password" : "Get OTP"}</Button>
+                        {isOTPSent && <Button variant="contained" color="primary" disabled={loading2 || passwordError !== "" || otpError !== "" || otp === "" || password === ""}
+                                 onClick={handleCheckOTP}>Change Password {loading2 && <CircularProgress size={20}/>}</Button>}
+                        {!isOTPSent && <Button variant="contained" color="primary" disabled={loading1 || emailError !== "" || email === ""}
+                                 onClick={handleGetOTP}>Get OTP {loading1 && <CircularProgress size={20}/>}</Button>}
                     </CardActions>
                 </Card>
             </Grid>
