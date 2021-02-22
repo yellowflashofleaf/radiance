@@ -2,6 +2,7 @@
 import React from "react";
 import PopUp from "./PopUp";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import ResponsiveDialog from "../../EMS/components/modals";
 
 const Card = (props) => {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -43,6 +44,8 @@ const Card = (props) => {
                     </div>
                 </div>
             </div>
+            {/* <ResponsiveDialog isOpen={isModalOpen}
+                toggle={setIsModalOpen}/> */}
         </>
     );
 };
