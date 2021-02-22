@@ -15,12 +15,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function () {
   return (
     <>
-      <div className="main-about">
+      <div className="main-about mt-5">
         <section id="container-about main-h1-section">
           <div className="main-h1-div ">
-            <h1 className="About-Us page-title">ABOUT US</h1>
+            <h1 className="About-Us page-title mb-5">ABOUT US</h1>
           </div>
         </section>
+        <br />
         {/* <section id="pulzion-section" className="row pulzion-row">
           <div className="pulzion-bg-box  container-about col-lg-8">
             <div className="container-about  pulzion-div col-lg-12">
@@ -93,7 +94,7 @@ export default function () {
             </div>
           </div>
         </section> */}
-        <section id="pasc-acm-acmw-section">
+        <section id="pasc-acm-acmw-section mt-5">
           <div className="container-about pasc-acm-acmw-div-container">
             <div className="row pasc-acm-acmw-div-row">
               <div className="col-lg-4">
@@ -203,7 +204,7 @@ export default function () {
           </div>
         </section>
 
-        <section className="bg-dark py-5 mb-1">
+        <section className=" py-5 mb-1">
           <div className="container-about ">
             <h1 className="Header Contact-Us">
               <b>Contact Us</b>
@@ -212,15 +213,16 @@ export default function () {
 
           <div className="container-about">
             <div className=" row ">
-              <div className="address-content  col-lg-4 header">
-                <h2>Address</h2>
+              <div className="address-content  col-lg-5 header">
                 <IoLocationSharp size={30} />
+                <h2>Address</h2>
+
                 <h5>Pune Institute of Computer Technology,</h5>
                 <h5>Behind Bharati Vidyapeeth University,</h5>
                 <h5>Dhankawadi, Pune,</h5>
                 <h5>Maharashtra-411043</h5>
               </div>
-              <div className="container-about col-lg-4 contact-us-container">
+              <div className="container-about col-lg-2 contact-us-container">
                 <div className="contact-us-heading"></div>
                 <div className="contact-us-text">
                   <IoMail size={30} />
@@ -247,7 +249,7 @@ export default function () {
                   </a>
                 </div>
               </div>
-              <div className="col-lg-4 address-content">
+              <div className="col-lg-5 address-content">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15138.304757794562!2d73.8508336!3d18.4575421!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x871eddd0a8a0a108!2sSCTR&#39;S%20Pune%20Institute%20of%20Computer%20Technology!5e0!3m2!1sen!2sin!4v1607946113596!5m2!1sen!2sin"
                   width="290"

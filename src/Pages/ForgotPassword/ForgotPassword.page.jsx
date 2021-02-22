@@ -218,7 +218,7 @@ function ForgotPasswordPage(props) {
                             </Grid>
                         </div>}
                     </CardContent>
-                    <CardActions>
+                    <CardActions className="text-center" style={{width:"100%"}}>
                         <Button variant="contained" color="primary"
                                 onClick={isOTPSent ? handleCheckOTP : handleGetOTP}>{isOTPSent ? "Change Password" : "Get OTP"}</Button>
                     </CardActions>

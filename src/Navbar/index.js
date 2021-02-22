@@ -256,7 +256,7 @@ function Navbar() {
               <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
-                keepMounted
+                // keepMounted
                 open={anchorEl}
                 onClose={handleClose}
               >
