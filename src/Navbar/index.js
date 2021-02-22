@@ -226,7 +226,7 @@ function Navbar() {
                                     : "login-btn"
                             }
                         >
-                            Login <LockOpenIcon style={{display: "inline"}}/>
+                            Login
                         </Link>
                     )}
                     {isAuth && user && (
