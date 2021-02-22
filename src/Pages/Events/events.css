@@ -7,7 +7,7 @@
   border: 1px solid #00ccff;
   padding: 0.75rem 3rem;
   border-radius: 100px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: all 0.2s ease-in-out;
   color: #fff;
   background-color: rgb(27, 30, 31);
@@ -105,6 +105,11 @@ a.event-links:hover {
   height: 100%;
 }
 
+.e-card .event-links {
+  font-size: 1rem;
+  padding: 0.5rem 3rem;
+}
+
 .event-info {
   font-size: 1rem;
   color: #fff;
@@ -169,7 +174,7 @@ a.event-links:hover {
 .e-card-buttons button:hover {
   /* background-color: #00ccff;
   color: #131313; */
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
 }
 
 .popup-container {

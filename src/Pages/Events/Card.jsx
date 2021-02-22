@@ -8,6 +8,8 @@ const Card = (props) => {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     return (
         <>
+         {/* <ResponsiveDialog isOpen={isModalOpen}
+                toggle={setIsModalOpen}/> */}
             <PopUp
                 {...props}
                 id={props._id}
@@ -32,20 +34,19 @@ const Card = (props) => {
                         >
                             <div className="event-name"><b>{props.name}</b></div>
                             <div className="event-info"><i> {props.info}</i></div>
-                            <button
-                                className="event-links"
-                                onClick={() => props.toggle && props.toggle(false)}
-                            >
-                                View
-                            </button>
+                                <button
+                                    className="event-links"
+                                    onClick={() => props.toggle && props.toggle(false)}
+                                >
+                                    View
+                                </button>
                             <br/><br/>
                             {props.isRegistered && <><div style={{color: "#0acc0a"}}>Registered <CheckCircleOutlineIcon/></div><div style={{color: "#fff", paddingTop: "0.2rem"}}>Ticket ID: {props.regId}</div></>}
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <ResponsiveDialog isOpen={isModalOpen}
-                toggle={setIsModalOpen}/> */}
+           
         </>
     );
 };
