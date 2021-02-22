@@ -74,6 +74,12 @@
   width: 7rem;
 }
 
+@media (max-width: 600px){
+  .login-btn {
+    width: 8rem;
+  }
+}
+
 .login-btn-div a:hover {
   text-decoration: none;
   color: #fff;
