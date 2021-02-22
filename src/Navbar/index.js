@@ -235,7 +235,7 @@ function Navbar() {
                     {isAuth && user && (
                         <>
                             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                                <Gravatar email={user.email} /> &nbsp; <span>Pratik</span> <ExpandMoreIcon/>
+                                <Gravatar email={user.email} /> &nbsp; <span>{user.fname}</span> <ExpandMoreIcon/>
                             </Button>
                             <Menu
                                 id="simple-menu"
