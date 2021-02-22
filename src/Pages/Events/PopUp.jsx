@@ -5,12 +5,12 @@ import axios from "axios";
 import {SnackbarContext} from "../../context/Snackbar/SnackbarContext";
 import classNames from "classnames";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import {CircularProgress} from "@material-ui/core";
 
 class PopConfirm extends React.Component {
     state = {
-        visible: true
+        visible: true,
     };
 
     togglePop = () =>
@@ -49,7 +49,7 @@ const PopUp = (props) => {
 
     const authContext = useContext(AuthContext);
     const [isOpen, setIsOpen] = React.useState(false);
-
+    const [pending, setPending] = React.useState(false)
     const {isAuth} = authContext;
     const snackbarContext = useContext(SnackbarContext);
     const {openSnackbar} = snackbarContext;
@@ -57,7 +57,7 @@ const PopUp = (props) => {
     const registerForEvent = (id) => {
         console.log(id)
         // var data = JSON.stringify({ event_id: id });
-
+        setPending(true)
         var config = {
             method: "post",
             url: process.env.REACT_APP_API_URL + "events/register/" + id,
@@ -77,8 +77,12 @@ const PopUp = (props) => {
             .catch(function (error) {
                 openSnackbar("Error: " + error.response.data.msg, "error");
                 console.log(error.response);
-            });
-    };
+            }).finally(() => {
+            setPending(false)
+        })
+
+    }
+
 
     console.log(props.isRegistered)
 
@@ -129,8 +133,9 @@ const PopUp = (props) => {
                                     className={props.isRegistered ? "event-links event-links-disabled" : "event-links event-links-active"}
                                     disabled={props.isRegistered}
                                 >
-                                    {!props.isRegistered && <>Register <PlaylistAddIcon /></>}
-                                    {props.isRegistered && <>Registered <CheckCircleOutlineIcon /></>}
+                                    {!props.isRegistered && <>{!pending && <>Register <PlaylistAddIcon/></>} {pending && <>Register <CircularProgress
+                                        size={20}/></>} </>}
+                                    {props.isRegistered && <>Registered <CheckCircleOutlineIcon/></>}
                                 </button>
 
                             </PopConfirm>}
@@ -148,6 +153,5 @@ const PopUp = (props) => {
         </>
     );
 }
-;
 
 export default PopUp;
