@@ -58,8 +58,8 @@ button:focus {
 }
 
 .event-links-disabled {
-    opacity: 0.5;
-    cursor: default !important
+  opacity: 0.5;
+  cursor: default !important;
 }
 
 a.event-links:hover {
@@ -102,6 +102,13 @@ a.event-links:hover {
   margin: 2vw auto !important;
   padding: 1vw;
   cursor: pointer;
+  height: 100%;
+}
+
+.event-info {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 15px;
 }
 
 @media (min-width: 600px) {
@@ -147,10 +154,10 @@ a.event-links:hover {
 }
 
 .e-card img {
-  width: 70%;
+  width: 60%;
   height: auto;
   margin: auto;
-  border-radius: 100vw;
+  /* border-radius: 100vw; */
 }
 
 .e-card-buttons .link-event {

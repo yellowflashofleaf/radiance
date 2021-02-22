@@ -13,7 +13,7 @@ const Card = (props) => {
                 open={isModalOpen}
                 toggle={setIsModalOpen}
             />
-            <div className="col-md-3">
+            <div className="col-md-3 px-3 py-3">
                 <div className="card e-card gradient-border" onClick={() => setIsModalOpen(true)}>
                     <img
                         src={props.image}
@@ -29,7 +29,8 @@ const Card = (props) => {
                                  minWidth: "50%"
                              }}
                         >
-                            <div className="event-name">{props.name}</div>
+                            <div className="event-name"><b>{props.name}</b></div>
+                            <div className="event-info"><i> {props.info}</i></div>
                             <button
                                 className="event-links"
                                 onClick={() => props.toggle && props.toggle(false)}
@@ -38,7 +39,6 @@ const Card = (props) => {
                             </button>
                             <br/><br/>
                             {props.isRegistered && <><div style={{color: "#0acc0a"}}>Registered <CheckCircleOutlineIcon/></div><div style={{color: "#fff", paddingTop: "0.2rem"}}>Ticket ID: {props.regId}</div></>}
-                            {!props.isRegistered && <><div style={{color: "#0acc0a"}}>&nbsp;</div><div style={{color: "#fff", paddingTop: "0.2rem"}}>&nbsp;</div></>}
                         </div>
                     </div>
                 </div>
