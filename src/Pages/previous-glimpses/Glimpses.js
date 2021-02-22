@@ -49,16 +49,12 @@ function Glimpses() {
         bottomRight: "featured,display,download,info,cart",
       },
 
-<<<<<<< HEAD
       // DISPLAY ANIMATION
       thumbnailDisplayTransition: "flipUp", // thumbnail display animation
       thumbnailDisplayTransitionDuration: 400,
       thumbnailDisplayInterval: 200,
       thumbnailDisplayOrder: "rowByRow",
-=======
-            // THUMBNAIL TOOLS & LABEL
-            thumbnailL1Label: { display: false, position:'overImageOnTop', hideIcons: true, titleFontSize: '1.5em', align: 'left'},
->>>>>>> a277bcdf07744c81b36d4043bcdc4bf3886d7778
+      thumbnailLLabel: { display: false, position:'overImageOnTop', hideIcons: true, titleFontSize: '1.5em', align: 'left'},
 
       // THUMBNAIL'S HOVER ANIMATION
       thumbnailHoverEffect2: "toolsSlideUp|labelSlideDown",
