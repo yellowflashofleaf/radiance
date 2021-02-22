@@ -87,7 +87,7 @@ const Index = (props) => {
                 >
                     Non Technical Events
                 </a>
-                <a
+                {isAuth && <a
                     href="/myevents"
                     className={
                         flag === "MY" ? "event-links event-links-active" : "event-links"
@@ -98,7 +98,7 @@ const Index = (props) => {
                     }}
                 >
                     My Events
-                </a>
+                </a>}
             </div>
 
             <div className="e-card-container row justify-content-center">
