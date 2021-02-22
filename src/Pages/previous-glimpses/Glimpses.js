@@ -24,110 +24,66 @@ function Glimpses() {
             // The optional add-on nanoPhotosProvider is used for this example - this is not mandatory and can easily be replaced by a list of medias
             kind: 'nano_photos_provider2',
             dataProvider: 'https://pict.acm.org/gallery/nano_photos_provider2.php',
-
+            album: "0",
             // GALLERY AND THUMBNAIL LAYOUT
-            galleryMosaic : [                       // default layout
-                { w: 2, h: 2, c: 1, r: 1 },
-                { w: 1, h: 1, c: 3, r: 1 },
-                { w: 1, h: 1, c: 3, r: 2 },
-                { w: 1, h: 2, c: 4, r: 1 },
-                { w: 2, h: 1, c: 5, r: 1 },
-                { w: 2, h: 2, c: 5, r: 2 },
-                { w: 1, h: 1, c: 4, r: 3 },
-                { w: 2, h: 1, c: 2, r: 3 },
-                { w: 1, h: 2, c: 1, r: 3 },
-                { w: 1, h: 1, c: 2, r: 4 },
-                { w: 2, h: 1, c: 3, r: 4 },
-                { w: 1, h: 1, c: 5, r: 4 },
-                { w: 1, h: 1, c: 6, r: 4 }
-            ],
-            galleryMosaicXS : [                     // layout for XS width
-                { w: 2, h: 2, c: 1, r: 1 },
-                { w: 1, h: 1, c: 3, r: 1 },
-                { w: 1, h: 1, c: 3, r: 2 },
-                { w: 1, h: 2, c: 1, r: 3 },
-                { w: 2, h: 1, c: 2, r: 3 },
-                { w: 1, h: 1, c: 2, r: 4 },
-                { w: 1, h: 1, c: 3, r: 4 }
-            ],
-            galleryMosaicSM : [                     // layout for SM width
-                { w: 2, h: 2, c: 1, r: 1 },
-                { w: 1, h: 1, c: 3, r: 1 },
-                { w: 1, h: 1, c: 3, r: 2 },
-                { w: 1, h: 2, c: 1, r: 3 },
-                { w: 2, h: 1, c: 2, r: 3 },
-                { w: 1, h: 1, c: 2, r: 4 },
-                { w: 1, h: 1, c: 3, r: 4 }
-            ],
-            galleryMaxRows: 1,
-            galleryDisplayMode: 'rows',
+            thumbnailHeight: '250', thumbnailWidth: 'auto',
+            // galleryDisplayMode: 'pagination',                 // gallery pagination mode
+            galleryMaxRows: 3000,                                // gallery with max 3 rows
             gallerySorting: 'random',
-            thumbnailDisplayOrder: 'random',
+            thumbnailAlignment: 'fillWidth',
+            thumbnailL1GutterWidth: 20,
+            thumbnailL1GutterHeight: 20,
+            thumbnailBorderHorizontal: 1,
+            thumbnailBorderVertical: 1,
 
-            thumbnailHeight: '180', thumbnailWidth: '220',
-            thumbnailAlignment: 'scaled',
-            thumbnailGutterWidth: 0, thumbnailGutterHeight: 0,
-            thumbnailBorderHorizontal: 0, thumbnailBorderVertical: 0,
-
-            thumbnailToolbarImage: null,
-            thumbnailToolbarAlbum: null,
-            thumbnailLabel: { display: false },
+            // THUMBNAIL TOOLS & LABEL
+            thumbnailL1Label: { display: false, position:'overImageOnTop', hideIcons: true, titleFontSize: '1.5em', align: 'left'},
+            thumbnailToolbarImage :  { topLeft: 'select', bottomRight : 'featured,display,download,info,cart' },
 
             // DISPLAY ANIMATION
-            // for gallery
-            galleryDisplayTransitionDuration: 1500,
-            // for thumbnails
-            thumbnailDisplayTransition: 'imageSlideUp',
-            thumbnailDisplayTransitionDuration: 1200,
-            thumbnailDisplayTransitionEasing: 'easeInOutQuint',
-            thumbnailDisplayInterval: 60,
+            thumbnailDisplayTransition: 'flipUp',       // thumbnail display animation
+            thumbnailDisplayTransitionDuration: 400,
+            thumbnailDisplayInterval: 200,
+            thumbnailDisplayOrder: 'rowByRow',
 
-            // THUMBNAIL HOVER ANIMATION
-            thumbnailBuildInit2: 'image_scale_1.15',
-            thumbnailHoverEffect2: 'thumbnail_scale_1.00_1.05_300|image_scale_1.15_1.00',
+            // THUMBNAIL'S HOVER ANIMATION
+            thumbnailHoverEffect2: 'toolsSlideUp|labelSlideDown',
             touchAnimation: true,
-            touchAutoOpenDelay: 500,
-
-            // LIGHTBOX
-            viewerToolbar: { display: false },
-            viewerTools:    {
-                topLeft:   'label',
-                topRight:  'shareButton, rotateLeft, rotateRight, fullscreenButton, closeButton'
-            },
+            touchAutoOpenDelay: -1,
 
             // GALLERY THEME
             galleryTheme : {
-                thumbnail: { background: '#111' },
+                thumbnail: { titleShadow : 'none', descriptionShadow : 'none', titleColor: '#fff', borderColor: '#fff' },
+                navigationPagination :  { background: '#3C4B5B', color: '#fff', colorHover: '#aaa', borderRadius: '4px' },
             },
 
+            // callback to customize the content of the media info popup
+
             // DEEP LINKING
-            locationHash: true
+            locationHash: false
         });
+
+        // Function called before the popup for media info is displayed
+        // Content and title can be changed
+
 
     })
     const classes = useStyles();
     return (
         <Grid container direction="column" style={{zIndex: 10}}>
             <Grid item container>
-                <div className="heroText">
-                    <Grid item xs={0} sm={2}/>
-                    <Grid item xs={12}>
-                        <Typography
-                            className={classes.text}
-                            variant="h3"
-                            style={{
-                                fontFamily: "Segoe UI",
-                                textAlign: "center",
-                            }}
-                            gutterBottom
+                <div className='text-center my-5' style={{width: "100vw"}}>
+                        <div
+                            className='page-title ml-auto mr-auto'
                         >
                             Glimpses of previous years
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={0} sm={2}/>
+                        </div>
                 </div>
             </Grid>
-            <div id="nanogallery"></div>
+            <div className="px-5">
+                <div id="nanogallery"></div>
+
+            </div>
 
         </Grid>
     );
