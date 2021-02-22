@@ -21,7 +21,7 @@ export const getToken = (setTokenFound) => {
         if (currentToken) {
             console.log('current token for client: ', currentToken);
             setTokenFound(true);
-            axios.post(`${process.env.REACT_APP_API_URL}/user/subscribe`,{token:currentToken})
+            axios.post(`${process.env.REACT_APP_API_URL}user/subscribe`,{token:currentToken})
                 .then(res=>{
                     console.log(res)
                 })

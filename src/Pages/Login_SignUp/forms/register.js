@@ -2,11 +2,10 @@ import React, {Component} from "react";
 import axios from "axios";
 import {withRouter} from 'react-router-dom';
 import {AuthContext} from "../../../context/Auth/AuthContext";
-import {
-    withGoogleReCaptcha
-} from "react-google-recaptcha-v3";
+import {withGoogleReCaptcha} from "react-google-recaptcha-v3";
 import {store} from "react-notifications-component";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import {CircularProgress} from "@material-ui/core";
 
 const regExp = RegExp(
     /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
@@ -51,7 +50,7 @@ class Register extends Component {
             year: "Year",
             college: "",
             confirmPassword: "",
-            captcha: "",
+            pending: false,
             isError: {
                 contactNumberError: "",
                 yearError: "",
@@ -61,10 +60,6 @@ class Register extends Component {
                 confirmPasswordError: "",
             }
         }
-    }
-
-    async componentDidMount() {
-        this.setState({captcha: await this.props.googleReCaptchaProps.executeRecaptcha('sign_up_page')})
     }
 
 
@@ -121,6 +116,7 @@ class Register extends Component {
 
     onSubmit = async (e) => {
         e.preventDefault();
+        this.setState({pending: true})
 
         if (formValid(this.state)) {
             const {
@@ -131,7 +127,7 @@ class Register extends Component {
                 year,
                 college,
                 contactNumber,
-                captcha
+
             } = this.state;
             try {
                 const res = await axios.post(process.env.REACT_APP_API_URL + "auth/register", {
@@ -142,7 +138,7 @@ class Register extends Component {
                     year,
                     college,
                     contactNumber,
-                    captcha
+                    captcha: await this.props.googleReCaptchaProps.executeRecaptcha('sign_up_page')
                 });
 
                 if (res.data.error) {
@@ -154,10 +150,8 @@ class Register extends Component {
                 }
 
                 console.log(res)
-                localStorage.setItem("token", res.data.token).then(() => {
-                    this.context.loadUser();
-                })
-
+                await localStorage.setItem("token", res.data.token)
+                this.context.loadUser();
                 store.addNotification({
                     title: "Authentication Successful",
                     message: "Welcome to PULZION-21 !!",
@@ -178,7 +172,7 @@ class Register extends Component {
             } catch (e) {
                 store.addNotification({
                     title: "Authentication Error",
-                    message: e.response.data.error,
+                    message: "Please check registration details !!",
                     type: "danger",
                     insert: "top",
                     container: "top-right",
@@ -189,6 +183,8 @@ class Register extends Component {
                         onScreen: true
                     }
                 });
+            } finally {
+                this.setState({pending: false})
             }
 
         } else {
@@ -196,128 +192,128 @@ class Register extends Component {
         }
     };
 
-
-    onSubmit1 = async (e) => {
-        e.preventDefault();
-        this.setState({
-            fnameError: "",
-            lnameError: "",
-            contactNumberError: "",
-            yearError: "",
-            collegeError: "",
-            emailError: "",
-            passwordError: "",
-            confirmPasswordError: "",
-        });
-        const fname = e.target.elements.fname.value.trim();
-        const lname = e.target.elements.lname.value.trim();
-        const email = e.target.elements.email.value.trim();
-        const college = e.target.elements.college.value.trim();
-        let year = this.state.year;
-        const ref = e.target.elements.yearOther;
-        const contactNumber = e.target.elements.contactNumber.value.trim();
-        const password = e.target.elements.password.value.trim();
-        const confirmPassword = e.target.elements.confirmPassword.value.trim();
-        if (
-            !fname ||
-            !lname ||
-            !email ||
-            !password ||
-            !college ||
-            year === "Year" ||
-            !contactNumber ||
-            !confirmPassword
-        ) {
-            if (!fname) {
-                this.setState({
-                    fnameError: "*Required",
-                });
-            }
-            if (!lname) {
-                this.setState({
-                    lnameError: "*Required",
-                });
-            }
-            if (!email) {
-                this.setState({
-                    emailError: "*Required",
-                });
-            }
-            if (!password) {
-                this.setState({
-                    passwordError: "*Required",
-                });
-            }
-            if (!confirmPassword) {
-                this.setState({
-                    confirmPasswordError: "*Required",
-                });
-            }
-            if (!contactNumber) {
-                this.setState({
-                    contactNumberError: "*Required",
-                });
-            }
-            if (!college) {
-                this.setState({
-                    collegeError: "*Required",
-                });
-            }
-            if (year === "Year") {
-                this.setState({
-                    yearError: "*Required",
-                });
-            }
-        } else if (password !== confirmPassword) {
-            this.setState({
-                confirmPasswordError: "Password Doesn't match.",
-            });
-        } else {
-            if (year === "other") {
-                const yearOther = ref.value.trim();
-                if (!yearOther) {
-                    this.setState({
-                        yearError: "*Required",
-                    });
-                    return;
-                }
-                year = yearOther;
-            }
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            var requestOptions = {
-                headers: myHeaders,
-                redirect: "follow",
-            };
-            try {
-                const res = await axios.post(process.env.REACT_APP_API_URL + "auth/register", {
-                    email,
-                    password,
-                    fname,
-                    lname,
-                    year,
-                    college,
-                    contactNumber,
-                });
-
-                if (res.data.error) {
-                    return res.data.error.forEach((element) => {
-                        this.setState({
-                            [Object.keys(element)[0]]: Object.values(element)[0],
-                        });
-                    });
-                }
-
-                console.log(res)
-                //TODO: Add snackbar notification that registered and email sent
-                this.props.history.push('/login')
-
-
-            } catch (e) {
-                console.log(e);
-            }
-        }
-    };
+    //
+    // onSubmit1 = async (e) => {
+    //     e.preventDefault();
+    //     this.setState({
+    //         fnameError: "",
+    //         lnameError: "",
+    //         contactNumberError: "",
+    //         yearError: "",
+    //         collegeError: "",
+    //         emailError: "",
+    //         passwordError: "",
+    //         confirmPasswordError: "",
+    //     });
+    //     const fname = e.target.elements.fname.value.trim();
+    //     const lname = e.target.elements.lname.value.trim();
+    //     const email = e.target.elements.email.value.trim();
+    //     const college = e.target.elements.college.value.trim();
+    //     let year = this.state.year;
+    //     const ref = e.target.elements.yearOther;
+    //     const contactNumber = e.target.elements.contactNumber.value.trim();
+    //     const password = e.target.elements.password.value.trim();
+    //     const confirmPassword = e.target.elements.confirmPassword.value.trim();
+    //     if (
+    //         !fname ||
+    //         !lname ||
+    //         !email ||
+    //         !password ||
+    //         !college ||
+    //         year === "Year" ||
+    //         !contactNumber ||
+    //         !confirmPassword
+    //     ) {
+    //         if (!fname) {
+    //             this.setState({
+    //                 fnameError: "*Required",
+    //             });
+    //         }
+    //         if (!lname) {
+    //             this.setState({
+    //                 lnameError: "*Required",
+    //             });
+    //         }
+    //         if (!email) {
+    //             this.setState({
+    //                 emailError: "*Required",
+    //             });
+    //         }
+    //         if (!password) {
+    //             this.setState({
+    //                 passwordError: "*Required",
+    //             });
+    //         }
+    //         if (!confirmPassword) {
+    //             this.setState({
+    //                 confirmPasswordError: "*Required",
+    //             });
+    //         }
+    //         if (!contactNumber) {
+    //             this.setState({
+    //                 contactNumberError: "*Required",
+    //             });
+    //         }
+    //         if (!college) {
+    //             this.setState({
+    //                 collegeError: "*Required",
+    //             });
+    //         }
+    //         if (year === "Year") {
+    //             this.setState({
+    //                 yearError: "*Required",
+    //             });
+    //         }
+    //     } else if (password !== confirmPassword) {
+    //         this.setState({
+    //             confirmPasswordError: "Password Doesn't match.",
+    //         });
+    //     } else {
+    //         if (year === "other") {
+    //             const yearOther = ref.value.trim();
+    //             if (!yearOther) {
+    //                 this.setState({
+    //                     yearError: "*Required",
+    //                 });
+    //                 return;
+    //             }
+    //             year = yearOther;
+    //         }
+    //         var myHeaders = new Headers();
+    //         myHeaders.append("Content-Type", "application/json");
+    //         var requestOptions = {
+    //             headers: myHeaders,
+    //             redirect: "follow",
+    //         };
+    //         try {
+    //             const res = await axios.post(process.env.REACT_APP_API_URL + "auth/register", {
+    //                 email,
+    //                 password,
+    //                 fname,
+    //                 lname,
+    //                 year,
+    //                 college,
+    //                 contactNumber,
+    //             });
+    //
+    //             if (res.data.error) {
+    //                 return res.data.error.forEach((element) => {
+    //                     this.setState({
+    //                         [Object.keys(element)[0]]: Object.values(element)[0],
+    //                     });
+    //                 });
+    //             }
+    //
+    //             console.log(res)
+    //             //TODO: Add snackbar notification that registered and email sent
+    //             this.props.history.push('/login')
+    //
+    //
+    //         } catch (e) {
+    //             console.log(e);
+    //         }
+    //     }
+    // };
 
     render() {
         const {isError} = this.state;
@@ -428,7 +424,8 @@ class Register extends Component {
                     <small className="error">{isError.confirmPasswordError}</small>
                 )}
                 <button id="signup-btn" type="submit" className="button">
-                    Sign Up <PersonAddIcon />
+                    {!this.state.pending && <>Sign Up <PersonAddIcon/></>}
+                    {this.state.pending && <>Sign Up <CircularProgress size={20}/></>}
                 </button>
             </form>
         );
