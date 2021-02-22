@@ -5,13 +5,13 @@ import menuIcon from "./right-menu-bars.svg";
 import closeIcon from "./cancel.svg";
 import "./Navbar.css";
 import $ from "jquery";
-import {AuthContext} from "../context/Auth/AuthContext";
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Avatar from '@material-ui/core/Avatar';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Gravatar from 'react-gravatar'
+import { AuthContext } from "../context/Auth/AuthContext";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Avatar from "@material-ui/core/Avatar";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Gravatar from "react-gravatar";
 
 const variants = {
   open: { opacity: 1, display: "flex" },
@@ -19,26 +19,26 @@ const variants = {
 };
 
 function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    let location = useLocation();
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+  const [isOpen, setIsOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(false);
+  let location = useLocation();
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-    $(function () {
-        $(document).scroll(function () {
-            var $nav = $(".nav-bar");
-            $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
-        });
+  const handleClose = () => {
+    setAnchorEl(false);
+  };
+  $(function () {
+    $(document).scroll(function () {
+      var $nav = $(".nav-bar");
+      $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
     });
+  });
 
   const authContext = useContext(AuthContext);
 
-    const {isAuth, logout, loadUser, user} = authContext;
+  const { isAuth, logout, loadUser, user } = authContext;
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -216,40 +216,54 @@ function Navbar() {
           </Link>
         </div>
 
-
-
-                <div className="login-btn-div">
-                    {!isAuth && (
-                        <Link
-                            to="/login"
-                            className={
-                                location.pathname === "/login" ||
-                                location.pathname === "/register"
-                                    ? "selected login-btn"
-                                    : "login-btn"
-                            }
-                        >
-                            Login
-                        </Link>
-                    )}
-                    {isAuth && user && (
-                        <>
-                            <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                                <Gravatar email={user.email} /> &nbsp; <span>{user.fname}</span> <ExpandMoreIcon/>
-                            </Button>
-                            <Menu
-                                id="simple-menu"
-                                anchorEl={anchorEl}
-                                keepMounted
-                                open={Boolean(anchorEl)}
-                                onClose={handleClose}
-                            >
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={() => logout()}>Logout</MenuItem>
-                            </Menu>
-                        </>
-                    )}
+        <div className="login-btn-div">
+          {!isAuth && (
+            <Link
+              to="/login"
+              className={
+                location.pathname === "/login" ||
+                location.pathname === "/register"
+                  ? "selected login-btn"
+                  : "login-btn"
+              }
+            >
+              Login
+            </Link>
+          )}
+          {isAuth && user && (
+            <>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                <Gravatar
+                  style={{
+                    borderRadius: "25px",
+                    height: "30px",
+                    width: "30px",
+                  }}
+                  email={user.email}
+                />{" "}
+                &nbsp;{" "}
+                <span style={{ textTransform: "capitalize" }}>
+                  {user.fname}
+                </span>{" "}
+                <ExpandMoreIcon />
+              </Button>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={() => logout()}>Logout</MenuItem>
+              </Menu>
+            </>
+          )}
 
           <img
             className={"navbar-toggle-icon"}
