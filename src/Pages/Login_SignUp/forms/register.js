@@ -6,6 +6,7 @@ import {
     withGoogleReCaptcha
 } from "react-google-recaptcha-v3";
 import {store} from "react-notifications-component";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
 const regExp = RegExp(
     /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
@@ -427,7 +428,7 @@ class Register extends Component {
                     <small className="error">{isError.confirmPasswordError}</small>
                 )}
                 <button id="signup-btn" type="submit" className="button">
-                    Sign Up
+                    Sign Up <PersonAddIcon />
                 </button>
             </form>
         );

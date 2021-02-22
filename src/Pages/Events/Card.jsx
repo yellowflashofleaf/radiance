@@ -38,6 +38,7 @@ const Card = (props) => {
                             </button>
                             <br/><br/>
                             {props.isRegistered && <><div style={{color: "#0acc0a"}}>Registered <CheckCircleOutlineIcon/></div><div style={{color: "#fff", paddingTop: "0.2rem"}}>Ticket ID: {props.regId}</div></>}
+                            {!props.isRegistered && <><div style={{color: "#0acc0a"}}>&nbsp;</div><div style={{color: "#fff", paddingTop: "0.2rem"}}>&nbsp;</div></>}
                         </div>
                     </div>
                 </div>

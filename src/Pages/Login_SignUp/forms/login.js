@@ -3,6 +3,7 @@ import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
 import {AuthContext} from "../../../context/Auth/AuthContext";
 import {store} from "react-notifications-component";
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 
 const Login = (props) => {
@@ -118,7 +119,7 @@ const Login = (props) => {
             {errors.error && <div className="error main-error">{errors.error}</div>}
             {/* <Link to="/dashboard"> */}{" "}
             <button type="submit" id="signin-btn" className="button">
-                Sign In
+                Sign In <LockOpenIcon />
             </button>
             {/* </Link> */}
         </form>

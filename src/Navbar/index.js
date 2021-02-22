@@ -12,6 +12,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Gravatar from 'react-gravatar'
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const variants = {
   open: { opacity: 1, display: "flex" },
@@ -229,7 +231,7 @@ function Navbar() {
                                     : "login-btn"
                             }
                         >
-                            Login
+                            Login <LockOpenIcon style={{display: "inline"}} />
                         </Link>
                     )}
                     {isAuth && user && (
@@ -246,7 +248,7 @@ function Navbar() {
                             >
                                     <MenuItem onClick={handleClose}>Profile</MenuItem>
                                     <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={() => logout()}>Logout</MenuItem>
+                                    <MenuItem onClick={() => logout()}>Logout <ExitToAppIcon /></MenuItem>
                             </Menu>
                         </>
                     )}
