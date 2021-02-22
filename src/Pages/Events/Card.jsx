@@ -1,29 +1,22 @@
 // import Link from "next/link";
 import React from "react";
 import PopUp from "./PopUp";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 
 const Card = (props) => {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     return (
         <>
             <PopUp
+                {...props}
+                id={props._id}
                 open={isModalOpen}
                 toggle={setIsModalOpen}
-                info={props.info}
-                moreInfo={props.moreInfo}
-                team={props.team}
-                fees={props.fees}
-                rules={props.rules}
-                rounds={props.rounds}
-                wildcard={props.wildcard}
-                wdLink={props.wdLink}
-                wdInfo={props.wdInfo}
-                content={props.content}
             />
             <div className="col-md-3">
                 <div className="card e-card gradient-border" onClick={() => setIsModalOpen(true)}>
                     <img
-                        src={props.img || "https://via.placeholder.com/400"}
+                        src={props.image}
                         alt="event img"
                     />
                     <div className="e-card-text text-center">
@@ -36,15 +29,15 @@ const Card = (props) => {
                                  minWidth: "50%"
                              }}
                         >
-                            <div className="event-name">{props.content}</div>
-                            <a href="#">
-                                {/* <button
-              className="link"
-              onClick={() => setIsModalOpen(true)}
-            >
-              Register
-            </button> */}
-                            </a>
+                            <div className="event-name">{props.name}</div>
+                            <button
+                                className="event-links"
+                                onClick={() => props.toggle && props.toggle(false)}
+                            >
+                                View
+                            </button>
+                            <br/><br/>
+                            {props.isRegistered && <><div style={{color: "#0acc0a"}}>Registered <CheckCircleOutlineIcon/></div><div style={{color: "#fff", paddingTop: "0.2rem"}}>Ticket ID: {props.regId}</div></>}
                         </div>
                     </div>
                 </div>

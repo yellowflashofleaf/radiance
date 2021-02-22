@@ -9,7 +9,26 @@
   border-radius: 100px;
   font-size: 1.2rem;
   transition: all 0.2s ease-in-out;
-  color: #0dcaf0;
+  color: #fff;
+  background-color: rgb(27, 30, 31);
+  margin: 0 0.4rem;
+}
+
+.event-links-disabled {
+  background-color: #0f942e;
+  opacity: 0.6;
+  cursor: default !important;
+}
+
+.event-links-disabled:hover {
+  background-color: #0f942e !important;
+  opacity: 0.6 !important;
+  cursor: default !important;
+}
+
+.event-links:hover {
+  background-color: rgb(38, 41, 43);
+  border-color: rgb(57, 62, 63);
 }
 
 .event-name {
@@ -32,6 +51,11 @@ button:focus {
   background-color: #0dcaf0;
   color: #000;
   font-weight: 500;
+}
+
+.event-links-disabled {
+    opacity: 0.5;
+    cursor: default !important
 }
 
 a.event-links:hover {
@@ -150,14 +174,14 @@ a.event-links:hover {
   background-color: rgba(0, 0, 0, 0.9);
   transition: all 0.3s ease-in-out;
   color: #000 !important;
-  z-index: 2000;
+  z-index: 1100;
 }
 
 .popup {
   background-color: #fff;
   /* border-radius: 2rem; */
   padding: 2rem;
-  z-index: 2000;
+  z-index: 1101;
   width: 670px;
   /* box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.774); */
   margin: auto;
@@ -167,10 +191,6 @@ a.event-links:hover {
   transform: translate(-50%, -50%);
   max-height: calc(100vh - 100px);
   overflow-y: auto;
-}
-
-.popup .event-links {
-  color: #000 !important;
 }
 
 .popup h1 {
@@ -300,4 +320,85 @@ a.event-links:hover {
   border-radius: 0px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #0dcaf0;
+}
+
+.pop-container {
+  margin-top: 200px;
+}
+
+.pop-container {
+  position: relative;
+  display: inline;
+}
+
+.pop-content {
+  visibility: hidden;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -80px;
+  margin-bottom: 10px;
+  z-index: 100;
+  color: gray;
+  width: 230px;
+  text-align: center;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s;
+}
+
+span.warn {
+  color: yellow;
+  display: inline-block;
+}
+
+span.warn::after {
+  content: "\E62C";
+  position: absolute;
+}
+
+.hidden {
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+}
+.text-content::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.text-content {
+  padding: 4px 0px 12px;
+  text-align: left;
+}
+
+.actions {
+  text-align: right;
+}
+.actions button {
+  padding: 3px 7px;
+  margin-left: 8px;
+  border-radius: 4px;
+  background-color: #fff;
+  background-image: none;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.65);
+  outline: 0px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s;
+}
+
+.actions button:hover {
+  color: #fff;
+  background-color: #1890ff;
+  border-color: #1890ff;
 }

@@ -1,22 +1,84 @@
-import { Button } from "@material-ui/core";
-import React, {useContext, useEffect} from "react";
-import Modal from "react-modal"
-import { AuthContext } from "../../context/Auth/AuthContext";
+import React, {useContext} from "react";
+import {AuthContext} from "../../context/Auth/AuthContext";
+import {Link} from "react-router-dom";
+import axios from "axios";
+import {SnackbarContext} from "../../context/Snackbar/SnackbarContext";
+import classNames from "classnames";
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+
+class PopConfirm extends React.Component {
+    state = {
+        visible: true
+    };
+
+    togglePop = () =>
+        this.setState(prevState => ({visible: !prevState.visible}));
+
+    render() {
+        let classContent = classNames("pop-content", {
+            hidden: !this.state.visible
+        });
+
+        return (
+            <div className="pop-container">
+                <span onClick={this.togglePop}>{this.props.children}</span>
+                <div className={classContent}>
+                    <div className="text-content">
+                        <span>{this.props.title}</span>
+                    </div>
+                    <div className="actions">
+                        <button onClick={this.togglePop}>No</button>
+                        <button
+                            onClick={() => {
+                                this.props.onConfirm();
+                                this.togglePop();
+                            }}
+                        >
+                            Yes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
 
 const PopUp = (props) => {
 
     const authContext = useContext(AuthContext);
+    const [isOpen, setIsOpen] = React.useState(false);
 
-    const { isAuth } = authContext;
+    const {isAuth} = authContext;
+    const snackbarContext = useContext(SnackbarContext);
+    const {openSnackbar} = snackbarContext;
 
-    // useEffect(() => {
-    //   if(props.open){
-    //     document.body.style.overflow = "hidden"
-    //   }
-    //   else{
-    //     document.body.style.overflow = "auto"
-    //   }
-    // })
+    const registerForEvent = (id) => {
+        console.log(id)
+        // var data = JSON.stringify({ event_id: id });
+
+        var config = {
+            method: "post",
+            url: process.env.REACT_APP_API_URL + "events/register/" + id,
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+            // data: data,
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                openSnackbar("Registration Successful", "success");
+                props.updateMyEvents()
+            })
+            .catch(function (error) {
+                openSnackbar("Error: " + error.response.data.msg, "error");
+                console.log(error.response);
+            });
+    };
+
+    console.log(props.isRegistered)
 
     return (
         <>
@@ -29,13 +91,12 @@ const PopUp = (props) => {
                             : {opacity: 0, pointerEvents: "none"}
                     }
                 >
-
                 </div>
                 {
                     props.open &&
                     <>
                         <div className="popup bg-dark text-light" id="style-2">
-                            <h3 className="text-center">{props.content}</h3>
+                            <h3 className="text-center">{props.name}</h3>
                             <b><i>{props.info}</i></b> <br/>
                             <p>{props.moreInfo}</p>
                             {props.wildcard !== null && (<p>{props.wildcard}</p>)}
@@ -49,37 +110,42 @@ const PopUp = (props) => {
                             <ol style={{listStyle: "none", marginLeft: "-30px"}}>
                                 {props.rules !== null && props.rules.map((rule) => <li key={rule}>{rule}</li>)}
                             </ol>
-
                             <strong>Team Distribution: </strong> <br/>
                             <ol style={{
                                 listStyle: "none",
                                 marginLeft: "-30px"
                             }}>{props.team !== null && props.team.map((t) => <li key={t}>{t}</li>)}</ol>
-
-                            <p><strong>Fees: </strong>{props.fees}</p>
                             <button
-                                className="event-links btn-light"
+                                className="event-links "
                                 onClick={() => props.toggle && props.toggle(false)}
                             >
                                 Close
                             </button>
-                            {/* <Link href="#"> */}
-                            {/* <Button
-                                // ="/dashboard"
-                                className="event-links event-links-active"
-                                variant="contained"
-                                color="primary"
-                                disabled={!isAuth}
-                                style={{marginLeft: "1rem", marginTop: "1rem"}}
-                            >
-                                Register
-                            </Button> */}
+                            {isAuth &&
+                            <PopConfirm title="Confirm Registration?" onConfirm={() => registerForEvent(props.id)}>
+                                <button
+                                    className={props.isRegistered ? "event-links event-links-disabled" : "event-links event-links-active"}
+                                    disabled={props.isRegistered}
+                                >
+                                    {!props.isRegistered && "Register"}
+                                    {props.isRegistered && <>Registered <CheckCircleOutlineIcon /></>}
+                                </button>
+
+                            </PopConfirm>}
+                            {!isAuth && <Link to={"/login"}>
+                                <button
+                                    className={"event-links event-links-active"}
+                                >
+                                    Login/Signup to register
+                                </button>
+                            </Link>}
                         </div>
                     </>
                 }
             </>
         </>
     );
-};
+}
+;
 
 export default PopUp;
