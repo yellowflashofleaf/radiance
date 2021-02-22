@@ -3,6 +3,7 @@ import Register from "../forms/register";
 import Login from "../forms/login";
 import "../style.css";
 import { AuthContext } from "../../../context/Auth/AuthContext";
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 const Auth = (props) => {
   const authContext = useContext(AuthContext);
@@ -74,7 +75,7 @@ const Auth = (props) => {
           <div className="register-now">
             <p className="para">Don't have an account?</p>
             <button className="button text" type="button" onClick={onClick}>
-              Sign Up
+              Sign Up <PersonAddIcon />
             </button>
           </div>
         </div>
@@ -92,7 +93,7 @@ const Auth = (props) => {
               <h1>Hello, Buddy!</h1>
               <p className="para">Be a participant and join with our event</p>
               <button className="button ghost" id="signUp" onClick={signIn}>
-                Sign Up
+                Sign Up <PersonAddIcon />
               </button>
             </div>
           </div>

@@ -71,6 +71,7 @@
 .login-btn {
   background-color: rgba(13, 134, 150, 0.493);
   border-radius: 2vw;
+  width: 7rem;
 }
 
 .login-btn-div a:hover {

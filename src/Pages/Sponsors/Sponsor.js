@@ -7,6 +7,7 @@ const Sponsor = () => {
     <>
       <div className="sponsor">
         <div className="page-title">SPONSORS</div>
+          <h1>Coming Soon...</h1>
       </div>
       <Footer />
     </>

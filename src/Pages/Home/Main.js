@@ -4,6 +4,8 @@ import {useHistory} from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {AuthContext} from "../../context/Auth/AuthContext";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import HowToRegIcon from '@material-ui/icons/HowToReg';
 
 export default function Main() {
     const history = useHistory();
@@ -95,7 +97,7 @@ export default function Main() {
                         }}
                     >
                         {" "}
-                        {isAuth ? "MY EVENTS" : "REGISTER NOW!"}
+                        {isAuth ? <>MY EVENTS <ArrowForwardIosIcon /></> : <>REGISTER NOW! <ArrowForwardIosIcon /></>}
                     </button>
                 </div>
             </div>
