@@ -13,6 +13,11 @@ body {
   max-width: 100vw !important;
 }
 
+.nGY2GThumbnail {
+  border-color: transparent !important;
+  border-radius: 10px !important;
+}
+
 .privacy-policy{
   color: white;
   margin: 5%;
