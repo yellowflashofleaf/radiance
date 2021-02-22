@@ -26,6 +26,11 @@ const Auth = (props) => {
       "style",
       "transform: rotateY(0deg); transition: all 1s; backface-visibility: hidden;"
     );
+    const signUpArrow = document.querySelector("#signIn");
+    signUpArrow.setAttribute(
+        "style",
+        "opacity: 1"
+    );
   };
 
   const changeToSignIn = () => {
@@ -33,6 +38,12 @@ const Auth = (props) => {
     signUp.setAttribute(
       "style",
       "transform: rotateY(180deg); transition: all 1s; backface-visibility: hidden;"
+    );
+
+    const signUpArrow = document.querySelector("#signIn");
+    signUpArrow.setAttribute(
+      "style",
+      "opacity: 0"
     );
 
     const container = document.querySelector(".sign-in-container");
@@ -65,6 +76,7 @@ const Auth = (props) => {
                 class="fas fa-arrow-circle-left"
                 id="signIn"
                 onClick={changeToSignIn}
+                style={{opacity: 0}}
               />
             </Fragment>
           ) : null}
