@@ -171,7 +171,7 @@ function Navbar() {
           <Link
             to="/events"
             className={
-              location.pathname === "/events" ? "selected nav-link" : "nav-link"
+              location.pathname === "/events" || location.pathname === "/myevents" ? "selected nav-link" : "nav-link"
             }
           >
             Events
@@ -247,7 +247,7 @@ function Navbar() {
                                 onClose={handleClose}
                             >
                                     <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                                <Link to={"/myevents"} style={{textDecoration: 'none'}} ><MenuItem onClick={handleClose}>My Events</MenuItem></Link>
                                     <MenuItem onClick={() => logout()}>Logout <ExitToAppIcon /></MenuItem>
                             </Menu>
                         </>

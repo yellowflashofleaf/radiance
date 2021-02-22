@@ -53,6 +53,10 @@ button:focus {
   font-weight: 500;
 }
 
+.event-links-active:hover {
+  color: #fff;
+}
+
 .event-links-disabled {
     opacity: 0.5;
     cursor: default !important
