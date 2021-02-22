@@ -3,7 +3,8 @@ import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
 import {AuthContext} from "../../../context/Auth/AuthContext";
 import {store} from "react-notifications-component";
-import LockOpenIcon from '@material-ui/icons/LockOpen';
+import {CircularProgress} from "@material-ui/core";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 
 const Login = (props) => {
@@ -14,13 +15,14 @@ const Login = (props) => {
     });
 
     const [errors, setErrors] = useState({});
-
+    const [pending, setPending] = useState(false);
     const authContext = useContext(AuthContext);
-    const {isAuth, loadUser,login} = authContext;
+    const {isAuth, loadUser, login} = authContext;
 
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        setPending(true)
         setValues({
             emailError: "",
             passwordError: "",
@@ -79,6 +81,8 @@ const Login = (props) => {
                         onScreen: true
                     }
                 });
+            } finally {
+                setPending(false)
             }
 
 
@@ -119,7 +123,8 @@ const Login = (props) => {
             {errors.error && <div className="error main-error">{errors.error}</div>}
             {/* <Link to="/dashboard"> */}{" "}
             <button type="submit" id="signin-btn" className="button">
-                Sign In <LockOpenIcon />
+                {!pending && <>Sign In <LockOpenIcon/></>}
+                {pending && <>Sign In <CircularProgress size={20}/></>}
             </button>
             {/* </Link> */}
         </form>
