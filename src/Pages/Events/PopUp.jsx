@@ -102,6 +102,12 @@ const PopUp = (props) => {
                     props.open &&
                     <>
                         <div className="popup bg-dark text-light" id="style-2">
+                        <button
+                        style={{float:"right", padding:"5px 12px", borderRadius:"25px"}}
+                                onClick={() => props.toggle && props.toggle(false)}
+                            >
+                                X
+                            </button>
                             <h3 className="text-center">{props.name}</h3>
                             <b><i>{props.info}</i></b> <br/>
                             <p>{props.moreInfo}</p>

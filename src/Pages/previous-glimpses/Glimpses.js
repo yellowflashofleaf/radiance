@@ -54,7 +54,13 @@ function Glimpses() {
       thumbnailDisplayTransitionDuration: 400,
       thumbnailDisplayInterval: 200,
       thumbnailDisplayOrder: "rowByRow",
-      thumbnailLLabel: { display: false, position:'overImageOnTop', hideIcons: true, titleFontSize: '1.5em', align: 'left'},
+      thumbnailLLabel: {
+        display: false,
+        position: "overImageOnTop",
+        hideIcons: true,
+        titleFontSize: "1.5em",
+        align: "left",
+      },
 
       // THUMBNAIL'S HOVER ANIMATION
       thumbnailHoverEffect2: "toolsSlideUp|labelSlideDown",
