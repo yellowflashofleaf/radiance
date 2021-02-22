@@ -152,6 +152,6 @@ const PopUp = (props) => {
             </>
         </>
     );
-}
+};
 
 export default PopUp;

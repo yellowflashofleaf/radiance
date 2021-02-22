@@ -161,3 +161,14 @@
     border-radius: 5vw;
   }
 }
+
+#notification{
+  cursor: pointer;
+}
+
+#notification:hover {
+  background: #333 ;
+}
+
+
+
