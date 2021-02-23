@@ -28,7 +28,7 @@ function Glimpses() {
       thumbnailHeight: "250",
       thumbnailWidth: "auto",
       // galleryDisplayMode: 'pagination',                 // gallery pagination mode
-      galleryMaxRows: 3000, // gallery with max 3 rows
+      galleryMaxRows: 300, // gallery with max 3 rows
       gallerySorting: "random",
       thumbnailAlignment: "fillWidth",
       thumbnailL1GutterWidth: 20,
@@ -44,10 +44,10 @@ function Glimpses() {
         titleFontSize: "1.5em",
         align: "left",
       },
-      thumbnailToolbarImage: {
-        topLeft: "select",
-        bottomRight: "featured,display,download,info,cart",
-      },
+      // thumbnailToolbarImage: {
+      //   topLeft: "select",
+      //   bottomRight: "featured,display,download,info,cart",
+      // },
 
       // DISPLAY ANIMATION
       thumbnailDisplayTransition: "flipUp", // thumbnail display animation
