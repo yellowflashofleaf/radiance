@@ -28,7 +28,7 @@ function Glimpses() {
       thumbnailHeight: "250",
       thumbnailWidth: "auto",
       // galleryDisplayMode: 'pagination',                 // gallery pagination mode
-      galleryMaxRows: 3000, // gallery with max 3 rows
+      galleryMaxRows: 300, // gallery with max 3 rows
       gallerySorting: "random",
       thumbnailAlignment: "fillWidth",
       thumbnailL1GutterWidth: 20,
@@ -46,7 +46,7 @@ function Glimpses() {
       },
       thumbnailToolbarImage: {
         topLeft: "select",
-        bottomRight: "featured,display,download,info,cart",
+        bottomRight: "",
       },
 
       // DISPLAY ANIMATION
@@ -96,9 +96,9 @@ function Glimpses() {
   return (
     <Grid container direction="column" style={{ zIndex: 10 }}>
       <Grid item container>
-        <div className="text-center my-5" style={{ width: "100vw" }}>
+        <div className="text-center mb-5" style={{ width: "100vw" }}>
           <div className="page-title ml-auto mr-auto">
-            Glimpses of Pulzion'19
+            GLIMPSES OF PULZION'19
           </div>
         </div>
       </Grid>

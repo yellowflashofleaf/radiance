@@ -49,7 +49,7 @@ const About = () => {
           <div className="col-md-6 mt-5">
             <div className="row number text-center">
               <Number number="300" name="Volunteers" icon="user-circle-o" />
-              <Number number="15" name="Events" icon="calendar-check-o" />
+              <Number number="16" name="Events" icon="calendar-check-o" />
               <Number number="6000" name="Footfall" icon="users" />
             </div>
           </div>

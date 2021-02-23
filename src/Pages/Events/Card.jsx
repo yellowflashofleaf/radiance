@@ -8,8 +8,7 @@ const Card = (props) => {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     return (
         <>
-         {/* <ResponsiveDialog isOpen={isModalOpen}
-                toggle={setIsModalOpen}/> */}
+        
             <PopUp
                 {...props}
                 id={props._id}
@@ -46,7 +45,11 @@ const Card = (props) => {
                     </div>
                 </div>
             </div>
-           
+            {/* <div>
+            <ResponsiveDialog {...props}
+                id={props._id} isOpen={false}
+                toggle={setIsModalOpen}/>
+            </div> */}
         </>
     );
 };

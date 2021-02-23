@@ -10,6 +10,12 @@ import { IoMail } from "react-icons/io5";
 import { SiInstagram } from "react-icons/si";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillFacebook } from "react-icons/ai";
+import PhoneIcon from "@material-ui/icons/Phone";
+import MailIcon from "@material-ui/icons/Mail";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function () {
@@ -122,7 +128,7 @@ export default function () {
                   </p>
                   <button
                     type="button"
-                    className="btn-about btn-dark btn-1"
+                    className="btn btn-dark btn-1"
                     onClick={R.btn_1}
                   >
                     Know More
@@ -155,7 +161,7 @@ export default function () {
                   </p>
                   <button
                     type="button"
-                    className="btn-about btn-dark btn-2"
+                    className="btn btn-dark btn-2"
                     onClick={R.btn_2}
                   >
                     Know More
@@ -193,7 +199,7 @@ export default function () {
                   </p>
                   <button
                     type="button"
-                    className="btn-about btn-dark btn-3"
+                    className="btn btn-dark btn-3"
                     onClick={R.btn_3}
                   >
                     Know More
@@ -206,14 +212,14 @@ export default function () {
 
         <section className=" py-5 mb-1">
           <div className="container-about ">
-            <h1 className="Header Contact-Us">
-              <b>Contact Us</b>
+            <h1 className="Header Contact-Us page-title">
+              <b>CONTACT US</b>
             </h1>
           </div>
 
           <div className="container-about">
             <div className=" row ">
-              <div className="address-content  col-lg-5 header">
+              <div className="address-content  col-lg-4 header">
                 <IoLocationSharp size={30} />
                 <h2>Address</h2>
 
@@ -222,34 +228,52 @@ export default function () {
                 <h5>Dhankawadi, Pune,</h5>
                 <h5>Maharashtra-411043</h5>
               </div>
-              <div className="container-about col-lg-2 contact-us-container">
-                <div className="contact-us-heading"></div>
+              <div className="container-about col-lg-4 contact-us-container">
+                {/* <div className="contact-us-heading"></div> */}
                 <div className="contact-us-text">
-                  <IoMail size={30} />
-                  <h5>acm.pict@gmail.com</h5>
-                  <h5>abc - 1111111</h5>
-                  <h5>xyz - 2222222</h5>
+                  <MailIcon fontSize="large" />
+                  <h5>
+                    {"  "}
+                    acm.pict@gmail.com
+                  </h5>
+                  <div className="my-3">
+                    <PhoneIcon fontSize="large" /> {"  "}
+                    <h5> Jinesh Parakh - 93700 62436</h5>
+                    <h5>
+                      {"  "}
+                      Atharv Chavan - 97650 62678
+                    </h5>
+                  </div>
+
                   <a
-                    className="social"
+                    className="social m-3"
                     href="https://www.linkedin.com/company/pict-acm-student-chapter/"
                   >
-                    <AiFillLinkedin className="icon" size="30" />
+                    <LinkedInIcon className="icon" fontSize="large" />
                   </a>
                   <a
-                    className="social"
+                    className="social m-3"
+                    style={{ textDecoration: "none" }}
                     href="https://www.instagram.com/acm.pict/"
                   >
-                    <SiInstagram className="icon" size="25" />
+                    <InstagramIcon className="icon" fontSize="large" />
                   </a>
+                  <br />
                   <a
-                    className="social"
+                    className="social m-3"
                     href="https://www.facebook.com/acmpict/"
                   >
-                    <AiFillFacebook className="icon" size="30" />
+                    <FacebookIcon className="icon" fontSize="large" />
+                  </a>
+                  <a
+                    className="social m-3"
+                    href="https://www.facebook.com/acmpict/"
+                  >
+                    <TwitterIcon className="icon" fontSize="large" />
                   </a>
                 </div>
               </div>
-              <div className="col-lg-5 address-content">
+              <div className="col-lg-4 address-content">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15138.304757794562!2d73.8508336!3d18.4575421!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x871eddd0a8a0a108!2sSCTR&#39;S%20Pune%20Institute%20of%20Computer%20Technology!5e0!3m2!1sen!2sin!4v1607946113596!5m2!1sen!2sin"
                   width="290"
