@@ -3,30 +3,13 @@ import ReactNotification, {store} from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import {getToken, onMessageListener} from '../firebase';
 
-function Notification(props) {
-    const [state, setState] = useState({
-        open: false,
-        vertical: 'top',
-        horizontal: 'center',
-    });
-
-    const {vertical, horizontal, open} = state;
-
-    const [show, setShow] = useState(false);
-    const [notification, setNotification] = useState({title: '', body: ''});
-    const [isTokenFound, setTokenFound] = useState(false);
+function Notification() {
 
     useEffect(() => {
-        getToken(setTokenFound);
+        getToken();
     }, [])
 
-    const handleClose = () => {
-        setShow(false)
-    };
-
     onMessageListener().then(payload => {
-        setShow(true);
-        setNotification({title: payload.notification.title, body: payload.notification.body})
         console.log(payload);
         store.addNotification({
             title: payload.notification.title,

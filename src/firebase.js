@@ -16,11 +16,10 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-export const getToken = (setTokenFound) => {
+export const getToken = () => {
     return messaging.getToken({vapidKey: process.env["REACT_APP_FCM_KEY"]}).then((currentToken) => {
         if (currentToken) {
             console.log('current token for client: ', currentToken);
-            setTokenFound(true);
             axios.post(`${process.env.REACT_APP_API_URL}user/subscribe`, {token: currentToken}, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
                 .then(res => {
                     console.log(res)
@@ -29,7 +28,6 @@ export const getToken = (setTokenFound) => {
             // show on the UI that permission is secured
         } else {
             console.log('No registration token available. Request permission to generate one.');
-            setTokenFound(false);
             // shows on the UI that permission is required
         }
     }).catch((err) => {

@@ -14,7 +14,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function () {
+export default function Main () {
     return (
         <>
             <div className="main-about mt-5">
@@ -24,78 +24,6 @@ export default function () {
                     </div>
                 </section>
                 <br/>
-                {/* <section id="pulzion-section" className="row pulzion-row">
-          <div className="pulzion-bg-box  container-about col-lg-8">
-            <div className="container-about  pulzion-div col-lg-12">
-              <h2 className="pulzion-heading">Pulzion 20</h2>
-              <p className="pulzion-text">
-                Pulzion is the annual technical fest organized by PICT ACM
-                Student Chapter. Pulzion has hosted multmiple events including
-                coding competition ranging from amateur competitions two
-                day-long as well as mock placements, business management based
-                and quizzing events. It has become one of the most anticipated
-                events taking place at PICT with participants from colleges all
-                over Pune. With high aspirations, backed with sincerity and
-                dedication, the PASC team aims to add value to the college and
-                all the people in it.
-              </p>
-            </div>
-          </div>
-        </section> */}
-                {/* <section id="pulzion-section-small " className="pulzion-row-small">
-          <div className="container-about  pulzion-div">
-            <h2 className="pulzion-heading">Pulzion 20</h2>
-            <p className="pulzion-text slide-left">
-              Pulzion is the annual technical fest organized by PICT ACM Student
-              Chapter. Pulzion has hosted multmiple events including coding
-              competition ranging from amateur competitions two day-long as well
-              as mock placements, business management based and quizzing events.
-              It has become one of the most anticipated events taking place at
-              PICT with participants from colleges all over Pune. With high
-              aspirations, backed with sincerity and dedication, the PASC team
-              aims to add value to the college and all the people in it.
-            </p>
-          </div>
-        </section> */}
-                {/* <section id="additional">
-          <div className="container-about">
-            <div className="row">
-              <div className="col "></div>
-              <div className="col-lg-8 col-sm-12">
-                <div className="row">
-                  <div className="col col-circle">
-                    <div className="circle members">
-                      <div className="icon">
-                        <br />
-                        <h5 className="header">200+</h5>
-                        <h5 className="header">Members</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col col-circle">
-                    <div className="circle footfall">
-                      <div className="icon">
-                        <br />
-                        <h5 className="header">5000+</h5>
-                        <h5 className="header">Footfall</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col col-circle">
-                    <div className="circle events">
-                      <div className="icon">
-                        <br />
-                        <h5 className="header">15+</h5>
-                        <h5 className="header">Events</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col"></div>
-            </div>
-          </div>
-        </section> */}
                 <section id="pasc-acm-acmw-section mt-5">
                     <div className="container-about pasc-acm-acmw-div-container">
                         <div className="row pasc-acm-acmw-div-row">
@@ -130,7 +58,6 @@ export default function () {
                                         Know More
                                     </button>
                                 </div>
-                                {/* <img className="pasc-img" src={img1} alt="" /> */}
                             </div>
 
                             <div className="col-lg-4">
@@ -145,7 +72,7 @@ export default function () {
                                         conducted an event ACM Pune ‘Celebration of Women in
                                         Computing’ (APCWIC-2018) in association with ACM-W India and
                                         ACM Pune Professional Chapter.{" "}
-                                        <span class="dots2">...</span>{" "}
+                                        <span className="dots2">...</span>{" "}
                                         <span id="more2">
                       This was the first edition and it was held at PICT, Pune.
                       We organized this event to provide a platform to women
@@ -165,8 +92,8 @@ export default function () {
                                 </div>
                             </div>
                             <div className="col-lg-4">
-                                <div class="about-div">
-                                    <img class="acm-img" src={img3} alt=""></img>
+                                <div className="about-div">
+                                    <img className="acm-img" src={img3} alt=""></img>
                                     <h2 className="header haeder-block my-3">
                                         <b>ACM</b>
                                     </h2>
@@ -176,7 +103,7 @@ export default function () {
                                         professionals, educators and researchers in the field of
                                         computer science to inspire dialogue, share resources and
                                         address the challenges in the domain. The purpose of this{" "}
-                                        <span class="dots3">...</span>
+                                        <span className="dots3">...</span>
                                         <span id="more3">
                       {" "}
                                             organization is to advance the scientific development,
@@ -225,7 +152,6 @@ export default function () {
                                 <h5>Maharashtra-411043</h5>
                             </div>
                             <div className="container-about col-lg-4 contact-us-container">
-                                {/* <div className="contact-us-heading"></div> */}
                                 <div className="contact-us-text">
                                     <MailIcon fontSize="large"/>
                                     <h5>
@@ -279,6 +205,7 @@ export default function () {
                                     allowFullScreen=""
                                     aria-hidden="false"
                                     tabIndex="0"
+                                    title={"map"}
                                 ></iframe>
                             </div>
                         </div>

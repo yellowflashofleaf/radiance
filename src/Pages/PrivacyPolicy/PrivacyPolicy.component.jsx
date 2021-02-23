@@ -64,7 +64,7 @@ const PrivacyPolicy = () => {
                 </li>
                 <li>
                     <p><strong>Website</strong> refers to Pulzion 2021, accessible from <a href="https://pulzion.in"
-                                                                                           rel="external nofollow noopener"
+                                                                                           rel="external nofollow noopener noreferrer"
                                                                                            target="_blank">https://pulzion.in</a>
                     </p>
                 </li>
@@ -121,7 +121,7 @@ const PrivacyPolicy = () => {
                     Cookies. For more information on how You can delete Flash Cookies, please read &quot;Where can I
                     change the settings for disabling, or deleting local shared objects?&quot; available at <a
                         href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
-                        rel="external nofollow noopener"
+                        rel="external nofollow noopener noreferrer"
                         target="_blank">https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_</a>
                 </li>
                 <li><strong>Web Beacons.</strong> Certain sections of our Service and our emails may contain small
@@ -134,7 +134,7 @@ const PrivacyPolicy = () => {
             <p>Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your
                 personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You
                 close Your web browser. Learn more about cookies: <a
-                    href="https://www.freeprivacypolicy.com/blog/cookies/" target="_blank">Cookies: What Do They Do?</a>.
+                    href="https://www.freeprivacypolicy.com/blog/cookies/" target="_blank" rel="noreferrer">Cookies: What Do They Do?</a>.
             </p>
             <p>We use both Session and Persistent Cookies for the purposes set out below:</p>
             <ul>

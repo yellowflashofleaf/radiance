@@ -11,10 +11,6 @@ import moment from "moment";
 export default function SlotsDialog(props) {
     const [open, setOpen] = React.useState(false);
 
-    //   const handleClickOpen = () => {
-    //     setOpen(true);
-    //   };
-
     useEffect(() => {
         if (props.isOpen) setOpen(true);
         else setOpen(false);
@@ -24,15 +20,8 @@ export default function SlotsDialog(props) {
         setOpen(false);
     };
 
-    // useEffect(() => {
-    //   getSlotsForEvent();
-    // }, []);
-
     return (
         <div>
-            {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open alert dialog
-      </Button> */}
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -48,10 +37,6 @@ export default function SlotsDialog(props) {
                                     <TableRow>
                                         <TableCell>Date</TableCell>
                                         <TableCell>Time</TableCell>
-                                        {/* <TableCell>Customer</TableCell>
-                    <TableCell>Method</TableCell>
-                    <TableCell>Total</TableCell>
-                    <TableCell>Status</TableCell> */}
                                         <TableCell align="right"></TableCell>
                                     </TableRow>
                                 </TableHead>
@@ -60,20 +45,17 @@ export default function SlotsDialog(props) {
                                         <TableRow key={slot._id}>
                                             <TableCell padding="checkbox">
                                                 <Checkbox
-                                                    // checked={selectedOrders.indexOf(order.id) !== -1}
                                                     color="primary"
                                                     onChange={() => props.onSlotChange(slot._id)}
                                                     value={slot._id}
                                                 />
                                             </TableCell>
                                             <TableCell>
-                                                {/* {order.payment.ref} */}
                                                 <Typography variant="body2">
                                                     {moment(slot.start_time).format("DD MMM YYYY")}
                                                 </Typography>
                                             </TableCell>
                                             <TableCell>
-                                                {/* {order.payment.ref} */}
                                                 <Typography variant="body2">
                                                     {moment(slot.start_time).format(" hh:mm")} -{" "}
                                                     {moment(slot.end_time).format(" hh:mm")}
@@ -83,9 +65,7 @@ export default function SlotsDialog(props) {
                                             <TableCell align="right">
                                                 <Button
                                                     color="primary"
-                                                    // component={RouterLink}
                                                     size="small"
-                                                    // to="/management/orders/1"
                                                     variant="contained"
                                                 >
                                                     Book

@@ -46,7 +46,6 @@ function a11yProps(index) {
 
 const useStyles = makeStyles(
     (theme) => (
-        console.log(theme),
             {
                 root: {
                     flexGrow: 1,
@@ -66,7 +65,7 @@ export default function Dashboard() {
 
     const authContext = useContext(AuthContext);
 
-    const {isAuth, user, login} = authContext;
+    const {user} = authContext;
 
     return (
         <div className={classes.root}>
@@ -84,7 +83,6 @@ export default function Dashboard() {
                     >
                         <Tab label="Register" {...a11yProps(0)} />
                         <Tab label="My Events" {...a11yProps(1)} />
-                        {/* <Tab label="Slots" {...a11yProps(2)} /> */}
                     </Tabs>
                 </AppBar>
                 <TabPanel value={value} index={0}>
@@ -93,9 +91,6 @@ export default function Dashboard() {
                 <TabPanel value={value} index={1}>
                     <MyEvents/>
                 </TabPanel>
-                {/* <TabPanel value={value} index={2}>
-          Slots
-        </TabPanel> */}
             </Container>
         </div>
     );

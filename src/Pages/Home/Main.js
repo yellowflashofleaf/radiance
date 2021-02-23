@@ -32,10 +32,6 @@ export default function Main() {
 
     return (
         <>
-            {/* <div className="home-img-mob">
-        <img src={Part} className="img-fluid"/>
-        </div> */}
-
             <div
                 className="main"
                 style={{
@@ -43,15 +39,14 @@ export default function Main() {
                     overflow: "hidden !important",
                 }}
             >
-                <div
-                    id="your-element-selector"
+                <div id="your-element-selector"
                     style={{
                         position: "absolute",
                         margin: "0 -5%",
                         height: "90vh",
                         zIndex: "1",
                     }}
-                ></div>
+                ><></></div>
                 <div className="title" style={{zIndex: "10", position: "absolute"}}>
                     PULZION
                     <span
@@ -64,12 +59,6 @@ export default function Main() {
           </span>
                     21
                 </div>
-                {/* <div style={{ zIndex: "10000", position: "absolute" }}>
-          <img
-            style={{ zIndex: "10000", width: "40vw", marginTop: "15%" }}
-            src="./p21.png"
-          />
-        </div> */}
                 <div
                     className="subtitle"
                     data-aos="fade-up"

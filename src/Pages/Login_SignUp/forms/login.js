@@ -6,7 +6,7 @@ import {store} from "react-notifications-component";
 import {CircularProgress} from "@material-ui/core";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 
-const Login = (props) => {
+const Login = () => {
     const [values, setValues] = useState({
         emailError: "",
         passwordError: "",
@@ -16,7 +16,7 @@ const Login = (props) => {
     const [errors, setErrors] = useState({});
     const [pending, setPending] = useState(false);
     const authContext = useContext(AuthContext);
-    const {isAuth, loadUser, login} = authContext;
+    const {isAuth, loadUser} = authContext;
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -87,7 +87,7 @@ const Login = (props) => {
     let history = useHistory();
     useEffect(() => {
         if (isAuth) history.push("/events");
-    }, [isAuth]);
+    }, [isAuth, history]);
 
     return (
         <form onSubmit={onSubmit}>

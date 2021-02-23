@@ -1,19 +1,10 @@
-import React, {Fragment, useContext} from "react";
+import React, {Fragment} from "react";
 import Register from "../forms/register";
 import Login from "../forms/login";
 import "../style.css";
-import {AuthContext} from "../../../context/Auth/AuthContext";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
-const Auth = (props) => {
-    const authContext = useContext(AuthContext);
-
-    const {login, isAuth} = authContext;
-
-    // useEffect(() => {
-    //   console.log(props);
-    //   if (isAuth) props.history.push("/dashboard");
-    // }, [isAuth]);
+const Auth = () => {
 
     const onClick = () => {
         const container = document.querySelector(".sign-in-container");
@@ -48,13 +39,11 @@ const Auth = (props) => {
     };
 
     const signIn = () => {
-        const signUpButton = document.getElementById("signUp");
         const container = document.getElementById("container-block");
         container.classList.add("right-panel-active");
     };
 
     const signUp = () => {
-        const signInButton = document.getElementById("signIn");
         const container = document.getElementById("container-block");
         container.classList.remove("right-panel-active");
     };
@@ -67,7 +56,7 @@ const Auth = (props) => {
                     window.matchMedia("(max-width: 800px)").matches ? (
                         <Fragment>
                             <i
-                                class="fas fa-arrow-circle-left"
+                                className="fas fa-arrow-circle-left"
                                 id="signIn"
                                 onClick={changeToSignIn}
                                 style={{opacity: 0}}
@@ -89,7 +78,7 @@ const Auth = (props) => {
                     <div className="overlay">
                         <div className="overlay-panel overlay-left">
                             <i
-                                class="fas fa-arrow-circle-left"
+                                className="fas fa-arrow-circle-left"
                                 id="signIn"
                                 onClick={signUp}
                             />

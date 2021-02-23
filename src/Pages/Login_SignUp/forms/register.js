@@ -7,21 +7,13 @@ import {store} from "react-notifications-component";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import {CircularProgress} from "@material-ui/core";
 
-//const regExp = RegExp(
-//     /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
-// )
-
 const regExp = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
 
 const formValid = ({isError, ...rest}) => {
     let isValid = false;
 
     Object.values(isError).forEach((val) => {
-        if (val.length > 0) {
-            isValid = false;
-        } else {
-            isValid = true;
-        }
+        isValid = val.length <= 0;
     });
 
     Object.values(rest).forEach((val) => {
@@ -82,7 +74,7 @@ class Register extends Component {
 
                 if (!pattern.test(value)) {
                     isError.contactNumberError = "Please enter only number.";
-                } else if (value.length != 10) {
+                } else if (value.length !== 10) {
                     isError.contactNumberError = "Please enter valid phone number.";
                 } else {
                     isError.contactNumberError = "";
@@ -190,129 +182,6 @@ class Register extends Component {
             console.log("Form is invalid!");
         }
     };
-
-    //
-    // onSubmit1 = async (e) => {
-    //     e.preventDefault();
-    //     this.setState({
-    //         fnameError: "",
-    //         lnameError: "",
-    //         contactNumberError: "",
-    //         yearError: "",
-    //         collegeError: "",
-    //         emailError: "",
-    //         passwordError: "",
-    //         confirmPasswordError: "",
-    //     });
-    //     const fname = e.target.elements.fname.value.trim();
-    //     const lname = e.target.elements.lname.value.trim();
-    //     const email = e.target.elements.email.value.trim();
-    //     const college = e.target.elements.college.value.trim();
-    //     let year = this.state.year;
-    //     const ref = e.target.elements.yearOther;
-    //     const contactNumber = e.target.elements.contactNumber.value.trim();
-    //     const password = e.target.elements.password.value.trim();
-    //     const confirmPassword = e.target.elements.confirmPassword.value.trim();
-    //     if (
-    //         !fname ||
-    //         !lname ||
-    //         !email ||
-    //         !password ||
-    //         !college ||
-    //         year === "Year" ||
-    //         !contactNumber ||
-    //         !confirmPassword
-    //     ) {
-    //         if (!fname) {
-    //             this.setState({
-    //                 fnameError: "*Required",
-    //             });
-    //         }
-    //         if (!lname) {
-    //             this.setState({
-    //                 lnameError: "*Required",
-    //             });
-    //         }
-    //         if (!email) {
-    //             this.setState({
-    //                 emailError: "*Required",
-    //             });
-    //         }
-    //         if (!password) {
-    //             this.setState({
-    //                 passwordError: "*Required",
-    //             });
-    //         }
-    //         if (!confirmPassword) {
-    //             this.setState({
-    //                 confirmPasswordError: "*Required",
-    //             });
-    //         }
-    //         if (!contactNumber) {
-    //             this.setState({
-    //                 contactNumberError: "*Required",
-    //             });
-    //         }
-    //         if (!college) {
-    //             this.setState({
-    //                 collegeError: "*Required",
-    //             });
-    //         }
-    //         if (year === "Year") {
-    //             this.setState({
-    //                 yearError: "*Required",
-    //             });
-    //         }
-    //     } else if (password !== confirmPassword) {
-    //         this.setState({
-    //             confirmPasswordError: "Password Doesn't match.",
-    //         });
-    //     } else {
-    //         if (year === "other") {
-    //             const yearOther = ref.value.trim();
-    //             if (!yearOther) {
-    //                 this.setState({
-    //                     yearError: "*Required",
-    //                 });
-    //                 return;
-    //             }
-    //             year = yearOther;
-    //         }
-    //         var myHeaders = new Headers();
-    //         myHeaders.append("Content-Type", "application/json");
-    //         var requestOptions = {
-    //             headers: myHeaders,
-    //             redirect: "follow",
-    //         };
-    //         try {
-    //             const res = await axios.post(process.env.REACT_APP_API_URL + "auth/register", {
-    //                 email,
-    //                 password,
-    //                 fname,
-    //                 lname,
-    //                 year,
-    //                 college,
-    //                 contactNumber,
-    //             });
-    //
-    //             if (res.data.error) {
-    //                 return res.data.error.forEach((element) => {
-    //                     this.setState({
-    //                         [Object.keys(element)[0]]: Object.values(element)[0],
-    //                     });
-    //                 });
-    //             }
-    //
-    //             console.log(res)
-    //             //TODO: Add snackbar notification that registered and email sent
-    //             this.props.history.push('/login')
-    //
-    //
-    //         } catch (e) {
-    //             console.log(e);
-    //         }
-    //     }
-    // };
 
     render() {
         const {isError} = this.state;

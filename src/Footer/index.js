@@ -7,7 +7,7 @@ const Footer = () => {
         <>
             <div className="footer">
                 &copy; PICT ACM Student Chapter.
-                {/* <br /> */} Designed & Developed with &hearts; by PASC Web Team.
+                 Designed & Developed with &hearts; by PASC Web Team.
                 <br/>
                 <Link
                     to="privacy-policy"

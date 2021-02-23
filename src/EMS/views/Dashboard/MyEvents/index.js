@@ -55,7 +55,7 @@ const MyEvents = () => {
     return (
         <>
             <Grid container spacing={3}>
-                {myEvents.length == 0 ? (
+                {myEvents.length === 0 ? (
                     <></>
                 ) : (
                     myEvents.map((eve) => (

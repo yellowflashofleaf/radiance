@@ -1,6 +1,6 @@
 import * as actionTypes from "../types";
 
-export default (state, action) => {
+const SnackbarReducer = (state, action) => {
     switch (action.type) {
         case actionTypes.OPEN_SNACKBAR:
             return {
@@ -18,3 +18,5 @@ export default (state, action) => {
             return state;
     }
 };
+
+export default SnackbarReducer

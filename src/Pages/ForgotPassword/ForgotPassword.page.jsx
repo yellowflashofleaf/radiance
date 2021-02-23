@@ -34,7 +34,7 @@ const regExp = new RegExp(
     /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 )
 
-function ForgotPasswordPage(props) {
+function ForgotPasswordPage() {
 
     const authContext = useContext(AuthContext);
     const {logout} = authContext;
@@ -42,6 +42,7 @@ function ForgotPasswordPage(props) {
 
     useEffect(() => {
         logout()
+        // eslint-disable-next-line
     }, [])
 
     let history = useHistory()

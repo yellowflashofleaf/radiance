@@ -1,15 +1,7 @@
 import React, {useEffect} from "react";
-import {createMuiTheme, Grid, makeStyles, responsiveFontSizes,} from "@material-ui/core";
+import {Grid} from "@material-ui/core";
 import "./Glimpses.css";
 
-let theme = createMuiTheme();
-theme = responsiveFontSizes(theme);
-
-const useStyles = makeStyles({
-    gutterBottom: {
-        marginBottom: "0.6em",
-    },
-});
 
 function Glimpses() {
     useEffect(() => {
@@ -87,7 +79,6 @@ function Glimpses() {
         // Function called before the popup for media info is displayed
         // Content and title can be changed
     });
-    const classes = useStyles();
     return (
         <Grid container direction="column" style={{zIndex: 10}}>
             <Grid item container>

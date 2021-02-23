@@ -11,7 +11,6 @@ import Gravatar from "react-gravatar";
 import {withStyles} from '@material-ui/core/styles';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
@@ -75,13 +74,6 @@ const DialogContent = withStyles((theme) => ({
         padding: theme.spacing(2),
     },
 }))(MuiDialogContent);
-
-const DialogActions = withStyles((theme) => ({
-    root: {
-        margin: 0,
-        padding: theme.spacing(1),
-    },
-}))(MuiDialogActions);
 
 const variants = {
     open: {opacity: 1, display: "flex"},
@@ -183,6 +175,7 @@ function Navbar() {
             loadUser();
             getAllNotifications();
         }
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
@@ -307,12 +300,11 @@ function Navbar() {
             </motion.div>
             <div className="nav-bar navbar sticky-top">
                 <div className="main-logo">
-                    {/* <b>Pulzion'21</b> */}
                     <Link to="/">
                         <img
                             src="https://pulzion-2021.s3.ap-south-1.amazonaws.com/assets/p21_w_594.png"
                             height="30px"
-                            //   style={{ height: "10%", width: "auto" }}
+                            alt={"Pulzion 21 Logo"}
                         />
                     </Link>
                 </div>

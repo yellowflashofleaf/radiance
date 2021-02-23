@@ -5,10 +5,9 @@ import "aos/dist/aos.css";
 import "./numbers.css";
 import ReactCountUp from "react-countup-v2";
 
-const Number = ({number, name, icon}) => {
+const Number = ({number, name}) => {
     return (
         <>
-            {/* <div className="col-4"> */}
             <div
                 className="loading"
                 data-aos="fade-up"
@@ -25,8 +24,6 @@ const Number = ({number, name, icon}) => {
                     <ReactCountUp delay={100} endVal={number}/>
                 </div>
                 <div className="name">{name}</div>
-
-                {/* </div> */}
             </div>
         </>
     );
@@ -39,8 +36,6 @@ const About = () => {
             <div className="about">
                 <div
                     className="text-center mb-5 About-Us page-title"
-                    // data-aos="fade-up" // data-aos-offset="150" //
-                    //data-aos-easing="ease-in-sine" // duration="900"
                 >
                     ABOUT PULZION
                 </div>
@@ -70,9 +65,6 @@ const About = () => {
                             aims to add value to the college and all the people in it.
                         </div>
                         <div className="about-link text-right">
-                            {/* <a href="/about">
-                Know more <Fontawesome name="angle-right" />
-              </a> */}
                         </div>
                     </div>
                 </div>

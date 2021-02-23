@@ -1,4 +1,3 @@
-// import Link from "next/link";
 import React from "react";
 import PopUp from "./PopUp";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
@@ -21,10 +20,6 @@ const Card = (props) => {
                         alt="event img"
                     />
                     <div className="e-card-text text-center">
-                        {/* <p>
-            {props.content ||
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus nulla autem ratione commodi exercitationem esse dignissimos nihil eos.Cumque consequuntur doloremque velit totam"}
-          </p> */}
                         <div className="e-card-buttons"
                              style={{
                                  minWidth: "50%"
@@ -47,11 +42,6 @@ const Card = (props) => {
                     </div>
                 </div>
             </div>
-            {/* <div>
-            <ResponsiveDialog {...props}
-                id={props._id} isOpen={false}
-                toggle={setIsModalOpen}/>
-            </div> */}
         </>
     );
 };

@@ -11,7 +11,7 @@ const Index = (props) => {
     const [myEvents, setMyEvents] = useState([])
     const authContext = useContext(AuthContext);
 
-    const {isAuth, user, login} = authContext;
+    const {isAuth} = authContext;
 
     async function getMyEvents() {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}myEvents`, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
@@ -40,6 +40,7 @@ const Index = (props) => {
         }
         setEvents([])
         setEvents(allEvents)
+        // eslint-disable-next-line
     }, [myEvents])
 
     return (

@@ -11,27 +11,14 @@ const TeamCard = ({name, designation, image, link}) => {
         <>
             <div className="col-md-4">
                 <div className="team-member">
-                    <img src={image}></img>
+                    <img src={image} alt={name}></img>
                     <div className="Ellipse_1_copy_5"></div>
                     <div className="Ellipse_1_copy_4"></div>
                     <div className="Ellipse_1_copy_3"></div>
                     <div className="Ellipse_1_copy_2"></div>
-                    {/* <div className="Ellipse_1_copy_1"></div> */}
                     <div className="Ellipse_1_copy"></div>
                 </div>
 
-                {/* <div className="card outer">
-          <div className="t-name">
-            {name}{" "}
-            <a href={link}>
-              <Fontawesome
-                name="linkedin-square"
-                style={{ color: "rgb(6 108 134)" }}
-              />
-            </a>{" "}
-          </div>
-          <div className="t-designation">{designation}</div>
-        </div> */}
                 <div className="t-name">
                     {name}{" "}
                     <a href={link}>

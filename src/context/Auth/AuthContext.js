@@ -2,7 +2,6 @@ import React, {createContext, useReducer} from "react";
 import AuthReducer from "./AuthReducer";
 import {LOGIN_SUCCESS, LOGOUT, USER_LOADED,} from "../types";
 
-var qs = require("qs");
 var axios = require("axios");
 
 export const AuthContext = createContext();

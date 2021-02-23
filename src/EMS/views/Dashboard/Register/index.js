@@ -28,8 +28,6 @@ const RegisterEvents = () => {
     };
 
     const registerForEvent = (id) => {
-        // var data = JSON.stringify({ event_id: id });
-
         var config = {
             method: "post",
             url: process.env.REACT_APP_API_URL + "events/register/" + id,
@@ -37,7 +35,6 @@ const RegisterEvents = () => {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + localStorage.getItem("token"),
             },
-            // data: data,
         };
 
         axios(config)
@@ -58,14 +55,13 @@ const RegisterEvents = () => {
     return (
         <>
             <Grid container spacing={3}>
-                {events.length == 0 ? (
+                {events.length === 0 ? (
                     <></>
                 ) : (
                     events.map((eve) => (
                         <Grid item xs={3}>
                             <EventCard
                                 eName={eve.name}
-                                // content={eve.description}
                                 image={eve.image}
                                 id={eve._id}
                                 register={registerForEvent}

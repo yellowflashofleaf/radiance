@@ -48,7 +48,6 @@ class PopConfirm extends React.Component {
 const PopUp = (props) => {
 
     const authContext = useContext(AuthContext);
-    const [isOpen, setIsOpen] = React.useState(false);
     const [pending, setPending] = React.useState(false)
     const {isAuth} = authContext;
     const snackbarContext = useContext(SnackbarContext);
@@ -56,7 +55,6 @@ const PopUp = (props) => {
 
     const registerForEvent = (id) => {
         console.log(id)
-        // var data = JSON.stringify({ event_id: id });
         setPending(true)
         var config = {
             method: "post",
@@ -65,7 +63,6 @@ const PopUp = (props) => {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + localStorage.getItem("token"),
             },
-            // data: data,
         };
 
         axios(config)
@@ -135,12 +132,6 @@ const PopUp = (props) => {
                                 listStyle: "none",
                                 marginLeft: "-30px"
                             }}>{props.team !== null && props.team.map((t) => <li key={t}>{t}</li>)}</ol>
-                            {/* <button
-                                className="event-links "
-                                onClick={() => props.toggle && props.toggle(false)}
-                            >
-                                Close
-                            </button> */}
                             {isAuth &&
                             <PopConfirm title="Confirm Registration?" onConfirm={() => registerForEvent(props.id)}>
                                 <button

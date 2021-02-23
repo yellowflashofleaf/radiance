@@ -16,15 +16,15 @@ const Preloader = () => {
                 <br/> PRESENTS
             </div>
             <div className="spinner-box-loader">
-                <div class="blue-orbit-loader leo-loader"></div>
+                <div className="blue-orbit-loader leo-loader"></div>
 
-                <div class="green-orbit-loader leo-loader"></div>
+                <div className="green-orbit-loader leo-loader"></div>
 
-                <div class="red-orbit-loader leo-loader"></div>
+                <div className="red-orbit-loader leo-loader"></div>
 
-                <div class="white-orbit-loader w1-loader leo-loader"></div>
-                <div class="white-orbit-loader w2-loader leo-loader"></div>
-                <div class="white-orbit-loader w3-loader leo-loader"></div>
+                <div className="white-orbit-loader w1-loader leo-loader"></div>
+                <div className="white-orbit-loader w2-loader leo-loader"></div>
+                <div className="white-orbit-loader w3-loader leo-loader"></div>
             </div>
             <Particles
                 style={{position: "absolute", top: "0", height: "100%"}}
