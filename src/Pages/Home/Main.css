@@ -553,11 +553,11 @@
   margin-top: 35%;
 }
 
-/* .coming-soon {
+.coming-soon {
   position: absolute;
   z-index: 10;
   margin-top: 45%;
-} */
+}
 
 @media (max-width: 600px) {
   #your-element-selector {
@@ -594,7 +594,7 @@
     padding: 0;
     font-size: 4.5vw;
     margin-bottom: unset;
-    margin-top: 60vh;
+    margin-top: 55vh;
     color: #fff;
   }
   /* style={{ marginTop: "35%", fontSize: "1.5rem" }} */
