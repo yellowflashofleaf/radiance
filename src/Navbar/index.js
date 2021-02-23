@@ -482,9 +482,9 @@ function Navbar() {
                                         My Events
                                     </Link>
                                 </MenuItem>
-                                <MenuItem onClick={handleMOpen}>
+                                <MenuItem>
                                     <div>
-                                        < div>
+                                        < div  onClick={handleMOpen}>
                                             Profile
                                         </div>
                                         <Modal
