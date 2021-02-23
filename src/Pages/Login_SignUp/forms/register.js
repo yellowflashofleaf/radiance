@@ -238,11 +238,10 @@ class Register extends Component {
                     required
                 >
                     <option value="Year">Year</option>
-                    <option value="FE">FE</option>
-                    <option value="SE">SE</option>
-                    <option value="TE">TE</option>
-                    <option value="BE">BE</option>
-                    <option value="other">Other</option>
+                    <option value="FE">FE (First Year)</option>
+                    <option value="SE">SE (Second Year)</option>
+                    <option value="TE">TE (Third Year)</option>
+                    <option value="BE">BE (Final Year)</option>
                 </select>
                 {this.state.year === "other" ? (
                     <input
