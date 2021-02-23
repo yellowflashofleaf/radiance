@@ -385,7 +385,7 @@ button .ghost {
   }
 
   .sign-up-container {
-    opacity: 1;
+    opacity: 0;
     transform: rotateY(-180deg);
     backface-visibility: hidden;
   }

@@ -44,10 +44,10 @@ function Glimpses() {
         titleFontSize: "1.5em",
         align: "left",
       },
-      // thumbnailToolbarImage: {
-      //   topLeft: "select",
-      //   bottomRight: "featured,display,download,info,cart",
-      // },
+      thumbnailToolbarImage: {
+        topLeft: "select",
+        bottomRight: "",
+      },
 
       // DISPLAY ANIMATION
       thumbnailDisplayTransition: "flipUp", // thumbnail display animation

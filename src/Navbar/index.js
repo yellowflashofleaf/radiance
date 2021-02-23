@@ -18,6 +18,7 @@ import Typography from "@material-ui/core/Typography";
 import { Dialog, Menu, MenuItem, Popover } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import axios from "axios";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 
 const styles = (theme) => ({
@@ -340,7 +341,7 @@ function Navbar() {
                   borderRadius: "50%",
                   padding: "0.8rem",
                   fontSize: "large",
-                  marginRight: "0.5rem",
+                  marginRight: "0.25rem",
                 }}
                 onClick={handleNClick}
               >
@@ -359,17 +360,25 @@ function Navbar() {
                   vertical: "top",
                   horizontal: "center",
                 }}
-                style={{ maxHeight: "50%", minWidth: "120% !important" }}
+                style={{ maxHeight: "75%", minWidth: "130% !important" }}
+                // id="style-2"
               >
                 {notifications.map((notif) => (
                   <div key={notif._id}>
                     <Button
-                      variant="outlined"
+                      // startIcon={<ArrowForwardIosIcon />}
+                      // variant="outlined"
                       onClick={() => {
                         handleDClickOpen();
                         setNotifiContent(notif);
                       }}
-                      style={{ width: "100%" }}
+                      style={{
+                        width: "100%",
+                        fontSize: "14px",
+                        backgroundColor: "#222",
+                        padding: "0.75rem 3rem",
+                        textTransform: "capitalize",
+                      }}
                     >
                       {notif.title}
                     </Button>
@@ -392,7 +401,10 @@ function Navbar() {
                   email={user.email}
                 />{" "}
                 &nbsp;{" "}
-                <span style={{ textTransform: "capitalize" }}>
+                <span
+                  className="desktop-only"
+                  style={{ textTransform: "capitalize" }}
+                >
                   {user.fname}
                 </span>{" "}
                 <ExpandMoreIcon />

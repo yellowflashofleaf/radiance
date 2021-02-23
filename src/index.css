@@ -16,7 +16,7 @@ body {
 /* width */
 ::-webkit-scrollbar {
   width: 12px;
-  background:black ;
+  background: black;
 }
 
 /* Track */
@@ -26,7 +26,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(22,164,189,.9);
+  background: rgba(22, 164, 189, 0.9);
   border-radius: 10px;
 }
 
@@ -35,11 +35,11 @@ body {
   border-radius: 10px !important;
 }
 
-.privacy-policy{
+.privacy-policy {
   color: white;
   margin: 5%;
 }
-.Page404{
+.Page404 {
   text-align: center;
   color: white;
   margin: 5%;
