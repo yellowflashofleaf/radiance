@@ -171,6 +171,8 @@ function ForgotPasswordPage(props) {
         }
     }
 
+    const disabled1 = loading2 || passwordError !== "" || otpError !== "" || otp === "" || password === ""
+    const disabled2 = loading1 || emailError !== "" || email === ""
     return (
         <Grid container style={{marginTop: "10%"}}>
             <Grid item md={4} sm={2} xs={1}><br/></Grid>
@@ -229,10 +231,10 @@ function ForgotPasswordPage(props) {
                         </div>}
                     </CardContent>
                     <CardActions className="text-center" style={{width:"100%"}}>
-                        {isOTPSent && <Button variant="contained" color="primary" disabled={loading2 || passwordError !== "" || otpError !== "" || otp === "" || password === ""}
-                                 onClick={handleCheckOTP}>Change Password {loading2 && <CircularProgress size={20}/>}</Button>}
-                        {!isOTPSent && <Button variant="contained" color="primary" disabled={loading1 || emailError !== "" || email === ""}
-                                 onClick={handleGetOTP}>Get OTP {loading1 && <CircularProgress size={20}/>}</Button>}
+                        {isOTPSent && <button className={disabled1 ? "event-links otp-links-disabled mt-3" : "event-links event-links-active mt-3"} disabled={disabled1}
+                                 onClick={handleCheckOTP}>Change Password {loading2 && <CircularProgress size={20}/>}</button>}
+                        {!isOTPSent && <button className={disabled2 ? "event-links otp-links-disabled mt-3" : "event-links event-links-active mt-3"} disabled={disabled2}
+                                               onClick={handleGetOTP}>Get OTP {loading1 && <CircularProgress size={20}/>}</button>}
                     </CardActions>
                 </Card>
             </Grid>
