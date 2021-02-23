@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactNotification, {store} from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
-import {onMessageListener, getToken} from '../firebase';
+import {getToken, onMessageListener} from '../firebase';
 
 function Notification(props) {
     const [state, setState] = useState({
@@ -16,9 +16,9 @@ function Notification(props) {
     const [notification, setNotification] = useState({title: '', body: ''});
     const [isTokenFound, setTokenFound] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
         getToken(setTokenFound);
-    },[])
+    }, [])
 
     const handleClose = () => {
         setShow(false)

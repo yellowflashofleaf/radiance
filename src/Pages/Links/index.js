@@ -1,8 +1,6 @@
-import React, {useLayoutEffect, useState} from "react";
+import React from "react";
 import './style.css'
-import AOS from "aos";
 import "aos/dist/aos.css";
-import Particles from "react-particles-js";
 
 const Link = ({linkto, href}) => {
     return (

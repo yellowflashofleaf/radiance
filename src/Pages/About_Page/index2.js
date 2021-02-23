@@ -16,7 +16,7 @@ export function btn_1() {
         btnText.html("Show less");
         moreText.css("display", "inline");
     }
-};
+}
 
 export function btn_2() {
     var dots = $(".dots2");
@@ -34,7 +34,7 @@ export function btn_2() {
         btnText.html("Show less");
         moreText.css("display", "inline");
     }
-};
+}
 
 export function btn_3() {
     var dots = $(".dots3");
@@ -52,4 +52,4 @@ export function btn_3() {
         btnText.html("Show less");
         moreText.css("display", "inline");
     }
-};
+}

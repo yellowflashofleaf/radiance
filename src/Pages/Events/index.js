@@ -11,7 +11,8 @@ const Index = (props) => {
     const [myEvents, setMyEvents] = useState([])
     const authContext = useContext(AuthContext);
 
-    const { isAuth, user, login } = authContext;
+    const {isAuth, user, login} = authContext;
+
     async function getMyEvents() {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}myEvents`, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
         setMyEvents(res.data)
@@ -26,11 +27,11 @@ const Index = (props) => {
         })()
     }, [isAuth])
 
-    useEffect(()=>{
+    useEffect(() => {
         let allEvents = Object.assign([], events)
-        for(let i of allEvents){
+        for (let i of allEvents) {
             i.isRegistered = false;
-            for(let j of myEvents){
+            for (let j of myEvents) {
                 if (i._id === j.event_id._id) {
                     i.isRegistered = true;
                     i.regId = j.reg_id;
@@ -102,12 +103,13 @@ const Index = (props) => {
             </div>
 
             <div className="e-card-container row justify-content-center">
-                {flag === "A" && events.map((e, i) => <Card key={i} {...e} updateMyEvents={getMyEvents} />)}
-                {flag === "T" && events.map((e, i) => e.isTechnical && <Card key={i} {...e} updateMyEvents={getMyEvents} />)}
+                {flag === "A" && events.map((e, i) => <Card key={i} {...e} updateMyEvents={getMyEvents}/>)}
+                {flag === "T" && events.map((e, i) => e.isTechnical &&
+                    <Card key={i} {...e} updateMyEvents={getMyEvents}/>)}
                 {flag === "NT" &&
-                events.map((e, i) => !e.isTechnical && <Card key={i} {...e} updateMyEvents={getMyEvents} />)}
+                events.map((e, i) => !e.isTechnical && <Card key={i} {...e} updateMyEvents={getMyEvents}/>)}
                 {flag === "MY" &&
-                events.map((e, i) => e.isRegistered && <Card key={i} {...e} updateMyEvents={getMyEvents} />)}
+                events.map((e, i) => e.isRegistered && <Card key={i} {...e} updateMyEvents={getMyEvents}/>)}
             </div>
             {/* </section>  */}
             <Footer/>

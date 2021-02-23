@@ -21,8 +21,8 @@ export const getToken = (setTokenFound) => {
         if (currentToken) {
             console.log('current token for client: ', currentToken);
             setTokenFound(true);
-            axios.post(`${process.env.REACT_APP_API_URL}user/subscribe`,{token:currentToken}, {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
-                .then(res=>{
+            axios.post(`${process.env.REACT_APP_API_URL}user/subscribe`, {token: currentToken}, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}})
+                .then(res => {
                     console.log(res)
                 })
             // Track the token -> client mapping, by sending to backend server

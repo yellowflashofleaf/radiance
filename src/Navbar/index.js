@@ -484,7 +484,7 @@ function Navbar() {
                                 </MenuItem>
                                 <MenuItem>
                                     <div>
-                                        < div  onClick={handleMOpen}>
+                                        < div onClick={handleMOpen}>
                                             Profile
                                         </div>
                                         <Modal

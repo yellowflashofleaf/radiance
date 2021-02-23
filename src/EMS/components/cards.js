@@ -1,131 +1,122 @@
-import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
+import React, {useEffect, useState} from "react";
+import {makeStyles} from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { Button, Tooltip } from "@material-ui/core";
+import {red} from "@material-ui/core/colors";
+import {Button, Tooltip} from "@material-ui/core";
 import AlertDialog from "./dialog";
 import SlotsDialog from "../views/Dashboard/MyEvents/slots";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: "fit-content",
-    paddingTop: "56.25%", // 16:9
-  },
-  expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: "rotate(180deg)",
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
+    root: {
+        maxWidth: 345,
+    },
+    media: {
+        height: "fit-content",
+        paddingTop: "56.25%", // 16:9
+    },
+    expand: {
+        transform: "rotate(0deg)",
+        marginLeft: "auto",
+        transition: theme.transitions.create("transform", {
+            duration: theme.transitions.duration.shortest,
+        }),
+    },
+    expandOpen: {
+        transform: "rotate(180deg)",
+    },
+    avatar: {
+        backgroundColor: red[500],
+    },
 }));
 
 export default function EventCard(props) {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+    const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
-  const [isMyEvent, setIsMyEvent] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpenSlots, setIsOpenSlots] = useState(false);
-  const [slots, setSlots] = useState([]);
-  const [slotId, setSlotId] = useState("");
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, []);
-
-  useEffect(() => {
-    if (props.type === "myEvent") setIsMyEvent(true);
-    else setIsMyEvent(false);
-  }, [props]);
-
-  const getSlotsForEvent = (eid) => {
-    var config = {
-      method: "get",
-      url: "https://api-ems.pulzion.in/myevents/slots/" + eid,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-        Cookie: "__cfduid=d2cfc1cb73f6e94d0f882b1a4b7cc82b41613815019",
-      },
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
     };
 
-    axios(config)
-      .then(function (response) {
-        console.log(response.data);
-        setSlots(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+    const [isMyEvent, setIsMyEvent] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenSlots, setIsOpenSlots] = useState(false);
+    const [slots, setSlots] = useState([]);
+    const [slotId, setSlotId] = useState("");
 
-  useEffect(() => {
-    console.log(slotId);
-  }, [slotId]);
+    useEffect(() => {
+        setIsOpen(false);
+    }, []);
 
-  return (
-    <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={props.image}
-        // image="https://www.google.com/url?sa=i&url=https%3A%2F%2Fourcodeworld.com%2Farticles%2Fread%2F966%2Fcoding-is-it-the-most-important-skill-for-the-future&psig=AOvVaw16ufXDYnNETngLwk71MKHu&ust=1613066668345000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiOkuHz3-4CFQAAAAAdAAAAABAX"
-        title={props.eName}
-        style={{ backgroundSize: "contain" }}
-      />
-      <CardContent>
-        <Typography variant="h5" color="textPrimary">
-          {props.eName}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.content}
-        </Typography>
-        {isMyEvent && (
-          <Typography variant="body2" color="textSecondary" component="p">
-            Ticket Id:- {props.regId}
-          </Typography>
-        )}
-      </CardContent>
+    useEffect(() => {
+        if (props.type === "myEvent") setIsMyEvent(true);
+        else setIsMyEvent(false);
+    }, [props]);
 
-      {/* For Register */}
-      {!isMyEvent && (
-        <>
-          <CardActions disableSpacing>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => setIsOpen(true)}
-            >
-              Register
-            </Button>
+    const getSlotsForEvent = (eid) => {
+        var config = {
+            method: "get",
+            url: "https://api-ems.pulzion.in/myevents/slots/" + eid,
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+                Cookie: "__cfduid=d2cfc1cb73f6e94d0f882b1a4b7cc82b41613815019",
+            },
+        };
 
-            {/* <IconButton
+        axios(config)
+            .then(function (response) {
+                console.log(response.data);
+                setSlots(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+    useEffect(() => {
+        console.log(slotId);
+    }, [slotId]);
+
+    return (
+        <Card className={classes.root}>
+            <CardMedia
+                className={classes.media}
+                image={props.image}
+                // image="https://www.google.com/url?sa=i&url=https%3A%2F%2Fourcodeworld.com%2Farticles%2Fread%2F966%2Fcoding-is-it-the-most-important-skill-for-the-future&psig=AOvVaw16ufXDYnNETngLwk71MKHu&ust=1613066668345000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiOkuHz3-4CFQAAAAAdAAAAABAX"
+                title={props.eName}
+                style={{backgroundSize: "contain"}}
+            />
+            <CardContent>
+                <Typography variant="h5" color="textPrimary">
+                    {props.eName}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {props.content}
+                </Typography>
+                {isMyEvent && (
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        Ticket Id:- {props.regId}
+                    </Typography>
+                )}
+            </CardContent>
+
+            {/* For Register */}
+            {!isMyEvent && (
+                <>
+                    <CardActions disableSpacing>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => setIsOpen(true)}
+                        >
+                            Register
+                        </Button>
+
+                        {/* <IconButton
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded,
               })}
@@ -135,8 +126,8 @@ export default function EventCard(props) {
             >
               <ExpandMoreIcon />
             </IconButton> */}
-          </CardActions>
-          {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    </CardActions>
+                    {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
               <Typography paragraph>Method:</Typography>
               <Typography paragraph>
@@ -170,58 +161,58 @@ export default function EventCard(props) {
             </CardContent>
           </Collapse> */}
 
-          <AlertDialog
-            title={"Confirmation"}
-            data={"Register for " + props.eName}
-            isOpen={isOpen}
-            onAccept={() => {
-              props.register(props.id);
-              setIsOpen(false);
-            }}
-            onDeny={() => setIsOpen(false)}
-          />
-        </>
-      )}
-      {isMyEvent && (
-        <>
-          {
-            <>
-              <CardActions disableSpacing>
-                {!props.slotId ? (
-                  <Tooltip title="Coming soon">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      // onClick={() => {
-                      //   setIsOpenSlots(true);
-                      //   getSlotsForEvent(props.eid);
-                      // }}
-                      // disabled
-                    >
-                      Book Slot (coming soon)
-                    </Button>
-                  </Tooltip>
-                ) : (
-                  <Button variant="contained" color="primary" disabled>
-                    Slot Booked
-                  </Button>
-                )}{" "}
-              </CardActions>
-              <SlotsDialog
-                title={"Slot Booking"}
-                isOpen={isOpenSlots}
-                slots={slots}
-                onSlotChange={setSlotId}
-                onBook={() => {
-                  props.bookSlots(props.id, slotId);
-                  setIsOpenSlots(false);
-                }}
-                onDeny={() => setIsOpenSlots(false)}
-              ></SlotsDialog>
-            </>
-          }
-        </>
-      )}
-    </Card>
-  );
+                    <AlertDialog
+                        title={"Confirmation"}
+                        data={"Register for " + props.eName}
+                        isOpen={isOpen}
+                        onAccept={() => {
+                            props.register(props.id);
+                            setIsOpen(false);
+                        }}
+                        onDeny={() => setIsOpen(false)}
+                    />
+                </>
+            )}
+            {isMyEvent && (
+                <>
+                    {
+                        <>
+                            <CardActions disableSpacing>
+                                {!props.slotId ? (
+                                    <Tooltip title="Coming soon">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            // onClick={() => {
+                                            //   setIsOpenSlots(true);
+                                            //   getSlotsForEvent(props.eid);
+                                            // }}
+                                            // disabled
+                                        >
+                                            Book Slot (coming soon)
+                                        </Button>
+                                    </Tooltip>
+                                ) : (
+                                    <Button variant="contained" color="primary" disabled>
+                                        Slot Booked
+                                    </Button>
+                                )}{" "}
+                            </CardActions>
+                            <SlotsDialog
+                                title={"Slot Booking"}
+                                isOpen={isOpenSlots}
+                                slots={slots}
+                                onSlotChange={setSlotId}
+                                onBook={() => {
+                                    props.bookSlots(props.id, slotId);
+                                    setIsOpenSlots(false);
+                                }}
+                                onDeny={() => setIsOpenSlots(false)}
+                            ></SlotsDialog>
+                        </>
+                    }
+                </>
+            )}
+        </Card>
+    );
 }

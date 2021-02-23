@@ -3,7 +3,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {CircularProgress, Grid, TextField} from "@material-ui/core";
 import axios from "axios";
@@ -39,10 +38,10 @@ function ForgotPasswordPage(props) {
 
     const authContext = useContext(AuthContext);
     const {logout} = authContext;
-    const { executeRecaptcha } = useGoogleReCaptcha()
+    const {executeRecaptcha} = useGoogleReCaptcha()
 
     useEffect(() => {
-            logout()
+        logout()
     }, [])
 
     let history = useHistory()
@@ -96,7 +95,7 @@ function ForgotPasswordPage(props) {
         e.preventDefault()
         setLoading1(true)
         try {
-           const captcha = await executeRecaptcha("forgotPassword")
+            const captcha = await executeRecaptcha("forgotPassword")
 
             await axios.post(`${process.env.REACT_APP_API_URL}auth/forgot-password/get-otp`, {email, captcha})
         } catch (e) {
@@ -230,11 +229,16 @@ function ForgotPasswordPage(props) {
                             </Grid>
                         </div>}
                     </CardContent>
-                    <CardActions className="text-center" style={{width:"100%"}}>
-                        {isOTPSent && <button className={disabled1 ? "event-links otp-links-disabled mt-3" : "event-links event-links-active mt-3"} disabled={disabled1}
-                                 onClick={handleCheckOTP}>Change Password {loading2 && <CircularProgress size={20}/>}</button>}
-                        {!isOTPSent && <button className={disabled2 ? "event-links otp-links-disabled mt-3" : "event-links event-links-active mt-3"} disabled={disabled2}
-                                               onClick={handleGetOTP}>Get OTP {loading1 && <CircularProgress size={20}/>}</button>}
+                    <CardActions className="text-center" style={{width: "100%"}}>
+                        {isOTPSent && <button
+                            className={disabled1 ? "event-links otp-links-disabled mt-3" : "event-links event-links-active mt-3"}
+                            disabled={disabled1}
+                            onClick={handleCheckOTP}>Change Password {loading2 &&
+                        <CircularProgress size={20}/>}</button>}
+                        {!isOTPSent && <button
+                            className={disabled2 ? "event-links otp-links-disabled mt-3" : "event-links event-links-active mt-3"}
+                            disabled={disabled2}
+                            onClick={handleGetOTP}>Get OTP {loading1 && <CircularProgress size={20}/>}</button>}
                     </CardActions>
                 </Card>
             </Grid>

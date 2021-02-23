@@ -1,21 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Main from "./Main";
-import About from "../About";
-import Links from "../Links";
-import Particles from "react-particles-js";
 
 export default function Home() {
-  return (
-    <>
-      <div style={{ maxWidth: "100vw" }}>
-        <div style={{ minHeight: "90vh" }}>
-          <Main />
-        </div>
-        {/* <About /> */}
-      </div>
-      {/* <Links/> */}
+    return (
+        <>
+            <div style={{maxWidth: "100vw"}}>
+                <div style={{minHeight: "90vh"}}>
+                    <Main/>
+                </div>
+                {/* <About /> */}
+            </div>
+            {/* <Links/> */}
 
-      {/* <Particles
+            {/* <Particles
         style={{
           position: "absolute",
           top: "0",
@@ -84,6 +81,6 @@ export default function Home() {
           retina_detect: true,
         }}
       /> */}
-    </>
-  );
+        </>
+    );
 }
