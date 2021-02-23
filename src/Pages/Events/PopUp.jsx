@@ -90,6 +90,7 @@ const PopUp = (props) => {
         <>
             <>
                 <div
+                onClick={() => props.toggle && props.toggle(false)}
                     className="popup-container"
                     style={
                         props.open
@@ -101,7 +102,7 @@ const PopUp = (props) => {
                 {
                     props.open &&
                     <>
-                        <div className="popup bg-dark text-light" >
+                        <div className="popup bg-dark text-light p-5" >
                         <button
                         style={{float:"right", padding:"5px 12px", borderRadius:"25px"}}
                                 onClick={() => props.toggle && props.toggle(false)}
@@ -127,16 +128,16 @@ const PopUp = (props) => {
                                 listStyle: "none",
                                 marginLeft: "-30px"
                             }}>{props.team !== null && props.team.map((t) => <li key={t}>{t}</li>)}</ol>
-                            <button
+                            {/* <button
                                 className="event-links "
                                 onClick={() => props.toggle && props.toggle(false)}
                             >
                                 Close
-                            </button>
+                            </button> */}
                             {isAuth &&
                             <PopConfirm title="Confirm Registration?" onConfirm={() => registerForEvent(props.id)}>
                                 <button
-                                    className={props.isRegistered ? "event-links event-links-disabled" : "event-links event-links-active"}
+                                    className={props.isRegistered ? "event-links event-links-disabled mt-3" : "event-links event-links-active mt-3"}
                                     disabled={props.isRegistered}
                                 >
                                     {!props.isRegistered && <>{!pending && <>Register <PlaylistAddIcon/></>} {pending && <>Register <CircularProgress
@@ -147,7 +148,7 @@ const PopUp = (props) => {
                             </PopConfirm>}
                             {!isAuth && <Link to={"/login"}>
                                 <button
-                                    className={"event-links event-links-active"}
+                                    className={"event-links event-links-active mt-3"}
                                 >
                                     Login/Signup to register
                                 </button>

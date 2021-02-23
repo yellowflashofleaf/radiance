@@ -7,7 +7,7 @@ import { store } from "react-notifications-component";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import { CircularProgress } from "@material-ui/core";
 
-// const regExp = RegExp(
+//const regExp = RegExp(
 //     /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
 // )
 
@@ -113,7 +113,6 @@ class Register extends Component {
 
   onSubmit = async (e) => {
     e.preventDefault();
-    this.setState({ pending: true });
 
     if (formValid(this.state)) {
       const {
@@ -126,6 +125,8 @@ class Register extends Component {
         contactNumber,
       } = this.state;
       try {
+        this.setState({ pending: true });
+
         const res = await axios.post(
           process.env.REACT_APP_API_URL + "auth/register",
           {

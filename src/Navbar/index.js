@@ -407,7 +407,7 @@ function Navbar() {
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>
                   <Link
-                    to="/events"
+                    to="/myevents"
                     style={{ textDecoration: "none", color: "#fff" }}
                   >
                     {" "}

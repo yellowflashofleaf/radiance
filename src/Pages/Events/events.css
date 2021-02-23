@@ -217,7 +217,7 @@ a.event-links:hover {
 @media (max-width: 600px) {
   .popup {
     width: 95%;
-    border-radius: 5vw;
+    /* border-radius: 5vw; */
   }
 }
 
