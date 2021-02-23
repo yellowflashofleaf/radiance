@@ -476,9 +476,9 @@ function Navbar() {
                                 </MenuItem>
                                 <MenuItem>
                                     <div>
-                                        < div onClick={handleMOpen}>
-                                            Profile
-                                        </div>
+                                        {/*< div onClick={handleMOpen}>*/}
+                                        {/*    Profile*/}
+                                        {/*</div>*/}
                                         <Modal
                                             aria-labelledby="spring-modal-title"
                                             aria-describedby="spring-modal-description"
