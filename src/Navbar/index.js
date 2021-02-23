@@ -15,11 +15,19 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import {Dialog, Menu, MenuItem, Popover} from "@material-ui/core";
+import {Card, CardActionArea, CardActions, Dialog, Menu, MenuItem, Popover} from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import axios from "axios";
 import NotificationsIcon from '@material-ui/icons/Notifications';
-
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import { useSpring, animated } from 'react-spring/web.cjs';
+import CardContent from "@material-ui/core/CardContent"; // web.cjs is required for IE 11 support
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MailIcon from '@material-ui/icons/Mail';
+import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 const styles = (theme) => ({
     root: {
         margin: 0,
@@ -30,6 +38,17 @@ const styles = (theme) => ({
         right: theme.spacing(1),
         top: theme.spacing(1),
         color: theme.palette.grey[500],
+    },
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    cardRoot: {
+        maxWidth: "10%",
+    },
+    media: {
+        height: "25%",
     },
 });
 
@@ -65,6 +84,38 @@ const variants = {
     closed: {opacity: 0, display: "none"},
 };
 
+const Fade = React.forwardRef(function Fade(props, ref) {
+    const { in: open, children, onEnter, onExited, ...other } = props;
+    const style = useSpring({
+        from: { opacity: 0 },
+        to: { opacity: open ? 1 : 0 },
+        onStart: () => {
+            if (open && onEnter) {
+                onEnter();
+            }
+        },
+        onRest: () => {
+            if (!open && onExited) {
+                onExited();
+            }
+        },
+    });
+
+    return (
+        <animated.div ref={ref} style={style} {...other}>
+            {children}
+        </animated.div>
+    );
+});
+
+Fade.propTypes = {
+    children: PropTypes.element,
+    in: PropTypes.bool.isRequired,
+    onEnter: PropTypes.func,
+    onExited: PropTypes.func,
+};
+
+
 function Navbar() {
 
     const [notifications, setNotifications] = useState([])
@@ -73,7 +124,7 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(false);
     const [openD, setOpenD] = React.useState(false);
-
+const [openM, setOpenM] = React.useState(false)
     let location = useLocation();
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -104,6 +155,15 @@ function Navbar() {
     };
     const handleDClose = () => {
         setOpenD(false);
+    };
+
+    const handleMOpen = () => {
+        setOpenM(true);
+    };
+    const handleMClose = () => {
+        console.log(openM)
+        handleClose()
+        setOpenM(false);
     };
 
     const open = Boolean(anchorN);
@@ -406,7 +466,6 @@ function Navbar() {
                                 open={anchorEl}
                                 onClose={handleClose}
                             >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
                                 <MenuItem onClick={handleClose}>
                                     <Link
                                         to="/events"
@@ -416,6 +475,60 @@ function Navbar() {
                                         My Events
                                     </Link>
                                 </MenuItem>
+                                <MenuItem onClick={handleMOpen}>
+                                    <div>
+                                        < div >
+                                            Profile
+                                        </div>
+                                        <Modal
+                                            aria-labelledby="spring-modal-title"
+                                            aria-describedby="spring-modal-description"
+                                            className={styles.modal}
+                                            open={openM}
+                                            onClose={handleMClose}
+                                            closeAfterTransition
+                                            BackdropComponent={Backdrop}
+                                            BackdropProps={{
+                                                timeout: 500,
+                                            }}
+                                            onClick={handleMClose}
+
+                                        >
+                                            <div  style={{textAlign: "center"}} >
+                                            <Fade in={openM}>
+                                                <Card onClick={handleMClose} style={{width:"23%", height: "25%", position :"absolute", left:"50%", top: "45%", transform:"translate(-50%,-50%)"}} >
+                                                    <CardActionArea>
+                                                        <Gravatar
+                                                            style={{
+                                                                marginTop: "2%",
+                                                                borderRadius: "50px",
+                                                                height: "13%",
+                                                                width: "13%",
+                                                            }}
+                                                            email={user.email}
+                                                        />
+                                                        <CardContent>
+                                                            <Typography gutterBottom variant="h6" component="h2">
+                                                                <AccountCircleIcon size="large"/> : {user.fname}
+                                                            </Typography>
+                                                            <Typography gutterBottom variant="h6" component="h2">
+                                                                <MailIcon/> : {user.email}
+                                                            </Typography>
+                                                            <Typography gutterBottom variant="h6" component="h2">
+                                                            <ContactPhoneIcon/> : {user.contactNumber}
+                                                        </Typography>
+                                                        </CardContent>
+                                                    </CardActionArea>
+
+                                                </Card>
+                                            </Fade>
+                                            </div>
+                                        </Modal>
+                                    </div>
+
+
+                                </MenuItem>
+
                                 <MenuItem onClick={() => logout()}>Logout</MenuItem>
                             </Menu>
                         </>
