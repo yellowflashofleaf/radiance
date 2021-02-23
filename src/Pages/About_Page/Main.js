@@ -128,7 +128,7 @@ export default function () {
                   </p>
                   <button
                     type="button"
-                    className="btn-about btn-dark btn-1"
+                    className="btn btn-dark btn-1"
                     onClick={R.btn_1}
                   >
                     Know More
@@ -161,7 +161,7 @@ export default function () {
                   </p>
                   <button
                     type="button"
-                    className="btn-about btn-dark btn-2"
+                    className="btn btn-dark btn-2"
                     onClick={R.btn_2}
                   >
                     Know More
@@ -199,7 +199,7 @@ export default function () {
                   </p>
                   <button
                     type="button"
-                    className="btn-about btn-dark btn-3"
+                    className="btn btn-dark btn-3"
                     onClick={R.btn_3}
                   >
                     Know More
