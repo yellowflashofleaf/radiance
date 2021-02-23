@@ -55,14 +55,7 @@ const About = () => {
                             data-aos-easing="ease-in-sine"
                             duration="900"
                         >
-                            Pulzion is the annual technical fest organized by PICT ACM Student
-                            Chapter. Pulzion has hosted multmiple events including coding
-                            competition ranging from amateur competitions two day-long as well
-                            as mock placements, business management based and quizzing events.
-                            It has become one of the most anticipated events taking place at
-                            PICT with participants from colleges all over Pune. With high
-                            aspirations, backed with sincerity and dedication, the PASC team
-                            aims to add value to the college and all the people in it.
+                            Pulzion is the annual flagship event organized by PICT ACM Student Chapter (PASC). Pulzion consists of multiple events in technical as well as non-technical domains including coding competitions, mock placement interviews, business management-based events, design and development based contests and quizzing events. It is one of the most anticipated events taking place at PICT. This year, Pulzion is going global to encourage students of varied backgrounds to participate and compete. With sincerity, dedication and high aspirations, our chapter hopes to add value to our college and the community.
                         </div>
                         <div className="about-link text-right">
                         </div>
