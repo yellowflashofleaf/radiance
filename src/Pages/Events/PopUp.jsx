@@ -104,7 +104,7 @@ const PopUp = (props) => {
                     <>
                         <div className="popup bg-dark text-light p-5" >
                         <button
-                        style={{float:"right", padding:"5px 12px", borderRadius:"25px"}}
+                        style={{float:"right", padding:"5px 12px", borderRadius:"25px", position:"absolute", right:"3%", top:"3%"}}
                                 onClick={() => props.toggle && props.toggle(false)}
                             >
                                 X
