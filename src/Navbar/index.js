@@ -239,7 +239,7 @@ function Navbar() {
               }
               onClick={() => setIsOpen(!isOpen)}
             >
-              Previous Glimpses
+              Pulzion'19 Glimpses
             </Link>
           </li>
         </ul>
@@ -314,7 +314,7 @@ function Navbar() {
                 : "nav-link"
             }
           >
-            Previous Glimpses
+            Pulzion'19 Glimpses
           </Link>
         </div>
         <div className="login-btn-div">
@@ -344,7 +344,7 @@ function Navbar() {
                 }}
                 onClick={handleNClick}
               >
-                <NotificationsIcon />
+                <NotificationsIcon style={{ fontSize: 30 }} />
               </div>
               <Popover
                 id={id}

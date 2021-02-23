@@ -96,9 +96,9 @@ function Glimpses() {
   return (
     <Grid container direction="column" style={{ zIndex: 10 }}>
       <Grid item container>
-        <div className="text-center my-5" style={{ width: "100vw" }}>
+        <div className="text-center mb-5" style={{ width: "100vw" }}>
           <div className="page-title ml-auto mr-auto">
-            Glimpses of Pulzion'19
+            GLIMPSES OF PULZION'19
           </div>
         </div>
       </Grid>
