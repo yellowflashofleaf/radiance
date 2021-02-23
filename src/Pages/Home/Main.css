@@ -553,6 +553,12 @@
   margin-top: 35%;
 }
 
+/* .coming-soon {
+  position: absolute;
+  z-index: 10;
+  margin-top: 45%;
+} */
+
 @media (max-width: 600px) {
   #your-element-selector {
     width: 98vw;

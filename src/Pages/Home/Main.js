@@ -98,12 +98,12 @@ export default function Main() {
           </button>
         </div>
         <div
-          className="coming-soon"
+          className="subtitle"
           data-aos="fade-up"
           data-aos-offset="150"
           data-aos-easing="ease-in-sine"
           duration="900"
-          //   style={{ marginTop: "35%", fontSize: "1.5rem" }}
+          style={{ marginTop: "35%", fontSize: "1.5rem" }}
         >
           5th, 6th, 7th March 2021
         </div>
