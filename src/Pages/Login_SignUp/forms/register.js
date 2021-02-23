@@ -211,7 +211,7 @@ class Register extends Component {
                 )}
                 <input
                     type="text"
-                    placeholder="Contact number"
+                    placeholder="Contact number (Without Country Code)"
                     name="contactNumber"
                     value={this.state.contactNumber}
                     onChange={this.formValChange}
