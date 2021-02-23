@@ -26,6 +26,20 @@
   cursor: default !important;
 }
 
+.otp-links-disabled {
+  /*background-color: #0f942e;*/
+  opacity: 0.6;
+  cursor: default !important;
+  border: none;
+}
+
+.otp-links-disabled:hover {
+  /*background-color: #0f942e !important;*/
+  background-color: rgb(27, 30, 31);
+  opacity: 0.6 !important;
+  cursor: default !important;
+}
+
 .event-links:hover {
   background-color: rgb(38, 41, 43);
   border-color: rgb(57, 62, 63);
