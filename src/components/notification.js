@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import ReactNotification, {store} from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import {getToken, onMessageListener} from '../firebase';
