@@ -482,12 +482,12 @@ function Navbar() {
                     My Events
                   </Link>
                 </MenuItem>
-                <MenuItem>
-                  <div>
-                    {/*< div onClick={handleMOpen}>*/}
-                    {/*    Profile*/}
-                    {/*</div>*/}
-                    <Modal
+                {/* <MenuItem>
+                  <div> */}
+                {/*< div onClick={handleMOpen}>*/}
+                {/*    Profile*/}
+                {/*</div>*/}
+                {/* <Modal
                       aria-labelledby="spring-modal-title"
                       aria-describedby="spring-modal-description"
                       className={styles.modal}
@@ -553,7 +553,7 @@ function Navbar() {
                       </div>
                     </Modal>
                   </div>
-                </MenuItem>
+                </MenuItem> */}
 
                 <MenuItem onClick={() => logout()}>Logout</MenuItem>
               </Menu>
