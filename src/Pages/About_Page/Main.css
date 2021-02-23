@@ -3,10 +3,10 @@
   overflow: hidden;
   z-index: 10 !important;
 }
-
+/* 
 span {
   font-size: 18px;
-}
+} */
 
 .btn-about {
   display: inline-block;

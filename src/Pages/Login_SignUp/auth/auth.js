@@ -3,7 +3,7 @@ import Register from "../forms/register";
 import Login from "../forms/login";
 import "../style.css";
 import { AuthContext } from "../../../context/Auth/AuthContext";
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
 const Auth = (props) => {
   const authContext = useContext(AuthContext);
@@ -24,27 +24,21 @@ const Auth = (props) => {
     const signUp = document.querySelector(".sign-up-container");
     signUp.setAttribute(
       "style",
-      "transform: rotateY(0deg); transition: all 1s; backface-visibility: hidden;"
+      "transform: rotateY(0deg); transition: all 1s; backface-visibility: hidden; opacity: 1;"
     );
     const signUpArrow = document.querySelector("#signIn");
-    signUpArrow.setAttribute(
-        "style",
-        "opacity: 1"
-    );
+    signUpArrow.setAttribute("style", "opacity: 1");
   };
 
   const changeToSignIn = () => {
     const signUp = document.querySelector(".sign-up-container");
     signUp.setAttribute(
       "style",
-      "transform: rotateY(180deg); transition: all 1s; backface-visibility: hidden;"
+      "transform: rotateY(180deg); transition: all 1s; backface-visibility: hidden !important; opacity: 0;"
     );
 
     const signUpArrow = document.querySelector("#signIn");
-    signUpArrow.setAttribute(
-      "style",
-      "opacity: 0"
-    );
+    signUpArrow.setAttribute("style", "opacity: 0");
 
     const container = document.querySelector(".sign-in-container");
     container.setAttribute(
@@ -76,7 +70,7 @@ const Auth = (props) => {
                 class="fas fa-arrow-circle-left"
                 id="signIn"
                 onClick={changeToSignIn}
-                style={{opacity: 0}}
+                style={{ opacity: 0 }}
               />
             </Fragment>
           ) : null}

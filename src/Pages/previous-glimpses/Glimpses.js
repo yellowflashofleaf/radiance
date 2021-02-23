@@ -46,7 +46,7 @@ function Glimpses() {
       },
       thumbnailToolbarImage: {
         topLeft: "select",
-        bottomRight: "featured,display,download,info,cart",
+        bottomRight: "",
       },
 
       // DISPLAY ANIMATION
