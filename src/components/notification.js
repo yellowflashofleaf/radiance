@@ -16,6 +16,7 @@ function Notification() {
     }, [])
 
     if (browser && browser.name === 'chrome') {
+        try{
         onMessageListener().then(payload => {
             console.log(payload);
             store.addNotification({
@@ -32,6 +33,7 @@ function Notification() {
                 }
             });
         }).catch(err => console.log('failed: ', err));
+        }catch(e){}
     }
 
     return (
