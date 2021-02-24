@@ -123,42 +123,39 @@ const Team = () => {
                 <div className="row mx-0 justify-content-around">
                     {data1.map((tm) => {
                         return (
-                            <div key={tm.image}>
                                 <TeamCard
                                     name={tm.name}
                                     designation={tm.designation}
                                     image={tm.image}
                                     link={tm.link}
+                                    key={tm.name}
                                 />
-                            </div>
                         );
                     })}
                 </div>
                 <div className="row mx-0 justify-content-around">
                     {data2.map((tm) => {
                         return (
-                            <div key={tm.name}>
                                 <TeamCard
                                     name={tm.name}
                                     designation={tm.designation}
                                     image={tm.image}
                                     link={tm.link}
+                                    key={tm.name}
                                 />
-                            </div>
                         );
                     })}
                 </div>
                 <div className="row mx-0 justify-content-around">
                     {data3.map((tm) => {
                         return (
-                            <div key={tm.name}>
                                 <TeamCard
                                     name={tm.name}
                                     designation={tm.designation}
                                     image={tm.image}
                                     link={tm.link}
+                                    key={tm.name}
                                 />
-                            </div>
                         );
                     })}
                 </div>
