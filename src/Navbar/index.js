@@ -145,6 +145,8 @@ function Navbar() {
 
   const handleNClick = (event) => {
     setAnchorN(event.currentTarget);
+    getAllNotifications();
+
   };
 
   const handleNClose = () => {
@@ -163,11 +165,11 @@ function Navbar() {
   // const handleMOpen = () => {
   //     setOpenM(true);
   // };
-  const handleMClose = () => {
-    console.log(openM);
-    handleClose();
-    setOpenM(false);
-  };
+  // const handleMClose = () => {
+  //   console.log(openM);
+  //   handleClose();
+  //   setOpenM(false);
+  // };
 
   const open = Boolean(anchorN);
   const id = open ? "simple-popover" : undefined;
