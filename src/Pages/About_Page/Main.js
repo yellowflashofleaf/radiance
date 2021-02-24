@@ -5,7 +5,7 @@ import img3 from "./images/Acm img.png";
 import img2 from "./images/Acmw img.png";
 import img1 from "./images/Pasc img.png";
 import * as R from "./index2";
-import { IoLocationSharp } from "react-icons/io5";
+import {IoLocationSharp} from "react-icons/io5";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/Mail";
 import InstagramIcon from "@material-ui/icons/Instagram";
