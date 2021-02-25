@@ -146,7 +146,6 @@ function Navbar() {
   const handleNClick = (event) => {
     setAnchorN(event.currentTarget);
     getAllNotifications();
-
   };
 
   const handleNClose = () => {
@@ -228,7 +227,7 @@ function Navbar() {
           className="close-menu"
           onClick={() => setIsOpen(!isOpen)}
         />
-        <ul>
+        <ul style={{ paddingLeft: "0" }}>
           <li>
             <Link
               to="/"
