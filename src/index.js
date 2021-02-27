@@ -15,7 +15,7 @@ const asciiArt = `
 
 console.log(asciiArt)
 console.log("\nYou seem to be interested in WebDev🚀...\nWhy not register for \"Web & App Development\" and have some fun!🤩\n")
-console.log = function (){}
+// console.log = function (){}
 
 ReactDOM.render(
     <React.StrictMode>

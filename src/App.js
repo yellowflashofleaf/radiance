@@ -9,15 +9,21 @@ import AuthContextProvider from "./context/Auth/AuthContext";
 import SnackbarContextProvider from "./context/Snackbar/SnackbarContext";
 import MySnackbar from "./EMS/components/Snackbar";
 import Notification from "./components/notification";
-import {detect} from 'detect-browser'
-
+import queryString from "query-string";
 
 function App() {
     const [loading, setLoading] = useState(true);
-    const browser = detect();
-
+    const [parsed, setParsed] = useState(false);
     useEffect(() => {
-        console.log(browser)
+
+        let parsed1 = queryString.parse(window.location.search);
+        if (parsed1.app === '1'){
+            setParsed(true)
+        }else{
+            setParsed(false)
+        }
+
+
         setTimeout(() => {
             setLoading(false);
         }, 1000);
@@ -30,6 +36,8 @@ function App() {
     });
 
     return (
+
+
         <div className="App">
             <ThemeProvider theme={darkTheme}>
                 <SnackbarContextProvider>
@@ -39,7 +47,7 @@ function App() {
                                 <Preloader/>
                             ) : (
                                 <>
-                                    <Navbar/>
+                                    {parsed ? <></> : <Navbar/>}
                                     <Notification/>
                                     <Routes/>
                                 </>

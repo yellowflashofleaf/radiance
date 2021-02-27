@@ -34,6 +34,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 
+
 const styles = (theme) => ({
   root: {
     margin: 0,
@@ -118,7 +119,7 @@ Fade.propTypes = {
   onExited: PropTypes.func,
 };
 
-function Navbar() {
+function Navbar(props) {
   const [notifications, setNotifications] = useState([]);
   const [notifContent, setNotifiContent] = useState({});
 
@@ -178,6 +179,9 @@ function Navbar() {
   const { isAuth, logout, loadUser, user } = authContext;
 
   useEffect(() => {
+
+
+
     if (localStorage.getItem("token")) {
       loadUser();
       getAllNotifications();
