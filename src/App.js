@@ -17,10 +17,14 @@ function App() {
     const browser = detect();
 
     useEffect(() => {
-        console.log(browser)
-        setTimeout(() => {
+        if (window.location.pathname === "/app-sponsors"){
             setLoading(false);
-        }, 1000);
+        }
+        else{
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
+        }
     }, []);
 
     const darkTheme = createMuiTheme({
