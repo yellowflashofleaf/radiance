@@ -9,18 +9,14 @@ import AuthContextProvider from "./context/Auth/AuthContext";
 import SnackbarContextProvider from "./context/Snackbar/SnackbarContext";
 import MySnackbar from "./EMS/components/Snackbar";
 import Notification from "./components/notification";
-import {detect} from 'detect-browser'
-
 
 function App() {
     const [loading, setLoading] = useState(true);
-    const browser = detect();
-
     useEffect(() => {
         if (window.location.pathname === "/app-sponsors"){
-            setLoading(false);
+            setLoading(false)
         }
-        else{
+        else {
             setTimeout(() => {
                 setLoading(false);
             }, 1000);
@@ -34,6 +30,8 @@ function App() {
     });
 
     return (
+
+
         <div className="App">
             <ThemeProvider theme={darkTheme}>
                 <SnackbarContextProvider>

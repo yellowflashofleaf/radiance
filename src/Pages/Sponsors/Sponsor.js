@@ -7,21 +7,23 @@ import PhoneIcon from "@material-ui/icons/Phone";
 const Sponsor = () => {
     return (
         <>
-            <div className="sponsor" style={{height: "70vh"}}>
+            <div className="sponsor" style={{height: "100%"}}>
                 <div className="page-title">SPONSORS</div>
                 <br/>
                 <h1>Coming Soon...</h1>
-                <br/><br/><br/><br/>
-                <h3>Want to collaborate? Interested in sponsoring?</h3>
                 <br/>
-                <h4>WE ARE HERE FOR YOU </h4>
+                <h2>Want to collaborate? Interested in sponsoring?</h2>
+                <br/>
+
+                <h3>WE ARE HERE FOR YOU </h3>
                 <br/><br/>
                 <MailIcon fontSize="large"/>
                 <h5>
                     {"  "}
                     acm.pict@gmail.com
                 </h5>
-                <div>
+                <br/>
+                <div >
                     <PhoneIcon fontSize="large"/> {"  "}
                     <h5> Pranav Kadam- 94040 94923</h5>
                     <h5>

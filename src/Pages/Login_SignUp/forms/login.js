@@ -37,6 +37,8 @@ const Login = () => {
             setErrors({error: "Please enter the details"});
         } else {
             try {
+                setErrors({error: ""});
+
                 setPending(true);
                 let data = {email, password};
                 let res = await axios.post(
