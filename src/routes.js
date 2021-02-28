@@ -14,6 +14,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy.component";
 import NotFound from "./Pages/NotFound/NotFound.component";
 import ForgotPasswordPage from "./Pages/ForgotPassword/ForgotPassword.page";
 import Insight from "./Pages/Insight/insight";
+import AppSponsor from "./Pages/Sponsors-app/Sponsor";
 
 class Routes extends React.Component {
   render() {
@@ -64,6 +65,11 @@ class Routes extends React.Component {
         <Route path="/sponsors">
           <div style={{ zIndex: 10, overflow: "hidden" }}>
             <Sponsor />
+          </div>
+        </Route>
+        <Route path="/app-sponsors">
+          <div style={{ zIndex: 100000, overflow: "hidden" }}>
+            <AppSponsor />
           </div>
         </Route>
         <Route path="/privacy-policy">
