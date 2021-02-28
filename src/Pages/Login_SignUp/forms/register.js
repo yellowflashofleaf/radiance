@@ -9,24 +9,6 @@ import {CircularProgress} from "@material-ui/core";
 
 const regExp = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
 
-const formValid = ({isError, ...rest}) => {
-    let isValid = false;
-
-    Object.values(isError).forEach((val) => {
-        isValid = val.length <= 0;
-    });
-
-    Object.values(rest).forEach((val) => {
-        if (val === null) {
-            isValid = false;
-        } else {
-            isValid = true;
-        }
-    });
-
-    return isValid;
-};
-
 class Register extends Component {
     static contextType = AuthContext;
 
@@ -54,6 +36,28 @@ class Register extends Component {
         };
     }
 
+    formValid = () => {
+        let isValid = false;
+
+        if (this.state.isError.contactNumberError !== "" || this.state.isError.passwordError !== "" ||
+            this.state.isError.confirmPasswordError !== "" || this.state.isError.emailError !== "" ||
+            this.state.isError.collegeError !== "" || this.state.isError.yearError !== "") {
+
+            isValid = false;
+
+        } else if (this.state.year === "Year") {
+            let isError = {...this.state.isError};
+            isError.yearError = "Please Select Year !!"
+            this.setState({isError})
+            isValid = false;
+
+        } else {
+            isValid = true
+        }
+
+        return isValid;
+    };
+
     formValChange = (e) => {
         e.preventDefault();
         const {name, value} = e.target;
@@ -65,6 +69,12 @@ class Register extends Component {
                     ? ""
                     : "Email address is invalid";
                 break;
+
+            case "year":
+                isError.yearError =
+                    value === "Year" ? "Please Select Year !!" : "";
+                break;
+
             case "password":
                 isError.passwordError =
                     value.length < 8 ? "Atleast 8 characaters required" : "";
@@ -106,7 +116,7 @@ class Register extends Component {
     onSubmit = async (e) => {
         e.preventDefault();
 
-        if (formValid(this.state)) {
+        if (this.formValid()) {
             const {
                 email,
                 password,
@@ -162,24 +172,53 @@ class Register extends Component {
 
                 this.props.history.push("/events");
             } catch (e) {
-                store.addNotification({
-                    title: "Authentication Error",
-                    message: "Please check registration details !!",
-                    type: "danger",
-                    insert: "top",
-                    container: "top-right",
-                    animationIn: ["animate__animated", "animate__fadeIn"],
-                    animationOut: ["animate__animated", "animate__fadeOut"],
-                    dismiss: {
-                        duration: 5000,
-                        onScreen: true,
-                    },
-                });
+                console.log(e.response)
+                if (e.response.status === 409) {
+                    store.addNotification({
+                        title: "Authentication Error",
+                        message: "Email already exists, Contact Support !!",
+                        type: "danger",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animate__animated", "animate__fadeIn"],
+                        animationOut: ["animate__animated", "animate__fadeOut"],
+                        dismiss: {
+                            duration: 5000,
+                            onScreen: true,
+                        },
+                    });
+                } else {
+                    store.addNotification({
+                        title: "Authentication Error",
+                        message: "Network Error, Contact Support !!",
+                        type: "danger",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animate__animated", "animate__fadeIn"],
+                        animationOut: ["animate__animated", "animate__fadeOut"],
+                        dismiss: {
+                            duration: 5000,
+                            onScreen: true,
+                        },
+                    });
+                }
             } finally {
                 this.setState({pending: false});
             }
         } else {
-            console.log("Form is invalid!");
+            store.addNotification({
+                title: "Authentication Error",
+                message: "Please check registration details!",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true,
+                },
+            });
         }
     };
 
