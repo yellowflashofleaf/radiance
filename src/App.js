@@ -9,24 +9,18 @@ import AuthContextProvider from "./context/Auth/AuthContext";
 import SnackbarContextProvider from "./context/Snackbar/SnackbarContext";
 import MySnackbar from "./EMS/components/Snackbar";
 import Notification from "./components/notification";
-import queryString from "query-string";
 
 function App() {
     const [loading, setLoading] = useState(true);
-    const [parsed, setParsed] = useState(false);
     useEffect(() => {
-
-        let parsed1 = queryString.parse(window.location.search);
-        if (parsed1.app === '1'){
-            setParsed(true)
-        }else{
-            setParsed(false)
+        if (window.location.pathname === "/app-sponsors"){
+            setLoading(false)
         }
-
-
-        setTimeout(() => {
-            setLoading(false);
-        }, 1000);
+        else {
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
+        }
     }, []);
 
     const darkTheme = createMuiTheme({
@@ -47,7 +41,7 @@ function App() {
                                 <Preloader/>
                             ) : (
                                 <>
-                                    {parsed ? <></> : <Navbar/>}
+                                    <Navbar/>
                                     <Notification/>
                                     <Routes/>
                                 </>
