@@ -7,6 +7,7 @@ import classNames from "classnames";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import {CircularProgress} from "@material-ui/core";
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
 class PopConfirm extends React.Component {
     state = {
@@ -81,7 +82,7 @@ const PopUp = (props) => {
     }
 
 
-    console.log(props.isRegistered)
+    // console.log(props)
 
     return (
         <>
@@ -135,11 +136,12 @@ const PopUp = (props) => {
                             {isAuth &&
                             <PopConfirm title="Confirm Registration?" onConfirm={() => registerForEvent(props.id)}>
                                 <button
-                                    className={props.isRegistered ? "event-links event-links-disabled mt-3" : "event-links event-links-active mt-3"}
-                                    disabled={props.isRegistered}
+                                    className={props.isRegistered || !props.show ? "event-links event-links-disabled mt-3" : "event-links event-links-active mt-3"}
+                                    disabled={props.isRegistered || !props.show}
                                 >
-                                    {!props.isRegistered && <>{!pending && <>Register <PlaylistAddIcon/></>} {pending && <>Register <CircularProgress
-                                        size={20}/></>} </>}
+                                   
+                                    {!props.isRegistered && <>{!pending && props.show && <>Register <PlaylistAddIcon/></>} {pending && props.show && <>Register <CircularProgress
+                                        size={20}/></>}   {!props.show && <>Registration Closed <NotInterestedIcon/> </>}</>}
                                     {props.isRegistered && <>Registered <CheckCircleOutlineIcon/></>}
                                 </button>
 

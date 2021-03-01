@@ -4,6 +4,7 @@ import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 
 const Card = (props) => {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
+    console.log(props);
     return (
         <>
 
