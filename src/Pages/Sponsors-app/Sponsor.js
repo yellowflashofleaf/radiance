@@ -3,26 +3,27 @@ import Footer from "../../Footer";
 import "./sponsor.css";
 import MailIcon from "@material-ui/icons/Mail";
 import PhoneIcon from "@material-ui/icons/Phone";
+import SponsorList from "../Sponsors/list";
 
 const AppSponsor = () => {
   return (
     <>
       <div
-        className="sponsor"
         style={{
           background: "url('./app-bg.jpeg')",
           backgroundSize: "cover",
-          paddingTop: "20vh",
+          paddingTop: "25vh",
           position: "fixed",
           top: "0",
           width: "100vw",
-          zIndex: "1000000",
+          zIndex: "5000",
           minHeight: "100vh",
+          overflow: "auto",
         }}
-      >
-        {/* <div className="page-title">SPONSORS</div>
+      ></div>
+      {/* <div className="page-title">SPONSORS</div>
         <br /> */}
-        <h1>Coming Soon...</h1>
+      {/* <h1>Coming Soon...</h1>
         <br />
         <h2>Want to collaborate? Interested in sponsoring?</h2>
         <br />
@@ -43,7 +44,18 @@ const AppSponsor = () => {
             {"  "}
             Aditya Avhad- 88886 18192
           </h5>
-        </div>
+        </div> */}
+      <div
+        className="sponsor"
+        style={{
+          paddingTop: "10vh",
+          // width: "100vw",
+          zIndex: "9999",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <SponsorList />
       </div>
       {/* <Footer /> */}
     </>

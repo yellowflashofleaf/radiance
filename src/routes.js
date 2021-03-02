@@ -68,7 +68,7 @@ class Routes extends React.Component {
           </div>
         </Route>
         <Route path="/app-sponsors">
-          <div style={{ zIndex: 100000, overflow: "hidden" }}>
+          <div style={{ height: "100%" }}>
             <AppSponsor />
           </div>
         </Route>

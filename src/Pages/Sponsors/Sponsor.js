@@ -3,14 +3,15 @@ import Footer from "../../Footer";
 import "./sponsor.css";
 import MailIcon from "@material-ui/icons/Mail";
 import PhoneIcon from "@material-ui/icons/Phone";
+import SponsorList from "./list";
 
 const Sponsor = () => {
-    return (
-        <>
-            <div className="sponsor" style={{height: "100%"}}>
-                <div className="page-title">SPONSORS</div>
-                <br/>
-                <h1>Coming Soon...</h1>
+  return (
+    <>
+      <div className="sponsor" style={{ height: "100%" }}>
+        <div className="page-title">SPONSORS</div>
+        <br />
+        {/* <h1>Coming Soon...</h1>
                 <br/>
                 <h2>Want to collaborate? Interested in sponsoring?</h2>
                 <br/>
@@ -30,11 +31,12 @@ const Sponsor = () => {
                         {"  "}
                         Aditya Avhad- 88886 18192
                     </h5>
-                </div>
-            </div>
-            <Footer/>
-        </>
-    );
+                </div> */}
+        <SponsorList />
+      </div>
+      <Footer />
+    </>
+  );
 };
 
-export default Sponsor
+export default Sponsor;

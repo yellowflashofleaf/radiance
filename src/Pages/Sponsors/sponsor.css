@@ -1,14 +1,23 @@
 .sponsor {
-    background-color: unset;
-    text-align: center;
-    color: #FFFFFF;
-    width: 90%;
-    margin: auto;
+  background-color: unset;
+  text-align: center;
+  color: #ffffff;
+  width: 90%;
+  margin: auto;
 }
 
 .sponsor .title {
-    font-size: 3.5vw;
-    font-weight: 600;
-    color: #66ffff;
-    margin-bottom: 3vw;
+  font-size: 3.5vw;
+  font-weight: 600;
+  color: #66ffff;
+  margin-bottom: 3vw;
+}
+
+.title-sponsor img {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.sponsor-tile {
+  margin-top: 7vh !important;
 }
