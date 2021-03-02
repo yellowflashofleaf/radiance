@@ -1,10 +1,16 @@
 import React from "react";
 import PopUp from "./PopUp";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import SlotsDialog from "./slots";
+import { Button } from "@material-ui/core";
+import SlotsPopUp from "./SlotsPopUp";
 
 const Card = (props) => {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
-    console.log(props);
+
+    const [isSlotsOpen, setIsSlotsOpen] = React.useState(false);
+
+
     return (
         <>
 
@@ -14,8 +20,14 @@ const Card = (props) => {
                 open={isModalOpen}
                 toggle={setIsModalOpen}
             />
+            <SlotsPopUp
+                // {...props}
+                id={props._id}
+                open={isSlotsOpen}
+                toggle={setIsSlotsOpen}
+            />
             <div className="col-md-3 px-3 py-3">
-                <div className="card e-card gradient-border" onClick={() => setIsModalOpen(true)}>
+                <div className="card e-card gradient-border" >
                     <img
                         src={props.image}
                         alt="event img"
@@ -30,7 +42,8 @@ const Card = (props) => {
                             <div className="event-info"><i> {props.info}</i></div>
                             <button
                                 className="event-links"
-                                onClick={() => props.toggle && props.toggle(false)}
+                                // onClick={() => props.toggle && props.toggle(false)}
+                                onClick={() => setIsModalOpen(true)}
                             >
                                 View
                             </button>
@@ -38,11 +51,13 @@ const Card = (props) => {
                             {props.isRegistered && <>
                                 <div style={{color: "#0acc0a"}}>Registered <CheckCircleOutlineIcon/></div>
                                 <div style={{color: "#fff", paddingTop: "0.2rem"}}>Ticket ID: {props.regId}</div>
+                                <Button onClick={()=>setIsSlotsOpen(true)}> Slots</Button>
                             </>}
                         </div>
                     </div>
                 </div>
             </div>
+            {/* <SlotsDialog isOpen={isSlotsOpen} slots={slots}/> */}
         </>
     );
 };
