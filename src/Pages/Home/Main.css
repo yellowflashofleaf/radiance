@@ -94,12 +94,16 @@
   /* font-weight: bold; */
   position: absolute;
   z-index: 100;
-  font-size: 7vw;
+  /* font-size: 7vw; */
   text-align: left;
   margin: auto;
-  margin-top: 5vw;
+  margin-top: 0;
   color: #fff;
   letter-spacing: 0.5vw;
+}
+
+.main .title .hii {
+  font-size: 7vw;
 }
 
 .main .subtitle {
@@ -109,7 +113,7 @@
   margin: auto;
   color: rgba(22, 164, 189, 0.9);
   font-weight: lighter;
-  margin-top: 15%;
+  margin-top: 18%;
 }
 
 .main .coming-soon {
@@ -574,9 +578,13 @@
   .main .title {
     text-align: center;
     width: 90vw;
-    font-size: 12vw;
+    /* font-size: 12vw; */
     margin-bottom: unset;
-    margin-top: 50%;
+    margin-top: 25%;
+  }
+
+  .main .title .hii {
+    font-size: 12vw;
   }
 
   .main .subtitle {
@@ -627,4 +635,8 @@
     box-shadow: none;
     color: #ffffff;
   }
+}
+
+.title img {
+  width: 60%;
 }
