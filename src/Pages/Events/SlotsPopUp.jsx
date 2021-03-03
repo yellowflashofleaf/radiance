@@ -269,22 +269,50 @@ const SlotsPopUp = (props) => {
                         >
                           Cancel
                         </Button>
-                        <PopConfirm
-                          title="Confirm Slot Booking?"
-                          onConfirm={() => bookSlot(value)}
-                        >
+                        {value ? (
+                          <PopConfirm
+                            title="Confirm Slot Booking?"
+                            onConfirm={() => bookSlot(value)}
+                          >
+                            <Button
+                              variant="contained"
+                              className="mx-3"
+                              style={
+                                !value
+                                  ? {
+                                      backgroundColor: "#2a2a2a",
+                                      fontWeight: "bold",
+                                    }
+                                  : {
+                                      backgroundColor: "#00ccff",
+                                      fontWeight: "bold",
+                                    }
+                              }
+                              disabled={!value}
+                            >
+                              Book
+                            </Button>
+                          </PopConfirm>
+                        ) : (
                           <Button
                             variant="contained"
                             className="mx-3"
-                            style={{
-                              backgroundColor: "#00ccff",
-                              fontWeight: "bold",
-                            }}
+                            style={
+                              !value
+                                ? {
+                                    backgroundColor: "#2a2a2a",
+                                    fontWeight: "bold",
+                                  }
+                                : {
+                                    backgroundColor: "#00ccff",
+                                    fontWeight: "bold",
+                                  }
+                            }
                             disabled={!value}
                           >
                             Book
                           </Button>
-                        </PopConfirm>
+                        )}
                       </div>
                     </>
                   ) : (
