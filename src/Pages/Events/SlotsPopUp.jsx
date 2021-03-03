@@ -132,6 +132,19 @@ const SlotsPopUp = (props) => {
       })
       .catch(function (error) {
         console.log(error);
+        store.addNotification({
+          title: "Slot Booking Falied!",
+          message: "Slot booking FAILED for event: " + props.name,
+          type: "danger",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+          },
+        });
       });
   };
 
@@ -318,7 +331,7 @@ const SlotsPopUp = (props) => {
                   ) : (
                     <>
                       <Typography>
-                        No slots are available for this event
+                        No slots are available for this event!
                       </Typography>
                     </>
                   )}
