@@ -73,11 +73,17 @@ const Card = (props) => {
                     {props.slot_id ? (
                       <>
                         <EventNoteIcon /> <b>Slot:</b>{" "}
-                        {moment(props.slot_id.start_time).format("DD MMM") +
+                        {moment(props.slot_id.start_time)
+                          .utcOffset(0)
+                          .format("DD MMM") +
                           " : " +
-                          moment(props.slot_id.start_time).format(" hh:mm") +
+                          moment(props.slot_id.start_time)
+                            .utcOffset(0)
+                            .format(" hh:mm A") +
                           " - " +
-                          moment(props.slot_id.end_time).format(" hh:mm")}
+                          moment(props.slot_id.end_time)
+                            .utcOffset(0)
+                            .format(" hh:mm A")}
                       </>
                     ) : (
                       <>

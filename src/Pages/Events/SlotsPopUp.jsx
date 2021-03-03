@@ -10,8 +10,15 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import moment from "moment";
-import { Button, CircularProgress } from "@material-ui/core";
+import { Button, CircularProgress, Typography } from "@material-ui/core";
 import { store } from "react-notifications-component";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
 class PopConfirm extends React.Component {
   state = {
@@ -136,7 +143,10 @@ const SlotsPopUp = (props) => {
     <>
       <>
         <div
-          onClick={() => props.toggle && props.toggle(false)}
+          onClick={() => {
+            props.toggle && props.toggle(false);
+            setValue(null);
+          }}
           className="popup-container"
           style={
             props.open
@@ -144,7 +154,7 @@ const SlotsPopUp = (props) => {
               : { opacity: 0, pointerEvents: "none" }
           }
         ></div>
-        {props.open && slots.length > 0 && (
+        {props.open && (
           <>
             {loading ? (
               <div className="popup bg-dark text-light p-5">
@@ -152,7 +162,7 @@ const SlotsPopUp = (props) => {
               </div>
             ) : (
               <>
-                <div className="popup bg-dark text-light p-5">
+                <div className="popup bg-dark text-light p-5 text-center">
                   <button
                     style={{
                       float: "right",
@@ -162,62 +172,128 @@ const SlotsPopUp = (props) => {
                       right: "3%",
                       top: "3%",
                     }}
-                    onClick={() => props.toggle && props.toggle(false)}
+                    onClick={() => {
+                      props.toggle && props.toggle(false);
+                      setValue(null);
+                    }}
                   >
                     X
                   </button>
+                  {slots.length > 0 ? (
+                    <>
+                      <h3 className="text-center">Book Slot</h3>
+                      <FormControl component="fieldset">
+                        {/* <FormLabel component="legend">Slots</FormLabel> */}
+                        <RadioGroup
+                          aria-label=""
+                          name="slots"
+                          value={value}
+                          onChange={handleSlotsChange}
+                        >
+                          <TableContainer
+                            style={{ width: "100%" }}
+                            // component={Paper}
+                          >
+                            <Table stickyHeader aria-label="simple table">
+                              <TableHead>
+                                <TableRow>
+                                  <TableCell align="center"></TableCell>
+                                  <TableCell align="center">Date</TableCell>
+                                  <TableCell align="center">Time</TableCell>
+                                  <TableCell align="center">
+                                    Available Slots
+                                  </TableCell>
+                                </TableRow>
+                              </TableHead>
 
-                  <h3 className="text-center">Book Slot</h3>
-                  <FormControl component="fieldset">
-                    {/* <FormLabel component="legend">Slots</FormLabel> */}
-                    <RadioGroup
-                      aria-label=""
-                      name="slots"
-                      value={value}
-                      onChange={handleSlotsChange}
-                    >
-                      {slots.map((s) => (
-                        <FormControlLabel
-                          value={s._id}
-                          control={<Radio />}
-                          label={
-                            moment(s.start_time).format("DD MMM YYYY") +
-                            " : " +
-                            moment(s.start_time).format(" hh:mm") +
-                            " - " +
-                            moment(s.end_time).format(" hh:mm")
-                          }
-                        />
-                      ))}
-                    </RadioGroup>
-                  </FormControl>
-                  <br />
-                  <br />
-                  <div style={{ textAlign: "center" }}>
-                    <Button
-                      variant="outlined"
-                      className="mx-3"
-                      onClick={() => props.toggle && props.toggle(false)}
-                    >
-                      Cancel
-                    </Button>
-                    <PopConfirm
-                      title="Confirm Slot Booking?"
-                      onConfirm={() => bookSlot(value)}
-                    >
-                      <Button
-                        variant="contained"
-                        className="mx-3"
-                        style={{
-                          backgroundColor: "#00ccff",
-                          fontWeight: "bold",
-                        }}
-                        disabled={!value}
-                      >
-                        Book
-                      </Button>
-                    </PopConfirm>
-                  </div>
+                              <TableBody>
+                                {slots.map((s) => (
+                                  <>
+                                    <TableRow key={s._id}>
+                                      <TableCell align="right">
+                                        {" "}
+                                        <FormControlLabel
+                                          value={s._id}
+                                          control={<Radio />}
+                                          label=""
+                                          disabled={s.count === 0}
+                                        />
+                                      </TableCell>
+                                      <TableCell align="right">
+                                        {" "}
+                                        {moment(s.start_time)
+                                          .utcOffset(0)
+                                          .format("DD MMM YYYY")}
+                                      </TableCell>
+
+                                      <TableCell align="right">
+                                        {moment(s.start_time)
+                                          .utcOffset(0)
+                                          .format(" hh:mm A") +
+                                          " - " +
+                                          moment(s.end_time)
+                                            .utcOffset(0)
+                                            .format(" hh:mm A")}
+                                      </TableCell>
+
+                                      <TableCell align="right">
+                                        {s.count === 0 ? (
+                                          <>
+                                            <span style={{ color: "red" }}>
+                                              <b>SLOT FULL!</b>
+                                            </span>
+                                          </>
+                                        ) : (
+                                          s.count
+                                        )}
+                                      </TableCell>
+                                    </TableRow>
+                                  </>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </TableContainer>
+                        </RadioGroup>
+                      </FormControl>
+
+                      <br />
+                      <br />
+                      <div style={{ textAlign: "center" }}>
+                        <Button
+                          variant="outlined"
+                          className="mx-3"
+                          onClick={() => {
+                            props.toggle && props.toggle(false);
+                            setValue(null);
+                          }}
+                        >
+                          Cancel
+                        </Button>
+                        <PopConfirm
+                          title="Confirm Slot Booking?"
+                          onConfirm={() => bookSlot(value)}
+                        >
+                          <Button
+                            variant="contained"
+                            className="mx-3"
+                            style={{
+                              backgroundColor: "#00ccff",
+                              fontWeight: "bold",
+                            }}
+                            disabled={!value}
+                          >
+                            Book
+                          </Button>
+                        </PopConfirm>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <Typography>
+                        No slots are available for this event
+                      </Typography>
+                    </>
+                  )}
                 </div>
               </>
             )}
