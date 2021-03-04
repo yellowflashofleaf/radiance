@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import { Typography } from "@material-ui/core";
 
 export default function Main() {
   const history = useHistory();
@@ -88,12 +89,22 @@ export default function Main() {
         >
           The Annual Technical Fest of PASC
         </div>
+        <br />
+        <br />
+
+        <div className="subtitle row">
+          <Typography style={{ color: "#fff", paddingLeft: 0 }}>
+            co-powered by
+          </Typography>
+          <div className="col-sm-2 py-3 text-center">
+            <img src="/Logos/Nitor Infotech.png" />
+          </div>
+          <div className="col-sm-2 py-3 text-center">
+            <img src="/Logos/iMocha.png" />
+          </div>
+        </div>
         <div
           className="reg-btn"
-          data-aos="flip-up"
-          data-aos-offset="150"
-          data-aos-easing="ease-in-sine"
-          duration="900"
           style={{ position: "absolute", zIndex: "10", marginTop: "20%" }}
         >
           <button
