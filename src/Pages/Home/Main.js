@@ -92,7 +92,13 @@ export default function Main() {
         <br />
         <br />
 
-        <div className="subtitle row">
+        <div
+          className="subtitle row"
+          data-aos="fade-up"
+          data-aos-offset="150"
+          data-aos-easing="ease-in-sine"
+          duration="900"
+        >
           <Typography style={{ color: "#fff", paddingLeft: 0 }}>
             co-powered by
           </Typography>
