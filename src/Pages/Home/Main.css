@@ -647,6 +647,9 @@
 
 @media (max-width: 600px) {
   .subtitle img {
-    width: 50%;
+    width: 40%;
+  }
+  .coming-soon {
+    display: none;
   }
 }
