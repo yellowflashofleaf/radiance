@@ -33,7 +33,7 @@ import CardContent from "@material-ui/core/CardContent"; // web.cjs is required 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
-
+import radinaceLogo from "./radiance_logo.png";
 
 const styles = (theme) => ({
   root: {
@@ -179,9 +179,6 @@ function Navbar(props) {
   const { isAuth, logout, loadUser, user } = authContext;
 
   useEffect(() => {
-
-
-
     if (localStorage.getItem("token")) {
       loadUser();
       getAllNotifications();
@@ -311,11 +308,7 @@ function Navbar(props) {
       <div className="nav-bar navbar sticky-top">
         <div className="main-logo">
           <Link to="/">
-            <img
-              src="https://pulzion-2021.s3.ap-south-1.amazonaws.com/assets/p21_w_594.png"
-              height="30px"
-              alt={"Pulzion 21 Logo"}
-            />
+            <img src={radinaceLogo} height="60px" alt={"Pulzion 21 Logo"} />
           </Link>
         </div>
         <div className="nav-links">

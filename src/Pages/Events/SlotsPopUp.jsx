@@ -297,7 +297,7 @@ const SlotsPopUp = (props) => {
                                       fontWeight: "bold",
                                     }
                                   : {
-                                      backgroundColor: "#00ccff",
+                                      backgroundColor: "#990090",
                                       fontWeight: "bold",
                                     }
                               }
@@ -317,7 +317,7 @@ const SlotsPopUp = (props) => {
                                     fontWeight: "bold",
                                   }
                                 : {
-                                    backgroundColor: "#00ccff",
+                                    backgroundColor: "#990090",
                                     fontWeight: "bold",
                                   }
                             }

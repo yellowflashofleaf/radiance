@@ -27,7 +27,7 @@ const Insight = () => {
             style={{
               textDecoration: "none",
               cursor: "pointer",
-              color: "#00ccff",
+              color: "#990090",
             }}
           >
             Register Now

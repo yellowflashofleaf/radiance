@@ -24,6 +24,7 @@
 .nav-links .nav-link,
 .login-btn {
   color: rgba(255, 255, 255, 0.603);
+
   text-decoration: none;
   font-weight: normal;
   margin: 0 1%;
@@ -42,7 +43,8 @@
   height: 2px;
   left: 50%;
   position: relative;
-  background: rgba(13, 134, 150, 0.493);
+  /* background: rgba(13, 134, 150, 0.493); */
+  background-color: #990090;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
   color: #fff;
@@ -69,7 +71,8 @@
 }
 
 .login-btn {
-  background-color: rgba(13, 134, 150, 0.493);
+  /* background-color: rgba(13, 134, 150, 0.493); */
+  background-color: #990090;
   border-radius: 2vw;
 }
 
@@ -81,7 +84,8 @@
 .selected {
   color: #fff !important;
   font-weight: bold;
-  background-color: rgba(22, 164, 189, 0.767);
+  /* background-color: rgba(22, 164, 189, 0.767); */
+  background-color: #990090;
 }
 
 .main-logo b {
@@ -155,7 +159,7 @@
 @media (max-width: 600px) {
   .nav-bar {
     padding: 3vw 5vw;
-    background-color: #000;
+    /* background-color: #000; */
   }
 
   .login-btn {
