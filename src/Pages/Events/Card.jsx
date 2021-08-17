@@ -106,7 +106,7 @@ const Card = (props) => {
                               </>
                             ) : (
                               <>
-                                <span style={{ color: "#00ccff" }}>
+                                <span style={{ color: "#990090" }}>
                                   Slot Booked! <AssignmentTurnedInIcon />
                                 </span>{" "}
                               </>

@@ -14,26 +14,25 @@ export default function Main() {
   const authContext = useContext(AuthContext);
   const { isAuth } = authContext;
   useEffect(() => {
-    window.VANTA.GLOBE({
-      el: "#your-element-selector",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: true,
-      minHeight: 300.0,
-      minWidth: 300.0,
-      width: "98vw",
-      height: "90vh",
-      scale: 1.0,
-      scaleMobile: 1.0,
-      color: 0xe4ff,
-      color2: 0x92c3c3,
-      backgroundColor: 0x0,
-    });
-    window.scrollTo(0, 5000);
-
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
+    // window.VANTA.GLOBE({
+    //   el: "#your-element-selector",
+    //   mouseControls: true,
+    //   touchControls: true,
+    //   gyroControls: true,
+    //   minHeight: 300.0,
+    //   minWidth: 300.0,
+    //   width: "98vw",
+    //   height: "90vh",
+    //   scale: 1.0,
+    //   scaleMobile: 1.0,
+    //   color: 0xe4ff,
+    //   color2: 0x92c3c3,
+    //   backgroundColor: 0x0,
+    // });
+    // window.scrollTo(0, 5000);
+    // setTimeout(() => {
+    //   window.scrollTo(0, 0);
+    // }, 500);
   }, []);
 
   return (
@@ -68,7 +67,7 @@ export default function Main() {
             presents
           </div>
           <span className="hii">
-            PULZION
+            Radiance
             <span
               style={{
                 color: "rgba(22, 164, 189, 0.9)",
@@ -87,7 +86,7 @@ export default function Main() {
           data-aos-easing="ease-in-sine"
           duration="900"
         >
-          The Annual Technical Fest of PASC
+          The Annual Technical Fest of PASC-W
         </div>
         <br />
         <br />
@@ -139,7 +138,7 @@ export default function Main() {
           //   duration="900"
           //   style={{ marginTop: "35%", fontSize: "1.5rem" }}
         >
-          5th, 6th, 7th March 2021
+          4th, 5th, 6th September 2021
         </div>
       </div>
     </>
