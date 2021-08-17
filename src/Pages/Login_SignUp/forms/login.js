@@ -6,7 +6,10 @@ import {store} from "react-notifications-component";
 import {CircularProgress} from "@material-ui/core";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 
-const Login = () => {
+const Login = React.forwardRef((props,ref) => {
+
+    const {login_form} = props;
+
     const [values, setValues] = useState({
         emailError: "",
         passwordError: "",
@@ -92,34 +95,39 @@ const Login = () => {
     }, [isAuth, history]);
 
     return (
-        <form onSubmit={onSubmit}>
-            <h1>Sign in</h1>
-            <input
-                id="email"
-                type="text"
-                placeholder="Email"
-                name="email"
-                value={values.email}
-            />
+        <form onSubmit={onSubmit} className="login" ref={ref}>
+            <div className="field">
+                <input
+                    id="email"
+                    type="text"
+                    placeholder="Email"
+                    name="email"
+                    value={values.email}
+                />
+            </div>
             {errors.emailError && <div className="error">{errors.emailError}</div>}
-            <input
-                id="password"
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={values.password}
-            />
-            {errors.passwordError && (
-                <div className="error">{errors.passwordError}</div>
-            )}
-            <div>
+            <div className="field">
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    value={values.password}
+                />
+            </div>
+            {errors.passwordError && (<div className="error">{errors.passwordError}</div>)}
+            <div className="pass-link">
                 <Link to="/forgot-password" className="link">
                     Forgot your password?
                 </Link>
             </div>
             {errors.error && <div className="error main-error">{errors.error}</div>}
+            <div class="field custom-btn">
+                <div class="custom-btn-layer"></div>
+                <input type="submit" value="Login"/>
+            </div>  
             {/* <Link to="/dashboard"> */}{" "}
-            <button type="submit" id="signin-btn" className="button">
+            {/* <button type="submit" id="signin-btn" className="button">
                 {!pending && (
                     <>
                         Sign In <LockOpenIcon/>
@@ -130,10 +138,10 @@ const Login = () => {
                         Sign In <CircularProgress size={20}/>
                     </>
                 )}
-            </button>
+            </button> */}
             {/* </Link> */}
         </form>
     );
-};
+});
 
 export default Login;

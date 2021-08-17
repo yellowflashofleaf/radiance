@@ -225,63 +225,66 @@ class Register extends Component {
     render() {
         const {isError} = this.state;
         return (
-            <form className="signup-form" onSubmit={this.onSubmit}>
-                <input
-                    type="text"
-                    placeholder="First Name"
-                    name="fname"
-                    value={this.state.fname}
-                    onChange={this.formValChange}
-                    required
-                />
-                {isError.fnameError && (
-                    <small className="error">{isError.fnameError}</small>
-                )}
-                <input
-                    type="text"
-                    placeholder="Last Name"
-                    name="lname"
-                    value={this.state.lname}
-                    onChange={this.formValChange}
-                    required
-                />
-                {isError.lnameError && (
-                    <small className="error">{isError.lnameError}</small>
-                )}
-                <input
-                    type="text"
-                    placeholder="Contact number (Without Country Code)"
-                    name="contactNumber"
-                    value={this.state.contactNumber}
-                    onChange={this.formValChange}
-                    required
-                />
+            <form className="signup" onSubmit={this.onSubmit}>
+                <div className="field">
+                    <input
+                        type="text"
+                        placeholder="First Name"
+                        name="fname"
+                        value={this.state.fname}
+                        onChange={this.formValChange}
+                        required
+                    />
+                </div>
+                {isError.fnameError && (<small className="error">{isError.fnameError}</small>)}
+                <div className="field">
+                    <input
+                        type="text"
+                        placeholder="Last Name"
+                        name="lname"
+                        value={this.state.lname}
+                        onChange={this.formValChange}
+                        required
+                    />
+                </div>
+                {isError.lnameError && (<small className="error">{isError.lnameError}</small>)}
+                <div className="field">
+                    <input
+                        type="text"
+                        placeholder="Contact number (Without Country Code)"
+                        name="contactNumber"
+                        value={this.state.contactNumber}
+                        onChange={this.formValChange}
+                        required
+                    />
+                </div>
                 {isError.contactNumberError && (
                     <small className="error">{isError.contactNumberError}</small>
                 )}
-                <input
-                    type="text"
-                    placeholder="College"
-                    name="college"
-                    value={this.state.college}
-                    onChange={this.formValChange}
-                    required
-                />
-                {isError.collegeError && (
-                    <small className="error">{isError.collegeError}</small>
-                )}
-                <select
-                    name="year"
-                    id="drop-down"
-                    onChange={this.formValChange}
-                    required
-                >
-                    <option value="Year">Year</option>
-                    <option value="FE">FE (First Year)</option>
-                    <option value="SE">SE (Second Year)</option>
-                    <option value="TE">TE (Third Year)</option>
-                    <option value="BE">BE (Final Year)</option>
-                </select>
+                <div className="field">
+                    <input
+                        type="text"
+                        placeholder="College"
+                        name="college"
+                        value={this.state.college}
+                        onChange={this.formValChange}
+                        required
+                    />
+                </div>
+                {isError.collegeError && (<small className="error">{isError.collegeError}</small>)}
+                <div className = "field">
+                    <select
+                        name="year"
+                        id="drop-down"
+                        onChange={this.formValChange}
+                        required>
+                        <option value="Year">Year</option>
+                        <option value="FE">FE (First Year)</option>
+                        <option value="SE">SE (Second Year)</option>
+                        <option value="TE">TE (Third Year)</option>
+                        <option value="BE">BE (Final Year)</option>
+                    </select>
+                </div>
                 {this.state.year === "other" ? (
                     <input
                         type="text"
@@ -294,51 +297,47 @@ class Register extends Component {
                 {isError.yearError && (
                     <small className="error">{isError.yearError}</small>
                 )}
-                <input
-                    type="text"
-                    placeholder="Email"
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.formValChange}
-                    required
-                />
-                {isError.emailError && (
-                    <small className="error">{isError.emailError}</small>
-                )}
-                <input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.formValChange}
-                    required
-                />
-                {isError.passwordError && (
-                    <small className="error">{isError.passwordError}</small>
-                )}
-                <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    name="confirmPassword"
-                    value={this.state.confirmPassword}
-                    onChange={this.formValChange}
-                    required
-                />
-                {isError.confirmPasswordError && (
-                    <small className="error">{isError.confirmPasswordError}</small>
-                )}
-                <button id="signup-btn" type="submit" className="button">
-                    {!this.state.pending && (
-                        <>
-                            Sign Up <PersonAddIcon/>
-                        </>
-                    )}
-                    {this.state.pending && (
-                        <>
-                            Sign Up <CircularProgress size={20}/>
-                        </>
-                    )}
-                </button>
+                <div className="field">
+                    <input
+                        type="text"
+                        placeholder="Email"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.formValChange}
+                        required
+                    />
+                </div>
+                {isError.emailError && (<small className="error">{isError.emailError}</small>)}
+                <div className="field">
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.formValChange}
+                        required
+                    />
+                </div>
+                {isError.passwordError && (<small className="error">{isError.passwordError}</small>)}
+                <div className="field">
+                    <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        name="confirmPassword"
+                        value={this.state.confirmPassword}
+                        onChange={this.formValChange}
+                        required
+                    />
+                </div>
+                {isError.confirmPasswordError && (<small className="error">{isError.confirmPasswordError}</small>)}
+                <div class="field custom-btn">
+                    <div class="custom-btn-layer"></div>
+                    <input type="submit" value="Signup" />
+                </div>
+                {/* <button id="signup-btn" type="submit" className="button">
+                    {!this.state.pending && (<>Sign Up <PersonAddIcon/></>)}
+                    {this.state.pending && (<>Sign Up <CircularProgress size={20}/></>)}
+                </button> */}
             </form>
         );
     }
