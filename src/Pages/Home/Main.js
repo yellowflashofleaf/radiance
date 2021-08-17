@@ -14,25 +14,21 @@ export default function Main() {
   const authContext = useContext(AuthContext);
   const { isAuth } = authContext;
   useEffect(() => {
-    // window.VANTA.GLOBE({
+    // window.VANTA.BIRDS({
     //   el: "#your-element-selector",
     //   mouseControls: true,
     //   touchControls: true,
-    //   gyroControls: true,
-    //   minHeight: 300.0,
-    //   minWidth: 300.0,
-    //   width: "98vw",
-    //   height: "90vh",
+    //   gyroControls: false,
+    //   minHeight: 200.0,
+    //   minWidth: 200.0,
     //   scale: 1.0,
     //   scaleMobile: 1.0,
-    //   color: 0xe4ff,
-    //   color2: 0x92c3c3,
-    //   backgroundColor: 0x0,
     // });
-    // window.scrollTo(0, 5000);
-    // setTimeout(() => {
-    //   window.scrollTo(0, 0);
-    // }, 500);
+    window.scrollTo(0, 5000);
+
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
   }, []);
 
   return (
@@ -70,7 +66,7 @@ export default function Main() {
             Radiance
             <span
               style={{
-                color: "rgba(22, 164, 189, 0.9)",
+                color: "#990090",
                 fontSize: "inherit",
               }}
             >
@@ -138,7 +134,7 @@ export default function Main() {
           //   duration="900"
           //   style={{ marginTop: "35%", fontSize: "1.5rem" }}
         >
-          4th, 5th, 6th September 2021
+          3rd, 4th, 5th September 2021
         </div>
       </div>
     </>

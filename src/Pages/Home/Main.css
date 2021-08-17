@@ -2,6 +2,10 @@
   --border-width: 1px;
 }
 
+.page-title {
+  color: #fff !important;
+}
+
 @font-face {
   font-family: Cruiser;
   /*src: url('./2015\ Cruiser\ Bold.ttf');*/
@@ -35,11 +39,6 @@
   height: 85vh;
   /* background-image: url("./radinace_placeholder.jpg"); */
   /* height: 100vh; */
-}
-.main-bg {
-  background-image: url("./radinace_placeholder.png");
-  background-size: contain, 100vw;
-  background-repeat: no-repeat;
 }
 .home-img {
   position: absolute;

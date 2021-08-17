@@ -300,7 +300,7 @@ function Navbar(props) {
               }
               onClick={() => setIsOpen(!isOpen)}
             >
-              Pulzion'19 Glimpses
+              Radiance'19 Glimpses
             </Link>
           </li>
         </ul>
@@ -370,7 +370,7 @@ function Navbar(props) {
                 : "nav-link"
             }
           >
-            Pulzion'19 Glimpses
+            Radiance'19 Glimpses
           </Link>
         </div>
         <div className="login-btn-div">
