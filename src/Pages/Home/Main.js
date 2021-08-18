@@ -14,16 +14,17 @@ export default function Main() {
   const authContext = useContext(AuthContext);
   const { isAuth } = authContext;
   useEffect(() => {
-    // window.VANTA.BIRDS({
-    //   el: "#your-element-selector",
-    //   mouseControls: true,
-    //   touchControls: true,
-    //   gyroControls: false,
-    //   minHeight: 200.0,
-    //   minWidth: 200.0,
-    //   scale: 1.0,
-    //   scaleMobile: 1.0,
-    // });
+    window.VANTA.BIRDS({
+      el: "#your-element-selector",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      backgroundColor: "#000b2b",
+    });
     window.scrollTo(0, 5000);
 
     setTimeout(() => {
@@ -37,7 +38,7 @@ export default function Main() {
         className="main"
         style={{
           maxHeight: "90vh",
-          overflow: "hidden !important",
+          // overflow: "hidden !important",
         }}
       >
         <div
@@ -54,14 +55,14 @@ export default function Main() {
         <div className="spon"></div>
         <div className="title" style={{ zIndex: "10", position: "absolute" }}>
           <div className="col-md-4 p-3 text-center">
-            <img src="/Logos/GigIndia_horiz.png" />
+            {/* <img src="/Logos/GigIndia_horiz.png" /> */}
           </div>
-          <div
+          {/* <div
             style={{ fontSize: "1rem", textAlign: "center" }}
             className="mt-1 col-md-4"
           >
             presents
-          </div>
+          </div> */}
           <span className="hii">
             Radiance
             <span
@@ -87,7 +88,7 @@ export default function Main() {
         <br />
         <br />
 
-        <div
+        {/* <div
           className="subtitle row"
           data-aos="fade-up"
           data-aos-offset="150"
@@ -103,7 +104,7 @@ export default function Main() {
           <div className="col-sm-2 py-3 text-center">
             <img src="/Logos/iMocha.png" />
           </div>
-        </div>
+        </div> */}
         <div
           className="reg-btn"
           style={{ position: "absolute", zIndex: "10", marginTop: "20%" }}
@@ -114,7 +115,6 @@ export default function Main() {
               isAuth ? history.push("/myevents") : history.push("/login");
             }}
           >
-            {" "}
             {isAuth ? (
               <>
                 MY EVENTS <ArrowForwardIosIcon />
