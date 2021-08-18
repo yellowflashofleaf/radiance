@@ -56,17 +56,17 @@ export default function Main() {
           <div className="title text-center">
             <div>
               <img
-                src="/Logos/GigIndia_horiz.png"
+                src="/Logos/PASC-W.png"
                 style={{ height: "20%", width: "20%" }}
                 className="title-sponsor"
               />
             </div>
-            {/* <div
-            style={{ fontSize: "1rem", textAlign: "center" }}
-            className="mt-1 col-md-4"
-          >
-            presents
-          </div> */}
+            <div
+              style={{ fontSize: "1rem", textAlign: "center", margin: "8px 0" }}
+              // className="mt-1 col-md-4"
+            >
+              presents
+            </div>
             <span className="hii">
               Radiance
               <span
@@ -92,7 +92,7 @@ export default function Main() {
           </div>
           <br />
           <br />
-          <Typography
+          {/* <Typography
             style={{ color: "#fff", marginTop: -20, fontWeight: "600" }}
             className="copoweredByText"
           >
@@ -134,6 +134,7 @@ export default function Main() {
               />
             </div>
           </div>
+           */}
           <div className="reg-btn">
             <button
               className="shrink-border"

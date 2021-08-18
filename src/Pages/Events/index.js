@@ -4,10 +4,11 @@ import Card from "./Card";
 import "./events.css";
 import axios from "axios";
 import { AuthContext } from "../../context/Auth/AuthContext";
+import eventsData from "./eventConfig";
 
 const Index = (props) => {
   const [flag, setFlag] = useState(props.flag || "A");
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState(eventsData);
   const [myEvents, setMyEvents] = useState([]);
   const authContext = useContext(AuthContext);
 
@@ -23,10 +24,10 @@ const Index = (props) => {
 
   useEffect(() => {
     (async function () {
-      const res = await axios.get(
-        "https://pulzion-2021.s3.ap-south-1.amazonaws.com/assets/events_data.json"
-      );
-      setEvents(res.data);
+      // const res = await axios.get(
+      //   "https://pulzion-2021.s3.ap-south-1.amazonaws.com/assets/events_data.json"
+      // );
+      // setEvents(res.data);
       if (isAuth) await getMyEvents();
     })();
   }, [isAuth]);
