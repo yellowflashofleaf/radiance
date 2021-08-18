@@ -163,23 +163,17 @@ export default function Main() {
               <div className="container-about col-lg-4 contact-us-container">
                 <div className="contact-us-text">
                   <MailIcon fontSize="large" />
-                  <h5>
-                    {"  "}
-                    acm.pict@gmail.com
-                  </h5>
+                  <h5>acm.pict@gmail.com</h5>
                   <div className="my-3">
-                    <PhoneIcon fontSize="large" /> {"  "}
-                    <h5> Jinesh Parakh - 93700 62436</h5>
-                    <h5>
-                      {"  "}
-                      Atharv Chavan - 97650 62678
-                    </h5>
+                    <PhoneIcon fontSize="large" />
+                    <h5>Siddhi Wakchaure - 83293 68540</h5>
+                    <h5>Neha Nemade - 93596 07231</h5>
                   </div>
 
                   <a
                     className="social m-3"
                     target="_blank"
-                    href="https://www.linkedin.com/company/pict-acm-student-chapter/"
+                    href="https://www.linkedin.com/in/pict-acm-student-chapter-09004a132/"
                     style={{
                       color: "#fff",
                     }}
