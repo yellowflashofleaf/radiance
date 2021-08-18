@@ -3,7 +3,7 @@ import "./Main.css";
 import diamondPattern from "./diamond-about.svg";
 import img3 from "./images/Acm img.png";
 import img2 from "./images/Acmw img.png";
-import img1 from "./images/Pasc img.png";
+import img1 from "./images/PASC-W.png";
 import * as R from "./index2";
 import { IoLocationSharp } from "react-icons/io5";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -31,23 +31,25 @@ export default function Main() {
                 <div className="about-div">
                   <img className="pasc-img" src={img1} alt="" />
                   <h2 className="header haeder-block my-3">
-                    <b>PASC</b>
+                    <b>PASC-W</b>
                   </h2>
-                  <p className="about-text">
+                  {/* <p className="about-text">
                     PICT ACM Student's Chapter (PASC) is the most active ACM
                     chapter in India.
                   </p>
-                  <p className="about-text">#UnitedWeStand</p>
+                  <p className="about-text">#UnitedWeStand</p> */}
                   <p className="about-text">
-                    At PASC, we all work together, as a team. We take utmost
-                    efforts for the success of each and every member of PASC.{" "}
+                    The PICT ACM- Women Student Chapter Women in Computing has
+                    been established as the sister body of the PICT ACM Student
+                    Chapter in 2018 with an aim to emancipate women and boost
+                    them in technological and computing fields.{" "}
                     <span className="dots1">...</span>
                     <span id="more1">
-                      We help them to achieve not only technical superiority but
-                      also bring the best out of them in Non-technical fields as
-                      well so that they become the pioneers of today's world.
-                      Since, we at PASC bring our Motto into reality, last year
-                      we were honored as the BEST ACM STUDENT CHAPTER IN INDIA.
+                      PASC-W aims to furnish technical skills and provide the
+                      platform where women can compete with the world. The
+                      utmost priority of this chapter is the advancement of
+                      women and nurturing them with equal rights and
+                      opportunities.
                     </span>
                   </p>
                   <button

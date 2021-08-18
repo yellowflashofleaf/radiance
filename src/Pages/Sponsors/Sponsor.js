@@ -11,28 +11,33 @@ const Sponsor = () => {
       <div className="sponsor" style={{ height: "100%" }}>
         <div className="page-title">SPONSORS</div>
         <br />
-        {/* <h1>Coming Soon...</h1>
-                <br/>
-                <h2>Want to collaborate? Interested in sponsoring?</h2>
-                <br/>
+        <h1>Coming Soon...</h1>
+        {/* <br /> */}
+        <h2>Want to collaborate? Interested in sponsoring?</h2>
+        <br />
 
-                <h3>WE ARE HERE FOR YOU </h3>
-                <br/><br/>
-                <MailIcon fontSize="large"/>
-                <h5>
-                    {"  "}
-                    acm.pict@gmail.com
-                </h5>
-                <br/>
-                <div >
-                    <PhoneIcon fontSize="large"/> {"  "}
-                    <h5> Pranav Kadam- 94040 94923</h5>
-                    <h5>
-                        {"  "}
-                        Aditya Avhad- 88886 18192
-                    </h5>
-                </div> */}
-        <SponsorList />
+        <h3>WE ARE HERE FOR YOU </h3>
+        <br />
+        {/* <br /> */}
+        <MailIcon fontSize="large" />
+        <h5>
+          {"  "}
+          acm.pict@gmail.com
+        </h5>
+        <br />
+        <div>
+          <PhoneIcon fontSize="large" /> {"  "}
+          <h5> Medha Badamikar- 97640 02676</h5>
+          <h5>
+            {"  "}
+            Manasi Hatekar- 99605 02349
+          </h5>
+          <h5>
+            {"  "}
+            Krutika Patil- 95035 39045
+          </h5>
+        </div>
+        {/* <SponsorList /> */}
       </div>
       <Footer />
     </>
