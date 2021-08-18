@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <>
       <div className="footer">
-        &copy; PICT ACM Student Chapter. Designed & Developed with &hearts; by
-        PASC Web Team.
+        &copy; PICT ACM STUDENT CHAPTER - Women in Computing. Designed &
+        Developed with &hearts; by PASC-W Web Team.
         <br />
         <Link
           to="privacy-policy"
