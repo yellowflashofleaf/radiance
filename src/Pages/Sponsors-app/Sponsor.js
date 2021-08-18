@@ -33,15 +33,15 @@ const AppSponsor = () => {
         <br />
         <MailIcon fontSize="large" />
         <h5>
-          {"  "}
+           
           acm.pict@gmail.com
         </h5>
         <br />
         <div>
-          <PhoneIcon fontSize="large" /> {"  "}
+          <PhoneIcon fontSize="large" />  
           <h5> Pranav Kadam- 94040 94923</h5>
           <h5>
-            {"  "}
+             
             Aditya Avhad- 88886 18192
           </h5>
         </div> */}

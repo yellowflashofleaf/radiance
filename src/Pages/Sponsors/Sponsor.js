@@ -20,22 +20,13 @@ const Sponsor = () => {
         <br />
         {/* <br /> */}
         <MailIcon fontSize="large" />
-        <h5>
-          {"  "}
-          acm.pict@gmail.com
-        </h5>
+        <h5>acm.pict@gmail.com</h5>
         <br />
         <div>
-          <PhoneIcon fontSize="large" /> {"  "}
+          <PhoneIcon fontSize="large" />
           <h5> Medha Badamikar- 97640 02676</h5>
-          <h5>
-            {"  "}
-            Manasi Hatekar- 99605 02349
-          </h5>
-          <h5>
-            {"  "}
-            Krutika Patil- 95035 39045
-          </h5>
+          <h5>Manasi Hatekar- 99605 02349</h5>
+          <h5>Krutika Patil- 95035 39045</h5>
         </div>
         {/* <SponsorList /> */}
       </div>

@@ -20,7 +20,6 @@ const Insight = () => {
         <br />
 
         <h5>
-          {"  "}
           Haven't registered yet?{" "}
           <a
             href="/events"

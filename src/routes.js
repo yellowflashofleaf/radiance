@@ -31,14 +31,14 @@ class Routes extends React.Component {
         </Route>
         <Route exact path="/login">
           <div style={{ zIndex: 0, overflow: "hidden" }}>
-            <GoogleReCaptchaProvider reCaptchaKey="6Ld_lGAaAAAAALZJijYnuGUlkEYAajn59A3d6-Y6">
+            <GoogleReCaptchaProvider reCaptchaKey="6LcvZwscAAAAAJDp3gjfVRWgrz4KlbwRECemft9s">
               <Auth />
             </GoogleReCaptchaProvider>
           </div>
         </Route>
         <Route exact path="/forgot-password">
           <div style={{ zIndex: 10, overflow: "hidden" }}>
-            <GoogleReCaptchaProvider reCaptchaKey="6Ld_lGAaAAAAALZJijYnuGUlkEYAajn59A3d6-Y6">
+            <GoogleReCaptchaProvider reCaptchaKey="6LcvZwscAAAAAJDp3gjfVRWgrz4KlbwRECemft9s">
               <ForgotPasswordPage />
             </GoogleReCaptchaProvider>
           </div>

@@ -103,7 +103,7 @@ const SlotsPopUp = (props) => {
 
     var config = {
       method: "post",
-      url: "https://api-ems.pulzion.in/myevents/slots/" + sid,
+      url: "https://api.radiance21.ml/myevents/slots/" + sid,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
