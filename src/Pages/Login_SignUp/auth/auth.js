@@ -1,4 +1,4 @@
-import React, { createRef, Fragment, useRef } from "react";
+import React, { createRef, Fragment, useState } from "react";
 import Register from "../forms/register";
 import Login from "../forms/login";
 import "../style.css";
@@ -50,6 +50,7 @@ const Auth = () => {
   const login_text = createRef();
   const login_form = createRef();
   const custom_ref = createRef();
+  const [loginChecked, setLoginChecked] = useState(true);
   // const loginText = document.querySelector(".title-text .login");
   // const loginForm = document.querySelector("form.login");
   // const loginBtn = document.querySelector("label.login");
@@ -60,10 +61,12 @@ const Auth = () => {
     login_form.current.style.marginLeft = "-50%";
     login_text.current.style.marginLeft = "-50%";
     custom_ref.current.style.checked = true;
+    setLoginChecked(false);
   };
   const handleLoginAnimation = () => {
     login_form.current.style.marginLeft = "0%";
     login_text.current.style.marginLeft = "0%";
+    setLoginChecked(true);
   };
 
   // signupBtn.onclick = (()=>{
@@ -135,8 +138,19 @@ const Auth = () => {
         </div>
         <div class="form-container">
           <div class="slide-controls">
-            <input type="radio" name="slide" id="login" checked />
-            <input type="radio" name="slide" id="signup" ref={custom_ref} />
+            <input
+              type="radio"
+              name="slide"
+              id="login"
+              checked={loginChecked}
+            />
+            <input
+              type="radio"
+              name="slide"
+              id="signup"
+              ref={custom_ref}
+              checked={!loginChecked}
+            />
             <label
               for="login"
               style={{ color: "#fff" }}
