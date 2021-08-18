@@ -149,7 +149,8 @@ h2 {
   display: block;
   /* animation: animate 3s ease-in-out infinite; */
   /* animation: border-flicker 3s linear infinite; */
-  background: #240529;
+  background: transparent;
+  border: 2px solid #1b96f3;
   padding: 2vw;
   height: 100%;
 }

@@ -129,7 +129,8 @@
   font-family: Highland;
   font-size: 2vw;
   /* margin: auto; */
-  color: #990090 !important;
+  color: #2ba6df !important;
+
   font-weight: lighter;
 }
 
@@ -600,6 +601,7 @@
 
   .subtitle {
     font-size: 2rem !important;
+    color: #2ba6df !important;
   }
 
   .title-sponsor {

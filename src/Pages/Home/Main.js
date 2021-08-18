@@ -24,6 +24,7 @@ export default function Main() {
       scale: 1.0,
       scaleMobile: 1.0,
       backgroundColor: "#000b2b",
+      quantity: 3.5,
     });
     window.scrollTo(0, 5000);
 

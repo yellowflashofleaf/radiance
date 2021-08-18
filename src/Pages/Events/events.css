@@ -4,25 +4,26 @@
 }
 
 .event-links {
-  border: 1px solid #990090;
+  border: 2px solid #2795c9;
   padding: 0.75rem 3rem;
   border-radius: 100px;
   font-size: 1.2rem;
   transition: all 0.2s ease-in-out;
   color: #fff;
-  background-color: #240529;
+  font-weight: 700;
+  /* background-color: #359ad4; */
   margin: 0 0.4rem;
   margin-top: 20px;
 }
 
 .event-links1 {
-  border: 1px solid #990090;
   padding: 0.25rem 3rem;
   border-radius: 100px;
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
   color: #fff;
-  background-color: #990090;
+  background-color: #164f78;
+  border: none;
   margin: 0 0.4rem;
   margin-top: 20px;
 }
@@ -54,12 +55,14 @@
 }
 
 .event-links:hover {
-  background-color: rgb(38, 41, 43);
-  border-color: rgb(57, 62, 63);
+  background-color: #2795c9 !important;
+  /* border-color: rgb(57, 62, 63);  */
 }
 
 .event-links1:hover {
-  background-color: rgb(38, 41, 43);
+  /* background-color: rgb(38, 41, 43);
+  border-color: rgb(57, 62, 63); */
+  background-color: hsl(205, 69%, 18%);
   border-color: rgb(57, 62, 63);
 }
 
@@ -80,7 +83,8 @@ button:focus {
 }
 
 .event-links-active {
-  background-color: #990090;
+  background-color: #2795c9;
+  border: none;
   color: #fff;
   font-weight: 500;
 }
@@ -126,10 +130,10 @@ a.event-links:hover {
   display: flex;
   border-radius: 1rem;
   overflow: hidden;
-  background-color: #240529;
+  background-color: hsl(199, 86%, 34%);
   margin: 1em 0;
   max-height: unset !important;
-  box-shadow: 0 0 16px 0px #990090;
+  box-shadow: 0 0 16px 0px hsl(199, 68%, 40%);
   width: 90%;
   margin: 2vw auto !important;
   padding: 1vw;
@@ -145,6 +149,7 @@ a.event-links:hover {
 .event-info {
   font-size: 1rem;
   color: #fff;
+  font-weight: 700;
   margin-bottom: 15px;
 }
 
@@ -164,7 +169,10 @@ a.event-links:hover {
 .e-card:hover {
   box-shadow: none;
   transform: scale(1.015);
-  background-color: #99009099;
+  /* box-shadow: 0 0 15px; */
+  box-shadow: 0 0 17px 0px #0ac9ef;
+
+  /* background-color: #99009099; */
   -webkit-transition: background-color 1000ms ease-out;
   -ms-transition: background-color 1000ms ease-out;
   transition: background-color 1000ms ease-out;
@@ -223,7 +231,7 @@ a.event-links:hover {
 }
 
 .popup {
-  background-color: #240529 !important;
+  background-color: #164f78 !important;
   /* border-radius: 2rem; */
   padding: 2rem;
   z-index: 1101;

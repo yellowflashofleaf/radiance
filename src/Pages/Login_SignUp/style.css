@@ -85,8 +85,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
-  -webkit-text-fill-color: black !important;
+  -webkit-box-shadow: 0 0 0 30px #000b2b inset !important;
+  -webkit-text-fill-color: white !important;
 }
 
 /*input:-webkit-internal-autofill-selected {*/
@@ -298,7 +298,7 @@ button .ghost {
 
 #drop-down {
   color: #999;
-  background-color: #240529;
+  background: transparent;
   padding: 14px 15px 12px !important;
   letter-spacing: 1.5px;
   outline: none;
@@ -308,7 +308,7 @@ button .ghost {
   padding-left: 15px;
   /* border-radius: 5px; */
   border: none;
-  border-bottom: 2px solid lightgrey;
+  border-bottom: 2px solid hsl(199, 68%, 40%);
   /* border-bottom-width: 2px; */
   font-size: 17px;
   transition: all 0.3s ease;
@@ -316,24 +316,21 @@ button .ghost {
 }
 
 #drop-down:focus {
-  color: #b3b3b3;
+  color: #fff;
+  background-color: #000b2b;
+  border-bottom: 2px solid hsl(199, 68%, 40%);
   outline: none;
 }
 
 #year {
-  border: 1px solid #5bb7fde7;
+  border: 1px solid #5bb7fd;
   border-radius: 10px;
   box-shadow: 0px 0px 10px #1b96f3;
-}
-
-#drop-down:focus {
-  outline: none;
 }
 
 #drop-down:hover {
   cursor: pointer;
 }
-
 .main-error {
   margin-top: 30px;
   margin-bottom: -20px;
@@ -476,7 +473,7 @@ button .ghost {
   }
 
   #drop-down {
-    background: #240529;
+    background: #359ad4;
     padding: 6px 7.5px 6px !important;
     display: block;
     margin: 9px 0px !important;
@@ -720,9 +717,12 @@ button .ghost {
   background: #fff;
   padding: 30px;
   margin: 20px auto;
-  box-shadow: 0 0 16px 0px #990090;
+  /* box-shadow: 0 0 16px 0px #990090; */
+  box-shadow: 0 0 16px 0px hsl(199, 68%, 40%);
   border-radius: 5px;
-  background-color: #240529;
+  background-color: hsl(199, 86%, 34%);
+  background: transparent;
+  border: 3px solid hsl(199, 68%, 40%);
 }
 .wrapper .title-text {
   display: flex;
@@ -784,7 +784,7 @@ button .ghost {
   z-index: 0;
   border-radius: 5px;
   /* background: -webkit-linear-gradient(left, #a445b2, #fa4299); */
-  background-color: #990090;
+  background-color: hsl(199, 68%, 40%);
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -819,14 +819,14 @@ input[type="radio"] {
   margin-top: 20px;
 }
 .form-inner form .field input {
-  background-color: #240529;
+  background: transparent;
   height: 100%;
   width: 100%;
   outline: none;
   padding-left: 15px;
   /* border-radius: 5px; */
   border: none;
-  border-bottom: 2px solid lightgrey;
+  border-bottom: 2px solid hsl(199, 68%, 40%);
   /* border-bottom-width: 2px; */
   font-size: 17px;
   transition: all 0.3s ease;
@@ -850,8 +850,9 @@ form .field input:focus::placeholder {
 
 .form-inner form .pass-link a,
 .form-inner form .signup-link a {
-  color: #fa4299;
-  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700 !important;
 }
 .form-inner form .pass-link a:hover,
 .form-inner form .signup-link a:hover {
@@ -870,13 +871,13 @@ form .custom-btn .custom-btn-layer {
   width: 300%;
   position: absolute;
   left: -100%;
-  background: -webkit-linear-gradient(
+  /* background: -webkit-linear-gradient(
     right,
     #a445b2,
     #fa4299,
     #a445b2,
     #fa4299
-  );
+  ); */
   border-radius: 5px;
   transition: all 0.4s ease;
 }
@@ -888,14 +889,19 @@ form .custom-btn input[type="submit"] {
   width: 100%;
   z-index: 1;
   position: relative;
-  background: #990090;
-  border: none;
+  background-color: #000b2b;
+  /* background-color: #032c55; */
+  border: 3px solid hsl(199, 68%, 40%);
   color: #fff;
   padding-left: 0;
   border-radius: 5px;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
+  border-radius: 999px;
+}
+form .custom-btn input[type="submit"]:hover {
+  background-color: hsl(199, 68%, 40%);
 }
 @media only screen and (min-width: 600px) {
   .login-btn-div {

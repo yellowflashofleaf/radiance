@@ -15,8 +15,8 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 12px;
-  background: #240529;
+  width: 8px;
+  background: #000b2b;
 }
 
 /* Track */
@@ -26,8 +26,8 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #990090;
-  border-radius: 10px;
+  background: hsl(199, 68%, 40%);
+  /* border-radius: 10px; */
 }
 
 .nGY2GThumbnail {

@@ -57,7 +57,7 @@ export default function Main() {
                     className="btn btn-dark btn-1"
                     onClick={R.btn_1}
                     style={{
-                      background: "#990090",
+                      background: " #1b96f3",
                     }}
                   >
                     Know More
@@ -92,7 +92,7 @@ export default function Main() {
                     className="btn btn-dark btn-2"
                     onClick={R.btn_2}
                     style={{
-                      background: "#990090",
+                      background: " #1b96f3",
                     }}
                   >
                     Know More
@@ -133,7 +133,7 @@ export default function Main() {
                     className="btn btn-dark btn-3"
                     onClick={R.btn_3}
                     style={{
-                      background: "#990090",
+                      background: " #1b96f3",
                     }}
                   >
                     Know More
