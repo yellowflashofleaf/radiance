@@ -482,7 +482,7 @@ button .ghost {
     margin: 9px 0px !important;
     font-weight: 500 !important;
     font-size: 20px;
-    width: 50%;
+    width: 100%;
     text-align: left;
   }
 
@@ -490,7 +490,7 @@ button .ghost {
     border: 1px solid #5bb7fde7;
     border-radius: 5px;
     box-shadow: 0px 0px 10px #1b96f3;
-    width: 90%;
+    width: 100%;
     padding-left: 10px;
   }
 }
@@ -640,9 +640,23 @@ button .ghost {
     font-weight: 400 !important;
     font-size: 15px;
   }
+
+  .wrapper .title {
+    font-size: 35px !important;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .wrapper .title {
+    font-size: 50px !important;
+  }
 }
 
 @media only screen and (max-width: 325px) {
+  .wrapper .title {
+    font-size: 40px !important;
+  }
+
   /* container */
   .container-block {
     position: relative;
@@ -882,4 +896,9 @@ form .custom-btn input[type="submit"] {
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
+}
+@media only screen and (min-width: 600px) {
+  .login-btn-div {
+    max-width: 100%;
+  }
 }

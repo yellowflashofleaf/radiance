@@ -157,6 +157,10 @@
 }
 
 @media (max-width: 600px) {
+  .main-logo img {
+    height: 42px;
+  }
+
   .nav-bar {
     padding: 3vw 5vw;
     /* background-color: #000; */
@@ -186,5 +190,14 @@
 @media (max-width: 600px) {
   .desktop-only {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .main-logo img {
+    height: 31px;
+  }
+  .login-btn-div {
+    align-items: center;
   }
 }

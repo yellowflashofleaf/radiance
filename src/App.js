@@ -7,7 +7,7 @@ import Routes from "./routes";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import AuthContextProvider from "./context/Auth/AuthContext";
 import SnackbarContextProvider from "./context/Snackbar/SnackbarContext";
-import MySnackbar from "./EMS/components/Snackbar";
+import MySnackbar from "./EMS/components/snackbar";
 import Notification from "./components/notification";
 
 function App() {

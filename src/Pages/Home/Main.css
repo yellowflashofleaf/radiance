@@ -27,7 +27,9 @@
 }
 
 .main {
+  position: relative;
   overflow: hidden;
+  text-align: center;
   z-index: 10;
   width: 100%;
   margin: auto;
@@ -35,10 +37,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
-  padding: 0 5%;
-  height: 85vh;
   /* background-image: url("./radinace_placeholder.jpg"); */
-  /* height: 100vh; */
+  height: 100vh;
 }
 .home-img {
   position: absolute;
@@ -55,6 +55,10 @@
 }
 
 @media (max-width: 600px) {
+  .title-sponsor {
+    width: 70%;
+  }
+
   .home-img {
     display: none;
   }
@@ -79,6 +83,10 @@
     padding-bottom: 20vw;
     background-size: contain;
   }
+
+  .reg-btn {
+    margin-top: 10px;
+  }
 }
 
 @keyframes switch {
@@ -94,15 +102,21 @@
   }
 }
 
+.homepage-container {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  z-index: 2000;
+}
+
 .main .title {
   font-family: Highland;
   /* font-weight: bold; */
-  position: absolute;
-  z-index: 100;
+  /* position: absolute; */
   /* font-size: 7vw; */
-  text-align: left;
+  text-align: center;
   margin: auto;
-  margin-top: 0;
+  margin-top: 2%;
   color: #fff;
   letter-spacing: 0.5vw;
 }
@@ -111,25 +125,21 @@
   font-size: 7vw;
 }
 
-.main .subtitle {
+.subtitle {
   font-family: Highland;
   font-size: 2vw;
-  text-align: left;
-  margin: auto;
-  color: rgba(22, 164, 189, 0.9);
+  /* margin: auto; */
+  color: #990090 !important;
   font-weight: lighter;
-  margin-top: 18%;
 }
 
-.main .coming-soon {
+.coming-soon {
   font-family: Highland;
   font-size: 1.5rem;
-  text-align: left;
   margin: auto;
   /* color: rgba(22, 164, 189, 0.9); */
   color: #fff;
   font-weight: lighter;
-  margin-top: 35%;
 }
 
 .title {
@@ -155,10 +165,9 @@
   transition: color 0.5s, transform 0.2s, background-color 0.2s;
   outline: none;
   border-radius: 10px;
-  margin: 0 10px;
+  margin: 10px auto 20px;
   padding: 1vw 1vw;
   border: 0.2vw solid transparent;
-  margin-top: 7vw;
   letter-spacing: 0.3vw;
   font-weight: bold;
 }
@@ -469,13 +478,33 @@
 }
 
 @media only screen and (max-width: 772px) {
+  .main .title {
+    margin-top: 4%;
+  }
+
   .register-btn-div {
     width: 90%;
     font-size: 100%;
   }
+
+  .coming-soon {
+    font-size: 1.2rem;
+  }
+
+  .reg-btn button {
+    font-size: 0.9rem;
+  }
+
+  .copoweredBy {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-width: 609px) {
+  /* .main .subtitle {
+    width: 100vw;
+  } */
+
   .diamond-pattern {
     height: 150px;
     width: 150px;
@@ -485,6 +514,7 @@
 
   .main {
     flex-direction: column;
+    overflow-y: auto !important;
   }
 
   .mobile-view {
@@ -508,6 +538,10 @@
 }
 
 @media only screen and (max-width: 609px) and (min-width: 350px) {
+  .title-sponsor {
+    width: 70%;
+  }
+
   .mobile-view {
     width: 90%;
     margin-left: auto;
@@ -558,30 +592,30 @@
   width: 100vw;
 }
 
-.subtitle {
-  position: absolute;
-  color: #990090 !important;
-  z-index: 10;
-  margin-top: 35%;
-}
-
-.coming-soon {
-  position: absolute;
-  z-index: 10;
-  margin-top: 45%;
-}
-
 @media (max-width: 600px) {
   #your-element-selector {
     width: 98vw;
-
     opacity: 0.6;
+  }
+
+  .subtitle {
+    font-size: 2rem !important;
+  }
+
+  .title-sponsor {
+    width: 70% !important;
+  }
+
+  .copoweredByText {
+    font-size: 2rem !important;
   }
 
   .main {
     margin: 0 auto;
     text-align: center;
     opacity: 1;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .main .title {
@@ -589,7 +623,7 @@
     width: 90vw;
     /* font-size: 12vw; */
     margin-bottom: unset;
-    margin-top: 25%;
+    margin-top: 15%;
   }
 
   .main .title .hii {
@@ -598,11 +632,10 @@
 
   .main .subtitle {
     text-align: center;
-    width: 90vw;
+    /* width: 100vw; */
     padding: 0;
-    font-size: 4.5vw;
-    margin-bottom: unset;
-    margin-top: 70vw;
+    font-size: 4.2vw;
+    /* margin-bottom: unset; */
     color: #fff;
   }
   .main .coming-soon {
@@ -611,14 +644,14 @@
     padding: 0;
     font-size: 4.5vw;
     margin-bottom: unset;
-    margin-top: 59vh;
+    margin: 10% auto;
     color: #fff;
   }
   /* style={{ marginTop: "35%", fontSize: "1.5rem" }} */
 
   .reg-btn button {
-    font-size: 4.3vw;
-    padding: 5.5vw 4vw;
+    font-size: 4.2vw;
+    padding: 3vw 3.5vw;
     border: 0.2vw solid transparent;
     /* background-color: #01215c; */
     letter-spacing: 0.3vw;
@@ -626,18 +659,13 @@
   }
 
   .reg-btn {
-    margin-top: 20vw;
+    margin-top: 2%;
     opacity: 1;
-    position: absolute;
-    bottom: 5vh;
-    left: 30%;
-    border: 0.3vw solid #990090;
-    border-radius: 1vw;
   }
 
   .shrink-border {
     background-color: #0000009a;
-    color: rgba(22, 164, 189, 0.9);
+    color: #fff;
   }
 
   .shrink-border:hover {
@@ -655,11 +683,11 @@
   width: 75%;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .subtitle img {
     width: 40%;
   }
   .coming-soon {
     display: none;
   }
-}
+} */
