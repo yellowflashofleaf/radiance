@@ -16,8 +16,9 @@ const useStyles = makeStyles({
     minWidth: 275,
     width: "100%",
     textAlign: "center",
-    background: "#359AD4",
-    boxShadow: "0 4px 16px 0px #990090",
+    background: "transparent",
+    boxShadow: "0 4px 16px 0px #2478A8",
+    border: "2px solid #2478A8",
     borderRadius: "20px",
   },
   bullet: {
