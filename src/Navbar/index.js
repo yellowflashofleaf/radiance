@@ -15,8 +15,8 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import {
-  Card,
-  CardActionArea,
+  // Card,
+  // CardActionArea,
   Dialog,
   Menu,
   MenuItem,
@@ -26,13 +26,13 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import axios from "axios";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PropTypes from "prop-types";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
+// import Modal from "@material-ui/core/Modal";
+// import Backdrop from "@material-ui/core/Backdrop";
 import { animated, useSpring } from "react-spring/web.cjs";
-import CardContent from "@material-ui/core/CardContent"; // web.cjs is required for IE 11 support
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
+// import CardContent from "@material-ui/core/CardContent"; // web.cjs is required for IE 11 support
+// import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+// import MailIcon from "@material-ui/icons/Mail";
+// import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import radinaceLogo from "./radiance_logo.png";
 
 const styles = (theme) => ({
@@ -126,7 +126,7 @@ function Navbar(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(false);
   const [openD, setOpenD] = React.useState(false);
-  const [openM, setOpenM] = React.useState(false);
+  // const [openM, setOpenM] = React.useState(false);
   let location = useLocation();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import moment from "moment";
-import axios from "axios";
+// import axios from "axios";
 
 export default function SlotsDialog(props) {
   const [open, setOpen] = React.useState(false);
@@ -29,27 +29,27 @@ export default function SlotsDialog(props) {
     setOpen(false);
   };
 
-  const bookSlot = (eid, sid) => {
-    var data = JSON.stringify({ event_id: eid });
+  // const bookSlot = (eid, sid) => {
+  //   var data = JSON.stringify({ event_id: eid });
 
-    var config = {
-      method: "post",
-      url: "https://api.radiance21.ml/myevents/slots/" + sid,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+  //   var config = {
+  //     method: "post",
+  //     url: "https://api.radiance21.in/myevents/slots/" + sid,
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem("token"),
+  //       "Content-Type": "application/json",
+  //     },
+  //     data: data,
+  //   };
 
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  //   axios(config)
+  //     .then(function (response) {
+  //       console.log(JSON.stringify(response.data));
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <div>

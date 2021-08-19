@@ -24,7 +24,7 @@ const Preloader = () => {
           <br /> PRESENTS
         </div>
         <div className="loader-container">
-          <img src="/radiance_logo_color.png" />
+          <img src="/radiance_logo_color.png" alt="logo" />
         </div>
       </div>
       {/* <div className="spinner-box-loader">

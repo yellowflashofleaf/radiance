@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from "react";
-import { AuthContext } from "../../context/Auth/AuthContext";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+// import { AuthContext } from "../../context/Auth/AuthContext";
+// import { Link } from "react-router-dom";
 import axios from "axios";
-import { SnackbarContext } from "../../context/Snackbar/SnackbarContext";
+// import { SnackbarContext } from "../../context/Snackbar/SnackbarContext";
 import classNames from "classnames";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
+// import FormLabel from "@material-ui/core/FormLabel";
 import moment from "moment";
 import { Button, CircularProgress, Typography } from "@material-ui/core";
 import { store } from "react-notifications-component";
@@ -18,7 +18,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+// import Paper from "@material-ui/core/Paper";
 
 class PopConfirm extends React.Component {
   state = {
@@ -58,11 +58,11 @@ class PopConfirm extends React.Component {
 }
 
 const SlotsPopUp = (props) => {
-  const authContext = useContext(AuthContext);
-  const [pending, setPending] = React.useState(false);
-  const { isAuth } = authContext;
-  const snackbarContext = useContext(SnackbarContext);
-  const { openSnackbar } = snackbarContext;
+  // const authContext = useContext(AuthContext);
+  // const [pending, setPending] = React.useState(false);
+  // const { isAuth } = authContext;
+  // const snackbarContext = useContext(SnackbarContext);
+  // const { openSnackbar } = snackbarContext;
 
   const [value, setValue] = React.useState(null);
 
@@ -103,7 +103,7 @@ const SlotsPopUp = (props) => {
 
     var config = {
       method: "post",
-      url: "https://api.radiance21.ml/myevents/slots/" + sid,
+      url: "https://api.radiance21.in/myevents/slots/" + sid,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
@@ -150,6 +150,7 @@ const SlotsPopUp = (props) => {
 
   useEffect(() => {
     if (props.open) getSlots();
+    //eslint-disable-next-line
   }, [props.open]);
 
   return (

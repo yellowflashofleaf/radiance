@@ -706,7 +706,7 @@ button .ghost {
 /* Radiance Login */
 
 ::selection {
-  background: #fa4299;
+  background: hsl(199, 86%, 34%);
   color: #fff;
 }
 .wrapper {

@@ -3,11 +3,11 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../../context/Auth/AuthContext";
 import { store } from "react-notifications-component";
-import { CircularProgress } from "@material-ui/core";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
+// import { CircularProgress } from "@material-ui/core";
+// import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 const Login = React.forwardRef((props, ref) => {
-  const { login_form } = props;
+  // const { login_form } = props;
 
   const [values, setValues] = useState({
     emailError: "",
@@ -16,7 +16,7 @@ const Login = React.forwardRef((props, ref) => {
   });
 
   const [errors, setErrors] = useState({});
-  const [pending, setPending] = useState(false);
+  // const [pending, setPending] = useState(false);
   const authContext = useContext(AuthContext);
   const { isAuth, loadUser } = authContext;
 
@@ -41,7 +41,7 @@ const Login = React.forwardRef((props, ref) => {
       try {
         setErrors({ error: "" });
 
-        setPending(true);
+        // setPending(true);
         let data = { email, password };
         let res = await axios.post(
           process.env.REACT_APP_API_URL + "auth/login",
@@ -84,7 +84,7 @@ const Login = React.forwardRef((props, ref) => {
           },
         });
       } finally {
-        setPending(false);
+        // setPending(false);
       }
     }
   };

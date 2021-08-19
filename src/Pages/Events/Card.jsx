@@ -1,8 +1,8 @@
 import React from "react";
 import PopUp from "./PopUp";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
-import SlotsDialog from "./slots";
-import { Button, CircularProgress } from "@material-ui/core";
+// import SlotsDialog from "./slots";
+// import { Button, CircularProgress } from "@material-ui/core";
 import SlotsPopUp from "./SlotsPopUp";
 import moment from "moment";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";

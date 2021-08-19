@@ -2,50 +2,50 @@ import React, { createRef, Fragment, useState } from "react";
 import Register from "../forms/register";
 import Login from "../forms/login";
 import "../style.css";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
+// import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
 const Auth = () => {
-  const onClick = () => {
-    const container = document.querySelector(".sign-in-container");
-    container.setAttribute(
-      "style",
-      "transform: rotateY(180deg); transition: all 1s; backface-visibility: hidden; opacity: 0;"
-    );
-    const signUp = document.querySelector(".sign-up-container");
-    signUp.setAttribute(
-      "style",
-      "transform: rotateY(0deg); transition: all 1s; backface-visibility: hidden; opacity: 1;"
-    );
-    const signUpArrow = document.querySelector("#signIn");
-    signUpArrow.setAttribute("style", "opacity: 1");
-  };
+  // const onClick = () => {
+  //   const container = document.querySelector(".sign-in-container");
+  //   container.setAttribute(
+  //     "style",
+  //     "transform: rotateY(180deg); transition: all 1s; backface-visibility: hidden; opacity: 0;"
+  //   );
+  //   const signUp = document.querySelector(".sign-up-container");
+  //   signUp.setAttribute(
+  //     "style",
+  //     "transform: rotateY(0deg); transition: all 1s; backface-visibility: hidden; opacity: 1;"
+  //   );
+  //   const signUpArrow = document.querySelector("#signIn");
+  //   signUpArrow.setAttribute("style", "opacity: 1");
+  // };
 
-  const changeToSignIn = () => {
-    const signUp = document.querySelector(".sign-up-container");
-    signUp.setAttribute(
-      "style",
-      "transform: rotateY(180deg); transition: all 1s; backface-visibility: hidden !important; opacity: 0;"
-    );
+  // const changeToSignIn = () => {
+  //   const signUp = document.querySelector(".sign-up-container");
+  //   signUp.setAttribute(
+  //     "style",
+  //     "transform: rotateY(180deg); transition: all 1s; backface-visibility: hidden !important; opacity: 0;"
+  //   );
 
-    const signUpArrow = document.querySelector("#signIn");
-    signUpArrow.setAttribute("style", "opacity: 0");
+  //   const signUpArrow = document.querySelector("#signIn");
+  //   signUpArrow.setAttribute("style", "opacity: 0");
 
-    const container = document.querySelector(".sign-in-container");
-    container.setAttribute(
-      "style",
-      "transform: rotateY(0deg); transition: all 1s; backface-visibility: hidden; opacity: 1"
-    );
-  };
+  //   const container = document.querySelector(".sign-in-container");
+  //   container.setAttribute(
+  //     "style",
+  //     "transform: rotateY(0deg); transition: all 1s; backface-visibility: hidden; opacity: 1"
+  //   );
+  // };
 
-  const signIn = () => {
-    const container = document.getElementById("container-block");
-    container.classList.add("right-panel-active");
-  };
+  // const signIn = () => {
+  //   const container = document.getElementById("container-block");
+  //   container.classList.add("right-panel-active");
+  // };
 
-  const signUp = () => {
-    const container = document.getElementById("container-block");
-    container.classList.remove("right-panel-active");
-  };
+  // const signUp = () => {
+  //   const container = document.getElementById("container-block");
+  //   container.classList.remove("right-panel-active");
+  // };
 
   const login_text = createRef();
   const login_form = createRef();

@@ -11,7 +11,11 @@ const TeamCard = ({ name, designation, image, link }) => {
     <>
       <div className="col-md-4">
         <div className="team-member">
-          <img src={image} alt={name}></img>
+          <img
+            src={image}
+            alt={name}
+            style={{ width: "250px", height: "250px", objectFit: "cover" }}
+          ></img>
           <div className="Ellipse_1_copy_5"></div>
           <div className="Ellipse_1_copy_4"></div>
           <div className="Ellipse_1_copy_3"></div>

@@ -30,7 +30,7 @@ const MyEvents = () => {
 
     var config = {
       method: "post",
-      url: "https://api.radiance21.ml/myevents/slots/" + sid,
+      url: "https://api.radiance21.in/myevents/slots/" + sid,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",

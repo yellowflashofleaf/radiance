@@ -1,4 +1,4 @@
-import { Container, Divider, Grid, Paper, Typography } from "@material-ui/core";
+import { Container, Divider, Grid, Typography } from "@material-ui/core";
 import React from "react";
 
 const SponsorList = () => {
@@ -12,8 +12,8 @@ const SponsorList = () => {
                 <u>Title Sponsor</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://gigindia.in/">
-              <img src="/Logos/GigIndia_horiz.png" />
+            <a target="_blank" href="https://gigindia.in/" rel="noreferrer">
+              <img src="/Logos/GigIndia_horiz.png" alt="Logo" />
             </a>
           </Grid>
 
@@ -25,8 +25,12 @@ const SponsorList = () => {
                 <u>Co-Sponsor</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.nitorinfotech.com/">
-              <img src="/Logos/Nitor Infotech.png" />
+            <a
+              target="_blank"
+              href="https://www.nitorinfotech.com/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/Nitor Infotech.png" alt="Logo" />
             </a>
           </Grid>
           <Grid item md={6} className="sponsor-tile title-sponsor ">
@@ -35,8 +39,8 @@ const SponsorList = () => {
                 <u>Co-Sponsor</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.imocha.io/">
-              <img src="/Logos/iMocha.png" />
+            <a target="_blank" href="https://www.imocha.io/" rel="noreferrer">
+              <img src="/Logos/iMocha.png" alt="Logo" />
             </a>
           </Grid>
 
@@ -48,8 +52,12 @@ const SponsorList = () => {
                 <u>Associate Sponsor</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.sankalpcs.com/">
-              <img src="/Logos/Sankalp.png" />
+            <a
+              target="_blank"
+              href="https://www.sankalpcs.com/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/Sankalp.png" alt="Logo" />
             </a>
           </Grid>
           <Grid item md={6} className="sponsor-tile title-sponsor ">
@@ -58,8 +66,12 @@ const SponsorList = () => {
                 <u>Associate Sponsor</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.jamboreeindia.com/">
-              <img src="/Logos/Jamboree.png" />
+            <a
+              target="_blank"
+              href="https://www.jamboreeindia.com/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/Jamboree.png" alt="Logo" />
             </a>
           </Grid>
           <Divider />
@@ -69,8 +81,12 @@ const SponsorList = () => {
                 <u>Industrial training Partner </u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.inmovidutech.com/">
-              <img src="/Logos/InMovidu.png" />
+            <a
+              target="_blank"
+              href="https://www.inmovidutech.com/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/InMovidu.png" alt="Logo" />
             </a>
           </Grid>
           <Grid item md={4} className="sponsor-tile title-sponsor ">
@@ -79,8 +95,12 @@ const SponsorList = () => {
                 <u>Education Partner </u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.geeksforgeeks.org/">
-              <img src="/Logos/GFG.png" />
+            <a
+              target="_blank"
+              href="https://www.geeksforgeeks.org/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/GFG.png" alt="Logo" />
             </a>
           </Grid>
           <Grid item md={4} className="sponsor-tile title-sponsor ">
@@ -89,8 +109,12 @@ const SponsorList = () => {
                 <u>Cloud Partner</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.digitalocean.com/">
-              <img src="/Logos/DO_Logo_Horizontal_Blue.png" />
+            <a
+              target="_blank"
+              href="https://www.digitalocean.com/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/DO_Logo_Horizontal_Blue.png" alt="Logo" />
             </a>
           </Grid>
           <Divider />
@@ -100,8 +124,12 @@ const SponsorList = () => {
                 <u>Platform Partner</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.codechef.com/">
-              <img src="/Logos/Codechef _ Unacademy.png" />
+            <a
+              target="_blank"
+              href="https://www.codechef.com/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/Codechef _ Unacademy.png" alt="Logo" />
             </a>
           </Grid>
           <Grid item md={4} className="sponsor-tile title-sponsor ">
@@ -110,8 +138,12 @@ const SponsorList = () => {
                 <u>Electroquest Sponsor</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://www.highwaynorth.com/">
-              <img src="/Logos/Highway North.png" />
+            <a
+              target="_blank"
+              href="https://www.highwaynorth.com/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/Highway North.png" alt="Logo" />
             </a>
           </Grid>
           <Grid item md={4} className="sponsor-tile title-sponsor ">
@@ -120,8 +152,12 @@ const SponsorList = () => {
                 <u>Certificate Sponsor</u>
               </b>
             </Typography>
-            <a target="_blank" href="https://givemycertificate.com/">
-              <img src="/Logos/Give My Certificate.png" />
+            <a
+              target="_blank"
+              href="https://givemycertificate.com/"
+              rel="noreferrer"
+            >
+              <img src="/Logos/Give My Certificate.png" alt="Logo" />
             </a>
           </Grid>
           <Divider />
@@ -133,7 +169,7 @@ const SponsorList = () => {
               </b>
             </Typography>
 
-            <img src="/Logos/Niwant Andh Mukta Vikasalay.png" />
+            <img src="/Logos/Niwant Andh Mukta Vikasalay.png" alt="Logo" />
 
             <Typography variant="p">Niwant Andh Mukta Vikasalay</Typography>
           </Grid>

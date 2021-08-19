@@ -175,6 +175,7 @@ export default function Main() {
                   <a
                     className="social m-3"
                     target="_blank"
+                    rel="noreferrer"
                     href="https://www.linkedin.com/in/pict-acm-student-chapter-09004a132/"
                     style={{
                       color: "#fff",
@@ -185,7 +186,8 @@ export default function Main() {
                   <a
                     className="social m-3"
                     target="_blank"
-                    style={{ textDecoration: "none" }}
+                    rel="noreferrer"
+                    // style={{ textDecoration: "none" }}
                     href="https://www.instagram.com/acm.pict/"
                     style={{
                       color: "#fff",
@@ -197,6 +199,7 @@ export default function Main() {
                   <a
                     className="social m-3"
                     target="_blank"
+                    rel="noreferrer"
                     href="https://www.facebook.com/acmpict/"
                     style={{
                       color: "#fff",
@@ -207,6 +210,7 @@ export default function Main() {
                   <a
                     className="social m-3"
                     target="_blank"
+                    rel="noreferrer"
                     href="https://twitter.com/_pict_acm_"
                     style={{
                       color: "#fff",

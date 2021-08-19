@@ -5,7 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import { Typography } from "@material-ui/core";
+// import { Typography } from "@material-ui/core";
 
 export default function Main() {
   const history = useHistory();
@@ -60,6 +60,7 @@ export default function Main() {
                 src="/Logos/PASC-W.png"
                 style={{ height: "20%", width: "20%" }}
                 className="title-sponsor"
+                alt="Logo"
               />
             </div>
             <div

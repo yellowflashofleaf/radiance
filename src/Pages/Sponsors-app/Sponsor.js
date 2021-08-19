@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../../Footer";
+// import Footer from "../../Footer";
 import "./sponsor.css";
-import MailIcon from "@material-ui/icons/Mail";
-import PhoneIcon from "@material-ui/icons/Phone";
+// import MailIcon from "@material-ui/icons/Mail";
+// import PhoneIcon from "@material-ui/icons/Phone";
 import SponsorList from "../Sponsors/list";
 
 const AppSponsor = () => {

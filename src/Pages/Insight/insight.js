@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../../Footer";
+// import Footer from "../../Footer";
 import "./insight.css";
-import MailIcon from "@material-ui/icons/Mail";
-import PhoneIcon from "@material-ui/icons/Phone";
+// import MailIcon from "@material-ui/icons/Mail";
+// import PhoneIcon from "@material-ui/icons/Phone";
 
 const Insight = () => {
   return (
